@@ -25,6 +25,6 @@ public class PageManager {
 	public void getMainImage(){
 		SqlSession session=	factory.openSession();
 		session.selectList("");
-		System.out.println("돌아이");
+		System.out.println("돌아이바보");
 	}
 }
