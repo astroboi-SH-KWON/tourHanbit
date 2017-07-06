@@ -22,7 +22,7 @@ public class PageManager {
 			System.out.println(e.getMessage());
 		}
 	}
-	public List<E> getMainImage(){
+	public void getMainImage(){
 		SqlSession session=	factory.openSession();
 		session.selectList("");
 	}
