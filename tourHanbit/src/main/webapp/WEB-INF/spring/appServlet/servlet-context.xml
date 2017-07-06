@@ -22,6 +22,8 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.hanbit.tourapp" />
+	<context:component-scan base-package="com.hanbit.dao" />
+	<context:component-scan base-package="com.hanbit.controller" />
 	
 	
 	

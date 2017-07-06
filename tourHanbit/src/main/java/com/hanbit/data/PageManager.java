@@ -22,9 +22,9 @@ public class PageManager {
 			System.out.println(e.getMessage());
 		}
 	}
-	public void getMainImage(){
+	public static List<PackageVo> getMainImage(){
 		SqlSession session=	factory.openSession();
-		session.selectList("");
-		System.out.println("돌아이바보");
+		List<PackageVo> list=	session.selectList("page.getMainImage");
+		return list;
 	}
 }
