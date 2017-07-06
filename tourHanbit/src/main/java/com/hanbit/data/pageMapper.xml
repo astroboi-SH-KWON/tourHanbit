@@ -4,6 +4,31 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="page">
   <select id="getMainImage" resultType="packageVo">
-    select * from package
+    select rownum,item_key,image01 from 
+    (select i.item_key, i.image01 from image i, package p 
+    where i.item_key=p.item_key order by d_date desc) where 
+    <if test="item01 != null">
+    	item_key>#{item01} and #{item02}>item_key and
+    </if>    
+    3>=rownum
   </select>
+  <select id="getBestImage" resultType="packageVo">
+    select rownum,item_key,image01,item_name,reser from 
+    (select i.item_key, i.image01,p.item_name,p.reser 
+    from image i, package p where i.item_key=p.item_key and    
+     p.item_key>#{item01} and #{item02}>p.item_key order by reser desc) where #{rownum}>=rownum
+  
+  </select> 
+    <select id="getEventImage" resultType="packageVo">
+    select rownum,item_key,image01,intro_text,reser from 
+    (select i.item_key, i.image01,p.intro_text,p.reser from image i, package p where i.item_key=p.item_key 
+    <if test="item01 != null">
+    	item_key>#{item01} and #{item02}>item_key and
+    </if>  
+    
+    order by reser) where 3>=rownum
+      
+    
+  </select>
+  
 </mapper>

@@ -20,10 +20,24 @@ public class PageController {
 	}
 
 	@RequestMapping("/mainPage.do")
-	public ModelAndView getMainImage(){
+	public ModelAndView getMainImage(String page){
 		ModelAndView mav= new ModelAndView();
-		List<PackageVo> list= dao.getMainImage();
-		mav.addObject("list", list);
+		List<PackageVo> main=null;
+		List<PackageVo> best01=null;
+		List<PackageVo> best02=null;
+		List<PackageVo> event=null;
+
+		main= dao.getMainImage(page);
+		best01=dao.getBestImage(page);
+		best02=dao.getBestImage("best02");
+		event=dao.getEventImage(page);
+		
+		mav.addObject("main", main);
+		mav.addObject("best01", best01);
+		mav.addObject("best02", best02);
+		mav.addObject("event", event);
+		mav.addObject("page", page);
+		mav.addObject("viewPage", "mainPage.jsp");
 		return mav;
 	}
 }
