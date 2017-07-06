@@ -25,5 +25,6 @@ public class PageManager {
 	public void getMainImage(){
 		SqlSession session=	factory.openSession();
 		session.selectList("");
+		System.out.println("µ¹");
 	}
 }
