@@ -49,7 +49,6 @@ public class PackageDao {
 			item01="999";
 			item02="2000";
 		}
-		System.out.println(item01);
 		return PageManager.getEventImage(item01,item02);
 	}
 }

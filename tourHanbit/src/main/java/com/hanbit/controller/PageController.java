@@ -26,11 +26,11 @@ public class PageController {
 		List<PackageVo> best01=null;
 		List<PackageVo> best02=null;
 		List<PackageVo> event=null;
-
+		
+		event=dao.getEventImage(page);
 		main= dao.getMainImage(page);
 		best01=dao.getBestImage(page);
-		best02=dao.getBestImage("best02");
-		event=dao.getEventImage(page);
+		best02=dao.getBestImage("best02");		
 		
 		mav.addObject("main", main);
 		mav.addObject("best01", best01);

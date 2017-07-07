@@ -23,7 +23,7 @@
     select rownum,item_key,image01,intro_text,reser from 
     (select i.item_key, i.image01,p.intro_text,p.reser from image i, package p where i.item_key=p.item_key 
     <if test="item01 != null">
-    	item_key>#{item01} and #{item02}>item_key and
+    	 and p.item_key>#{item01} and #{item02}>p.item_key 
     </if>  
     
     order by reser) where 3>=rownum
