@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>3번쩨 프로젝트</h2>
-	<a href="mainPage.do">메인페이지</a><br>
-	<a href="mainPage.do?page=dom">국내여행</a><br>
-	<a href="mainPage.do?page=inter">세계여행</a><br>
-	<a href="adminMain.do">관리자 페이지</a>
+<h2>관리자 하단</h2>
 </body>
 </html>

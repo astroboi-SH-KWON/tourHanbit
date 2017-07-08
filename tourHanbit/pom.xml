@@ -120,7 +120,19 @@
 		  <groupId>org.mybatis</groupId>
 		  <artifactId>mybatis</artifactId>
 		  <version>3.1.1</version>
-		</dependency>     
+		</dependency>  
+		 
+		<dependency>
+		    <groupId>servlets.com</groupId>
+    		<artifactId>cos</artifactId>
+    		<version>05Nov2002</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>1.2</version>
+		</dependency>
 	</dependencies>
     <build>
         <plugins>
