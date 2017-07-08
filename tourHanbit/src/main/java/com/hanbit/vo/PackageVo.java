@@ -1,3 +1,5 @@
+//±Ç¼¼Çõ
+
 package com.hanbit.vo;
 
 import java.util.Date;

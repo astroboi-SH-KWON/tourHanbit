@@ -1,3 +1,5 @@
+//±Ç¼¼Çõ
+
 package com.hanbit.data;
 
 import java.io.Reader;
