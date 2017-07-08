@@ -40,6 +40,7 @@ public class PageController {
 		mav.addObject("event", event);
 		mav.addObject("page", page);
 		mav.addObject("viewPage", "mainPage.jsp");
+		mav.setViewName("/template");
 		return mav;
 	}
 }

@@ -46,7 +46,7 @@
 	<nav class="navbar navbar-inverse ">
   	<div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="main.do">한빛여행사</a>
+      <a class="navbar-brand" href="mainPage.do">한빛여행사</a>
     </div>
 
     <ul class="nav navbar-nav navbar-right ">
@@ -72,8 +72,8 @@
 	</nav>
 <hr>
 	<div class="btn-group btn-group-justified" >
-    <a href="domestic.do" class="btn btn-primary" >국내여행</a>
-    <a href="international.do" class="btn btn-primary" >해외여행</a>
+    <a href="mainPage.do?page=dom" class="btn btn-primary" >국내여행</a>
+    <a href="mainPage.do?page=inter" class="btn btn-primary" >해외여행</a>
     <a href="optionSrch.do" class="btn btn-primary" >날짜검색</a>
     <a href="listQna.do" class="btn btn-primary" >Q&A</a>
     <a href="listNotice.do" class="btn btn-primary" >공지사항</a><!-- style="background-color: lightblue;" -->
