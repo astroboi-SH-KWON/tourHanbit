@@ -11,7 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-	input[type=text] , select{
+	input[type=text] , input[type=date], select{
     display: inline;
     border: 1px solid #ccc;
     padding: 10px 20px;
@@ -41,6 +41,23 @@
 
 
 </style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#srchOption").change(function() {
+			//alert($(this).val());
+			if($(this).val()==3){
+				$("#srchSpan").empty();
+				$("<input type=\"date\" id=\"fromDay\" name=\"fromDay\">").appendTo($("#srchSpan"));
+				$("<label>&nbsp<font color=\"#337ab7\"><b> ~ </b></font>&nbsp</label>").appendTo($("#srchSpan"));
+				$("<input type=\"date\" id=\"toDay\" name=\"toDay\">").appendTo($("#srchSpan"));
+			}else{
+				$("#srchSpan").empty();
+				$("<input type=\"text\" id=\"srch\" name=\"srch\" placeholder=\"검색어를 입력하세요.\">").appendTo($("#srchSpan"));
+			}
+		});
+	});
+</script>
 </head>
 <body>	
 	<nav class="navbar navbar-inverse ">
@@ -74,7 +91,7 @@
 	<div class="btn-group btn-group-justified" >
     <a href="mainPage.do?page=dom" class="btn btn-primary" >국내여행</a>
     <a href="mainPage.do?page=inter" class="btn btn-primary" >해외여행</a>
-    <a href="optionSrch.do" class="btn btn-primary" >날짜검색</a>
+  <!--  <a href="optionSrch.do" class="btn btn-primary" >날짜검색</a>  --> 
     <a href="listQna.do" class="btn btn-primary" >Q&A</a>
     <a href="listNotice.do" class="btn btn-primary" >공지사항</a><!-- style="background-color: lightblue;" -->
    </div>
@@ -86,8 +103,11 @@
       <option value="0" style="color: white;">전체검색</option>
       <option value="1" style="color: white;">해외여행</option>
       <option value="2" style="color: white;">국내여행</option>
-    </select>    
+      <option value="3" style="color: white;">날짜 검색</option>
+    </select>  &nbsp&nbsp  
+    <span id="srchSpan">
     <input type="text" id="srch" name="srch" placeholder="검색어를 입력하세요.">  
+    </span>&nbsp&nbsp
     <input type="submit" id="srch1" value="검색" style="color:#fff;background-color:#337ab7;border-color:#2e6da4" class="btn btn-primary"ocation.href='srch.do?'">
   </form>
 </div>
