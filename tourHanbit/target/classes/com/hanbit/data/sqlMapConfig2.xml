@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- JANG JOO HWAN -->
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<properties resource="com/hanbit/data/hanbit2.properties"/>
+	<typeAliases>
+		<typeAlias type="com.hanbit.vo.OrdersVo" alias="ordersVo"/>
+		<typeAlias type="com.hanbit.vo.PackageVo" alias="packageVo"/>
+		<typeAlias type="com.hanbit.vo.MemberVo" alias="memberVo"/>
+	</typeAliases>	
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+  <mappers>
+    <mapper resource="com/hanbit/data/pageMapper.xml"/>
+    <mapper resource="com/hanbit/data/adminMapper.xml"/>
+  </mappers>
+</configuration>

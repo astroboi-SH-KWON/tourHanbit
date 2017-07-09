@@ -7,6 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>관리자 상단</h2>
+<p align="right">
+	<input type="button" value="사용자 페이지 이동" onclick="location.href='admin_logout.do'">
+	</p>
+	<hr>
+		<table>
+			<tr>
+				<td><input type="button" value="메인" onclick="location.href = 'adminMain.do'"></td>
+				<td><input type="button" value="상품관리" onclick="location.href = 'adminListItem.do'"></td>
+				<td><input type="button" value="회원관리" onclick="location.href = 'adminMember.do'"></td>
+				
+			</tr>
+		</table>
+
 </body>
 </html>

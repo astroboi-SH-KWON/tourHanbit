@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>관리자 하단</h2>
+회사소개<br>
+&emsp;&emsp;INFORMATION&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp; ADDRESS<br>
+&emsp;&emsp;(주)한빛투어  | 대표자 애플조&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Phone.1544-1234<br>
+&emsp;&emsp;본사 사업자등록번호 104-81-64440&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;hanbit@naver.com<br>
+&emsp;&emsp;관광사업자등록증번호 제2006-000003호&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;	본사:서울특별시 중구 신목로10<br>
 </body>
 </html>

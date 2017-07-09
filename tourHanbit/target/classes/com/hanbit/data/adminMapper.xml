@@ -3,8 +3,20 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="admin">
- 	<select id="list" resultType="packageVo">
- 		select * from package
+ 	<select id="list" resultType="ordersVo">
+ 	<!-- 매출현황에는 일일 매출 현황과 예약자 수가 많은 상품순으로 출력하는 창을 볼 수 있음 -->
+ 		select a.q item_key, c.item_name, b.w orders_su, a.w price from (select p.item_key q, sum(price) w from package p , orders o where o.item_key=p.item_key group by p.item_key order by sum(orders_su) desc) a, (select p.item_key q, sum(orders_su) w from package p, orders o where o.item_key=p.item_key group by p.item_key order by sum(orders_su) desc) b, (select p.item_key q, item_name from package p, orders o where p.item_key=o.item_key group by p.item_key, item_name) c where a.q = b.q and a.q = c.q order by b.w desc
  	</select>
   
+  	<select id="memberList" resultType="memberVo">
+  		select * from member
+  	</select>
+  	
+  	<select id="adminPackageList" resultType="packageVo">
+  		select item_key,intro_text,price,d_date,a_date,airplane,city,reser,item_name from (select rownum n, item_key,intro_text,price,d_date,a_date,airplane,city,reser,item_name from package)a where a.n between #{start} and #{end}
+  	</select>
+  	
+  	<select id="getTotal" resultType="java.lang.Integer">
+  		select count(*) from package
+  	</select>
 </mapper>
