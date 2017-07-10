@@ -14,11 +14,11 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.hanbit.vo.PackageVo;
 
 public class PageManager {
-	private static SqlSessionFactory factory;
+	private static SqlSessionFactory factory1;
 	static{
 		try{
 			Reader read= Resources.getResourceAsReader("com/hanbit/data/sqlMapConfig.xml");
-			factory= new SqlSessionFactoryBuilder().build(read);
+			factory1= new SqlSessionFactoryBuilder().build(read);
 			read.close();
 		}catch (Exception e) {
 			// TODO: handle exception
@@ -26,7 +26,7 @@ public class PageManager {
 		}
 	}
 	public static List<PackageVo> getMainImage(String item01, String item02){
-		SqlSession session=	factory.openSession();
+		SqlSession session=	factory1.openSession();
 		HashMap<String, String> map= new HashMap<String, String>();
 		map.put("item01", item01);
 		map.put("item02", item02);
@@ -36,7 +36,7 @@ public class PageManager {
 	}
 	public static List<PackageVo> getBestImage(String item01, String item02, String rownum) {
 		// TODO Auto-generated method stub
-		SqlSession session=	factory.openSession();
+		SqlSession session=	factory1.openSession();
 		HashMap<String, String> map= new HashMap<String, String>();
 		map.put("item01", item01);
 		map.put("item02", item02);
@@ -47,12 +47,13 @@ public class PageManager {
 	}
 	public static List<PackageVo> getEventImage(String item01, String item02) {
 		// TODO Auto-generated method stub
-		SqlSession session=	factory.openSession();
+		System.out.println(item01+" : "+item02);
+		SqlSession session1=	factory1.openSession();
 		HashMap<String, String> map= new HashMap<String, String>();
 		map.put("item01", item01);
 		map.put("item02", item02);
-		List<PackageVo> list=	session.selectList("page.getEventImage",map);
-		session.close();
+		List<PackageVo> list=	session1.selectList("page.getEventImage",map);
+		session1.close();
 		return list;
 	}
 }
