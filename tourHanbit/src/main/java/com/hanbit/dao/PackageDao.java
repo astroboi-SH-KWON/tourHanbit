@@ -44,6 +44,8 @@ public class PackageDao {
 	}
 	public List<PackageVo> getEventImage(String page) {
 		// TODO Auto-generated method stub
+		item01=null;
+		item02=null;
 		if(page!=null&&page.equals("dom")){
 			item01="1999";
 			item02="3000";

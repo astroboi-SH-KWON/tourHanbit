@@ -45,17 +45,23 @@
 <script type="text/javascript">
 	$(function() {
 		$("#srchOption").change(function() {
-			//alert($(this).val());
+
 			if($(this).val()==3){
-				$("#srchSpan").empty();
-				$("<input type=\"date\" id=\"fromDay\" name=\"fromDay\">").appendTo($("#srchSpan"));
-				$("<label>&nbsp<font color=\"#337ab7\"><b> ~ </b></font>&nbsp</label>").appendTo($("#srchSpan"));
-				$("<input type=\"date\" id=\"toDay\" name=\"toDay\">").appendTo($("#srchSpan"));
+				//$("#srchSpan").empty();
+				//$("<input type=\"date\" id=\"fromDay\" name=\"fromDay\">").appendTo($("#srchSpan"));			
+				//$("<label>&nbsp<font color=\"#337ab7\"><b> ~ </b></font>&nbsp</label>").appendTo($("#srchSpan"));
+				//$("<input type=\"date\" id=\"toDay\" name=\"toDay\">").appendTo($("#srchSpan"));
+				
+				$("#srchSpan").css("visibility","hidden");
+				$("#srchDateSpan").css("visibility","visible");
 			}else{
-				$("#srchSpan").empty();
-				$("<input type=\"text\" id=\"srch\" name=\"srch\" placeholder=\"검색어를 입력하세요.\">").appendTo($("#srchSpan"));
+				//$("#srchSpan").empty();
+				//$("<input type=\"text\" id=\"srch\" name=\"srch\" placeholder=\"검색어를 입력하세요.\">").appendTo($("#srchSpan"));
+				$("#srchSpan").css("visibility","visible");
+				$("#srchDateSpan").css("visibility","hidden");
 			}
 		});
+		
 	});
 </script>
 </head>
@@ -106,8 +112,15 @@
       <option value="3" style="color: white;">날짜 검색</option>
     </select>  &nbsp&nbsp  
     <span id="srchSpan">
-    <input type="text" id="srch" name="srch" placeholder="검색어를 입력하세요.">  
-    </span>&nbsp&nbsp
+    <input type="text" id="srch" name="srch" placeholder="검색어를 입력하세요." >  
+    </span>
+    <span id="srchDateSpan" style="visibility:hidden;">
+    <input type="date" id="fromDay" name="fromDay">		
+	<label>&nbsp<font color="#337ab7"><b> ~ </b></font>&nbsp</label>
+	<input type="date" id="toDay" name="toDay">
+    </span>
+    
+    &nbsp&nbsp
     <input type="submit" id="srch1" value="검색" style="color:#fff;background-color:#337ab7;border-color:#2e6da4" class="btn btn-primary"ocation.href='srch.do?'">
   </form>
 </div>
