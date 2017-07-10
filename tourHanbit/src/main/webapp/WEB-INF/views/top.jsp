@@ -8,8 +8,11 @@
 <title>Insert title here</title>
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"><!--  -->
+ <!--  <link rel="stylesheet" href="/resources/demos/style.css"> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!--  -->
   <style>
 	input[type=text] , input[type=date], select{
     display: inline;
@@ -44,23 +47,37 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
+		//var today=Date();
 		$("#srchOption").change(function() {
 
-			if($(this).val()==3){
-				//$("#srchSpan").empty();
-				//$("<input type=\"date\" id=\"fromDay\" name=\"fromDay\">").appendTo($("#srchSpan"));			
-				//$("<label>&nbsp<font color=\"#337ab7\"><b> ~ </b></font>&nbsp</label>").appendTo($("#srchSpan"));
-				//$("<input type=\"date\" id=\"toDay\" name=\"toDay\">").appendTo($("#srchSpan"));
-				
-				$("#srchSpan").css("visibility","hidden");
-				$("#srchDateSpan").css("visibility","visible");
+			if($(this).val()==3){			
+				$("#srchSpan").css("display","none");
+				$("#srchDateSpan").css("display","inline");
 			}else{
-				//$("#srchSpan").empty();
-				//$("<input type=\"text\" id=\"srch\" name=\"srch\" placeholder=\"검색어를 입력하세요.\">").appendTo($("#srchSpan"));
-				$("#srchSpan").css("visibility","visible");
-				$("#srchDateSpan").css("visibility","hidden");
+				$("#srchSpan").css("display","inline");
+				$("#srchDateSpan").css("display","none");
 			}
 		});
+		var startDay;
+		var endDay;
+		$("#table").hide();
+	    $( "#startDay" ).datepicker({
+	    	dateFormat : "yy-mm-dd",
+			numberOfMonths :3,
+	        onSelect: function() { 
+	            //startDay = $(this).datepicker('getDate'); 
+	            var today = $.datepicker.formatDate('yy-mm-dd', new Date());
+	            //alert(today);
+	            startDay = $(this).val();
+	            if(startDay<today){
+	            	alert(today+" 이후로 선택하세요");
+	            	$("#startDay").datepicker('setDate', today);
+	            }
+	            //alert(startDay);
+	            $("#endDay").datepicker('setDate', $(this).val());
+	        }
+	    });
+		
 		
 	});
 </script>
@@ -105,27 +122,29 @@
 	<center>
 <div >
   <form action="srch.do">
-     <select id="srchOption" name="srchOption"  style="color:#fff;">
+      
+
+    <select id="srchOption" name="srchOption"  style="color:#fff;">
       <option value="0" style="color: white;">전체검색</option>
       <option value="1" style="color: white;">해외여행</option>
       <option value="2" style="color: white;">국내여행</option>
       <option value="3" style="color: white;">날짜 검색</option>
-    </select>  &nbsp&nbsp 
-    <table><tr><td></td>
-    	</tr>
-    </table> 
+    </select>  &nbsp&nbsp
+
     <span id="srchSpan">
     <input type="text" id="srch" name="srch" placeholder="검색어를 입력하세요." >  
     </span>
-    <span id="srchDateSpan" style="visibility:hidden;">
-    <input type="date" id="fromDay" name="fromDay">		
+    <span id="srchDateSpan" style="display:none; ">
+    <input type="date" id="startDay" name="startDay">		
 	<label>&nbsp<font color="#337ab7"><b> ~ </b></font>&nbsp</label>
-	<input type="date" id="toDay" name="toDay">
+	<input type="date" id="endDay" name="endDay">
     </span>
     
+
     &nbsp&nbsp
     <input type="submit" id="srch1" value="검색" style="color:#fff;background-color:#337ab7;border-color:#2e6da4" class="btn btn-primary"ocation.href='srch.do?'">
-  </form>
+
+    </form>
 </div>
 	</center>
 	
