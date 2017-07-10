@@ -47,13 +47,11 @@ public class AdminDao {
 			str +="<a href='adminListItem.do?pageNUM="+i+"'>"+i+""+"  "+"</a>";
 			
 		}
-		System.out.println("end : "+end);
-		System.out.println("totalPage : "+totalPage);
+		
 		if( end <totalPage)
 		{
 			str +="<a href='adminListItem.do?pageNUM="+(end+1)+"'>"+"[¥Ÿ¿Ω]"+"</a>";
 		}
-		
 		
 		return str;
 	}
