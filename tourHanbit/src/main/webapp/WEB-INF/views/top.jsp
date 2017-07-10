@@ -110,7 +110,10 @@
       <option value="1" style="color: white;">해외여행</option>
       <option value="2" style="color: white;">국내여행</option>
       <option value="3" style="color: white;">날짜 검색</option>
-    </select>  &nbsp&nbsp  
+    </select>  &nbsp&nbsp 
+    <table><tr><td></td>
+    	</tr>
+    </table> 
     <span id="srchSpan">
     <input type="text" id="srch" name="srch" placeholder="검색어를 입력하세요." >  
     </span>
