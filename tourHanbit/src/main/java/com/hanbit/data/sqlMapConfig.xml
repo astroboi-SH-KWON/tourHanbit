@@ -20,5 +20,6 @@
   </environments>
   <mappers>
     <mapper resource="com/hanbit/data/pageMapper.xml"/>
+    <mapper resource="com/hanbit/data/detailPackageMapper.xml"/>
   </mappers>
 </configuration>

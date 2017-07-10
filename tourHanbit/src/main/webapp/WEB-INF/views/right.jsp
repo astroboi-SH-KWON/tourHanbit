@@ -63,7 +63,7 @@ function reserve()
 <input type="hidden" id="itemname" value="${p.item_name}">
 
 
-<table border="1" width="100%" height="100%">
+<table  width="100%" height="100%">
    
    <tr>
       <td>상품가격 : ${p.price}</td>
