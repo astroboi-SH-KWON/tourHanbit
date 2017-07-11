@@ -5,19 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
- <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"><!--  -->
-  <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
-         rel = "stylesheet">
-  <!-- <link rel="stylesheet" href="/resources/demos/style.css">  -->
-  <link rel="stylesheet" href="/resources/demos/datepicker.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!--  -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>  
   <style>
-	input[type=text] , input[type=date], select{
+	input[type=text] , select{
     display: inline;
     border: 1px solid #ccc;
     padding: 10px 20px;
@@ -47,17 +38,37 @@
 
 
 </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
+<!--  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		//var today=Date();
+
 		var startDay;
 		var endDay;
 		//var today = $.datepicker.formatDate('yy-mm-dd', new Date());
-		var today=Date();
-		
+		//var today= new Date();
+		//alert(today);
+		$("#startDay").datepicker({
+	    	dateFormat : "yy-mm-dd",
+			numberOfMonths :3,
+	        onSelect: function() { 
+	            startDay = $(this).datepicker('getDate'); 
+	            alert(startDay)
+
+	        }
+	    });
 		$("#srchOption").change(function() {
 
-			if($(this).val()==3){			
+			if($(this).val()==3){	
+				$("#srchSpan").empty();
+				
+				
+				
+				/*
 				$("#srchSpan").css("display","none");
 				$("#srchDateSpan").css("display","inline");
 				$( "#startDay" ).datepicker({
@@ -76,9 +87,13 @@
 			            $("#endDay").datepicker('setDate', $(this).val());
 			        }
 			    });
+				*/
 			}else{
+				
+				/*
 				$("#srchSpan").css("display","inline");
 				$("#srchDateSpan").css("display","none");
+				*/
 			}
 		});
 		
@@ -138,14 +153,15 @@
       <option value="3" style="color: white;">날짜 검색</option>
     </select>  &nbsp&nbsp
 
-    <span id="srchSpan">
-    <input type="text" id="srch" name="srch" placeholder="검색어를 입력하세요." >  
+    <span id="srchSpan" >
+    <input type="text" id="startDay" >
+    <!-- <input type="text" id="srch" name="srch" placeholder="검색어를 입력하세요." >  --> 
     </span>
-    <span id="srchDateSpan" style="display:none; ">
+   <!-- <span id="srchDateSpan" style="display:none; ">
     <input type="date" id="startDay" name="startDay">		
 	<label>&nbsp<font color="#337ab7"><b> ~ </b></font>&nbsp</label>
 	<input type="date" id="endDay" name="endDay">
-    </span>
+    </span>  --> 
     
 
     &nbsp&nbsp
