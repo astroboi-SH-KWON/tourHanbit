@@ -47,7 +47,7 @@ public class PageManager {
 	}
 	public static List<PackageVo> getEventImage(String item01, String item02) {
 		// TODO Auto-generated method stub
-		System.out.println(item01+" : "+item02);
+		//System.out.println(item01+" : "+item02);
 		SqlSession session1=	factory1.openSession();
 		HashMap<String, String> map= new HashMap<String, String>();
 		map.put("item01", item01);

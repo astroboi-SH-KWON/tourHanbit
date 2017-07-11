@@ -9,7 +9,10 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"><!--  -->
- <!--  <link rel="stylesheet" href="/resources/demos/style.css"> -->
+  <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css">  -->
+  <link rel="stylesheet" href="/resources/demos/datepicker.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!--  -->
@@ -44,39 +47,43 @@
 
 
 </style>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		//var today=Date();
+		var startDay;
+		var endDay;
+		//var today = $.datepicker.formatDate('yy-mm-dd', new Date());
+		var today=Date();
+		
 		$("#srchOption").change(function() {
 
 			if($(this).val()==3){			
 				$("#srchSpan").css("display","none");
 				$("#srchDateSpan").css("display","inline");
+				$( "#startDay" ).datepicker({
+			    	dateFormat : "yy-mm-dd",
+					numberOfMonths :3,
+			        onSelect: function() { 
+			            //startDay = $(this).datepicker('getDate'); 
+			            
+			            
+			            startDay = $(this).val();
+			            if(startDay<today){
+			            	alert(today+" 이후로 선택하세요");
+			            	$("#startDay").datepicker('setDate', today);
+			            }
+			            //alert(startDay);
+			            $("#endDay").datepicker('setDate', $(this).val());
+			        }
+			    });
 			}else{
 				$("#srchSpan").css("display","inline");
 				$("#srchDateSpan").css("display","none");
 			}
 		});
-		var startDay;
-		var endDay;
-		$("#table").hide();
-	    $( "#startDay" ).datepicker({
-	    	dateFormat : "yy-mm-dd",
-			numberOfMonths :3,
-	        onSelect: function() { 
-	            //startDay = $(this).datepicker('getDate'); 
-	            var today = $.datepicker.formatDate('yy-mm-dd', new Date());
-	            //alert(today);
-	            startDay = $(this).val();
-	            if(startDay<today){
-	            	alert(today+" 이후로 선택하세요");
-	            	$("#startDay").datepicker('setDate', today);
-	            }
-	            //alert(startDay);
-	            $("#endDay").datepicker('setDate', $(this).val());
-	        }
-	    });
+		
+
+	    
 		
 		
 	});
