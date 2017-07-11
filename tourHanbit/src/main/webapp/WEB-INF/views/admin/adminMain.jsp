@@ -14,6 +14,8 @@
 </head>
 <body>
 <h2>관리자페이지</h2>
+
+<img src="resources/upload/${fname }">
 <h3><font color="blue""><center><매출 현황></center></font></h3>
 <div class="container">
 <table border="1" class="table">
