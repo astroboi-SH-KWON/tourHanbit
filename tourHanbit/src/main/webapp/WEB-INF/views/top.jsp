@@ -51,51 +51,60 @@
 
 		var startDay;
 		var endDay;
-		//var today = $.datepicker.formatDate('yy-mm-dd', new Date());
-		//var today= new Date();
-		//alert(today);
-		$("#startDay").datepicker({
+		var today = $.datepicker.formatDate('yy-mm-dd', new Date());
+
+		$( "#startDay" ).datepicker({
 	    	dateFormat : "yy-mm-dd",
 			numberOfMonths :3,
 	        onSelect: function() { 
-	            startDay = $(this).datepicker('getDate'); 
-	            alert(startDay)
-
+	            startDay = $(this).val();
+	            if(startDay<today){
+	            	alert(today+" 이후로 선택하세요");
+	            	$("#startDay").datepicker('setDate', today);
+	            }
+	            $("#endDay").datepicker('setDate', $(this).val());
 	        }
 	    });
+		
+		$( "#endDay" ).datepicker({
+	    	dateFormat : "yy-mm-dd",
+			numberOfMonths :3,
+	        onSelect: function() { 
+	        	endDay = $(this).val();
+	        	if(startDay>endDay){
+	        		alert("출발일 "+$("#startDay").val()+" 이후로 선택하세요.");
+	        		$(this).datepicker('setDate', $("#startDay").val());
+	        	};
+	        }
+	    });
+		$( "#slider-range" ).slider({
+		      range: true,
+		      min: 0,
+		      max: 500,
+		      values: [ 75, 300 ],
+		      slide: function( event, ui ) {
+		        $( "#amount" ).val( ui.values[ 0 ] + " 만원 ~" + ui.values[ 1 ]+ " 만원"  );
+		      }
+		    });
+		    $( "#amount" ).val( $( "#slider-range" ).slider( "values", 0 ) +" 만원 ~" +
+		      $( "#slider-range" ).slider( "values", 1 )+ " 만원"  );
+		
 		$("#srchOption").change(function() {
 
 			if($(this).val()==3){	
-				$("#srchSpan").empty();
-				
-				
-				
-				/*
 				$("#srchSpan").css("display","none");
+				$("#srchPriceSpan").css("display","none");
 				$("#srchDateSpan").css("display","inline");
-				$( "#startDay" ).datepicker({
-			    	dateFormat : "yy-mm-dd",
-					numberOfMonths :3,
-			        onSelect: function() { 
-			            //startDay = $(this).datepicker('getDate'); 
-			            
-			            
-			            startDay = $(this).val();
-			            if(startDay<today){
-			            	alert(today+" 이후로 선택하세요");
-			            	$("#startDay").datepicker('setDate', today);
-			            }
-			            //alert(startDay);
-			            $("#endDay").datepicker('setDate', $(this).val());
-			        }
-			    });
-				*/
-			}else{
 				
-				/*
+			}else if($(this).val()==4){			
+				$("#srchSpan").css("display","none");
+				$("#srchPriceSpan").css("display","inline");
+				$("#srchDateSpan").css("display","none");
+
+			}else{				
 				$("#srchSpan").css("display","inline");
 				$("#srchDateSpan").css("display","none");
-				*/
+				$("#srchPriceSpan").css("display","none");				
 			}
 		});
 		
@@ -147,28 +156,47 @@
 <div >
   <form action="srch.do">
       
-
+	<table>
+		<tr>
+			<td>
+			
     <select id="srchOption" name="srchOption"  style="color:#fff;">
-      <option value="0" style="color: white;">전체검색</option>
-      <option value="1" style="color: white;">해외여행</option>
-      <option value="2" style="color: white;">국내여행</option>
+      <option value="0" style="color: white;">전체 검색</option>
+      <option value="1" style="color: white;">해외 여행</option>
+      <option value="2" style="color: white;">국내 여행</option>
       <option value="3" style="color: white;">날짜 검색</option>
+      <option value="4" style="color: white;">가격 검색</option>
     </select>  &nbsp&nbsp
-
+</td><td>
     <span id="srchSpan" >
-    <input type="text" id="startDay" >
-    <!-- <input type="text" id="srch" name="srch" placeholder="검색어를 입력하세요." >  --> 
+
+     <input type="text" id="srch" name="srch" placeholder="검색어를 입력하세요." >  
     </span>
-   <!-- <span id="srchDateSpan" style="display:none; ">
-    <input type="date" id="startDay" name="startDay">		
+   <span id="srchDateSpan" style="display:none; ">
+    <input type="text" id="startDay" name="startDay" style="width: 135px">		
 	<label>&nbsp<font color="#337ab7"><b> ~ </b></font>&nbsp</label>
-	<input type="date" id="endDay" name="endDay">
-    </span>  --> 
+	<input type="text" id="endDay" name="endDay" style="width: 135px">
+    </span> 
+    
+    &nbsp&nbsp
+    <span id="srchPriceSpan" style="display:none; ">
+
+    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+ 	 <!-- <label for="amount" style="padding: 0px; margin: 0px;">가격 범위</label> -->
+ 	 <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold; padding: 0px;margin: 0px;" name="amount">
+	</p>
+ 
+	<div id="slider-range" style="width: 330px;padding: 0px;margin: 0px; "></div>
+
+    </span> 
     
 
-    &nbsp&nbsp
+    
+    </td><td>
     <input type="submit" id="srch1" value="검색" style="color:#fff;background-color:#337ab7;border-color:#2e6da4" class="btn btn-primary"ocation.href='srch.do?'">
-
+	</td>
+		</tr>
+	</table>
     </form>
 </div>
 	</center>
