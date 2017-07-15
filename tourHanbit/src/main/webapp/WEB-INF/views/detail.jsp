@@ -16,8 +16,10 @@
 		var arr = [ "${i.image03 }", "${i.image04 }", "${i.image05 }",
 				"${i.image06 }", "${i.image07 }", "${i.image08 }",
 				"${i.image09 }", "${i.image10 }", "${i.image11 }", ]
+		
+		
 		function listImage() {
-			
+		
 			arr2 = arr.slice(start, end);
 			$("#image02").attr("src","resources/"+arr2[0])
 			$("#image03").attr("src","resources/"+arr2[1])
@@ -25,7 +27,6 @@
 				
 			
 				}
-		
 		
 		$("#image02").click(function(){
 			$("#image01").attr("src",$("#image02").attr("src"));
@@ -64,6 +65,13 @@
 		})
 		listImage();
 	});
+	function pro4(contentName){
+		
+		
+		
+		$("#content").attr("src","resources/"+contentName+".JPG");
+		
+	}
 
 	
 	</script>
