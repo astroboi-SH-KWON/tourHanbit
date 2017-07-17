@@ -31,4 +31,26 @@
     
   </select>
   
+  <select id="serchResults" resultType="packageVo">
+  select * from package
+  <if test="srch != null">
+    	 where intro_text like #{srch} or city like #{srch} or item_name like #{srch} 
+    	 <if test="item != null">
+    	 and item_key like #{item}
+    	<!--  and p.item_key>#{item01} and #{item02}>p.item_key  -->
+    	</if> 
+  </if> 
+  
+  
+  
+  </select>
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </mapper>
