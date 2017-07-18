@@ -57,7 +57,6 @@ public class PackageDao {
 	}
 	public List<PackageVo> serchResults(String item, String srch, String startDay, String endDay, String amount) {
 		// TODO Auto-generated method stub
-		System.out.println(amount);
 		return PageManager.serchResults(item, srch, startDay, endDay, amount);
 	}
 }

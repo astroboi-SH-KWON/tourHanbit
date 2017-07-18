@@ -70,10 +70,7 @@ public class PageManager {
 			map.put("to", amount.substring(amount.indexOf("~")+1,amount.lastIndexOf("¸¸")).trim()+"0000");
 			//System.out.println(amount.substring(amount.indexOf("~")+1,amount.lastIndexOf("¸¸")).trim()+"0000");			
 		}
-		System.out.println("from mana :"+map.get("from"));
-		System.out.println(map.get("to"));
 		List<PackageVo> list=	session1.selectList("page.serchResults",map);
-		
 		session1.close();
 		return list;
 	}
