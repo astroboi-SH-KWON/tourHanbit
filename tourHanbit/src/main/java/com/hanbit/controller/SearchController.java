@@ -26,6 +26,7 @@ public class SearchController {
 				item=srchOption+"%";
 			}
 			mav.addObject("list", dao.serchResults(item,"%"+srch+"%",null,null,null));
+			mav.addObject("srch", srch);
 
 		}
 		
