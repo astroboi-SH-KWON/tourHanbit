@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,7 +39,7 @@ th {
 		<tr align="center">
 			<td colspan="2">${b.item_key }</td>
 			<td colspan="6" ><a href="detail.do?item_key=${b.item_key }"><img src="resources/img/${b.image01}" align="center" style="height:300px;width:500px;"></td>
-			<td colspan="10"><font color="blue"><b>${b.item_name }</b></font><br></font><br> 출발일 : <font color='red'><b>${b.d_date}</b></font><br>${b.intro_text }</a></td>
+			<td colspan="10"><font color="blue"><b>${b.item_name }</b></font><br></font><br> 출발일 : <font color='red'><b><fmt:formatDate value="${b.d_date}" pattern="yyyy년 MM월 dd일"/>	</b></font><br>${b.intro_text }</a></td>
 			
 		</tr>
 	</c:forEach>

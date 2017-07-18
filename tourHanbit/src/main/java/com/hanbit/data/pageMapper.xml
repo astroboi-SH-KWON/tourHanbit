@@ -37,11 +37,20 @@
     	 where p.item_key=i.item_key and (intro_text like #{srch} or city like #{srch} or item_name like #{srch}) 
     	 <if test="item != null">
     	 and p.item_key like #{item}
-    	<!--  and p.item_key>#{item01} and #{item02}>p.item_key  -->
     	</if> 
   </if> 
   
+  <if test="startDay != null">
+    	 where p.item_key=i.item_key and 
+    	 d_date>=to_date( #{startDay},'yy/mm/dd') and to_date(#{endDay},'yy/mm/dd')>=a_date 
+
+  </if> 
   
+  <if test="from != null">
+    	 where p.item_key=i.item_key and 
+    	 price >= #{from} and #{to}>=price 
+
+  </if> 
   
   </select>
   

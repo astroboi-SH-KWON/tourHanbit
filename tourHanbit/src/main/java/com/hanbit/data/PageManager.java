@@ -65,15 +65,14 @@ public class PageManager {
 		map.put("srch", srch);
 		map.put("startDay", startDay);
 		map.put("endDay", endDay);
-		map.put("amount", amount);
+		if(amount!=null){
+			map.put("from", amount.substring(0,amount.indexOf("¸¸")).trim()+"0000");
+			map.put("to", amount.substring(amount.indexOf("~"),amount.lastIndexOf("¸¸")).trim()+"0000");
+			//System.out.println(amount.substring(amount.indexOf("~")+1,amount.lastIndexOf("¸¸")).trim()+"0000");			
+		}
 		List<PackageVo> list=	session1.selectList("page.serchResults",map);
-		System.out.println("pageManager"+list.size());
-		//System.out.println("srchOption : "+srchOption);
-		System.out.println("item : "+item);
-		System.out.println("srch : "+srch);
-		System.out.println("startDay : "+startDay);
-		System.out.println("endDay : "+endDay);
-		System.out.println("amount : "+amount);
+		System.out.println("from mana :"+map.get("from"));
+		System.out.println(map.get("to"));
 		session1.close();
 		return list;
 	}

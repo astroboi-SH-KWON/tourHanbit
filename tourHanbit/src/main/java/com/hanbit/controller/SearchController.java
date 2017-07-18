@@ -21,13 +21,18 @@ public class SearchController {
 	public ModelAndView search(String srchOption,String srch,String startDay,String endDay, String amount){
 		ModelAndView mav= new ModelAndView();
 		String item=null;
-		if(srchOption.equals("0")||srchOption.equals("1")||srchOption.equals("2")){
+		if(!srch.equals("")&&srchOption.equals("0")||srchOption.equals("1")||srchOption.equals("2")){
 			if(srchOption.equals("1")||srchOption.equals("2")){
 				item=srchOption+"%";
 			}
 			mav.addObject("list", dao.serchResults(item,"%"+srch+"%",null,null,null));
 			mav.addObject("srch", srch);
-
+		}else if(srchOption.equals("3")){
+			mav.addObject("list", dao.serchResults(null,null,startDay,endDay,null));
+			mav.addObject("srch", startDay+" 부터  "+endDay+" 까지");
+		}else if(srchOption.equals("4")){
+			mav.addObject("list", dao.serchResults(null,null,null,null,amount));
+			mav.addObject("srch", amount);
 		}
 		
 		
