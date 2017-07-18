@@ -48,7 +48,7 @@
   
   <if test="from != null">
     	 where p.item_key=i.item_key and 
-    	 price >= #{from} and #{to}>=price 
+    	 price between #{from} and #{to} 
 
   </if> 
   

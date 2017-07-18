@@ -67,12 +67,13 @@ public class PageManager {
 		map.put("endDay", endDay);
 		if(amount!=null){
 			map.put("from", amount.substring(0,amount.indexOf("만")).trim()+"0000");
-			map.put("to", amount.substring(amount.indexOf("~"),amount.lastIndexOf("만")).trim()+"0000");
+			map.put("to", amount.substring(amount.indexOf("~")+1,amount.lastIndexOf("만")).trim()+"0000");
 			//System.out.println(amount.substring(amount.indexOf("~")+1,amount.lastIndexOf("만")).trim()+"0000");			
 		}
-		List<PackageVo> list=	session1.selectList("page.serchResults",map);
 		System.out.println("from mana :"+map.get("from"));
 		System.out.println(map.get("to"));
+		List<PackageVo> list=	session1.selectList("page.serchResults",map);
+		
 		session1.close();
 		return list;
 	}
