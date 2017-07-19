@@ -183,7 +183,7 @@
 
     <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
  	 <!-- <label for="amount" style="padding: 0px; margin: 0px;">가격 범위</label> color:#f6931f-->
- 	 <input type="text" id="amount" readonly style="border:0; color:darkgray; font-weight:bold; padding: 0px;margin: 0px;" name="amount">
+ 	 <input type="text" id="amount" readonly style="border:0; color:#337ab7; font-weight:bold; padding: 0px;margin: 0px;" name="amount">
 	</p>
  
 	<div id="slider-range" style="width: 330px;padding: 0px;margin: 0px; "></div>

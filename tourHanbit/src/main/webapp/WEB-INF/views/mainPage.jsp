@@ -164,7 +164,22 @@
 
 </p>
 
-<span class="bar1"><font style="margin-left: 60px">BEST</font></span><span class="bar11"><font style="margin-left: 60px">해외</font>  </span><span class="bar12" ><font style="margin-left: 60px">국내</font></span>
+<script type="text/javascript">
+	$(function() {
+		var url=window.location.search;
+		//alert("|"+url.slice(url.indexOf("=")+1, url.length)+"|");
+		var page=url.slice(url.indexOf("=")+1, url.length);
+		if(page=="inter"){
+			$("#dom").css("color","#337ab7");
+		}
+		if(page=="dom"){
+			$("#dom").css("color","#337ab7");
+			$("#inter").html("국내");
+		}
+	});
+</script>
+
+<span class="bar1"><font style="margin-left: 60px">BEST</font></span><span class="bar11"><font id="inter" style="margin-left: 60px">해외</font>  </span><span class="bar12" ><font id="dom" style="margin-left: 60px">국내</font></span>
 	<p></p>
 	<p>
 		<div class="container" >
