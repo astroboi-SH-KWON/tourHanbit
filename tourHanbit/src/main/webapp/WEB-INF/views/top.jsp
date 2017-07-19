@@ -52,7 +52,7 @@
 		var startDay;
 		var endDay;
 		var today = $.datepicker.formatDate('yy-mm-dd', new Date());
-
+		$("#today").val(today);
 		$( "#startDay" ).datepicker({
 	    	dateFormat : "yy-mm-dd",
 			numberOfMonths :3,
@@ -62,7 +62,7 @@
 	            	alert(today+" 이후로 선택하세요");
 	            	$("#startDay").datepicker('setDate', today);
 	            }
-	            $("#endDay").datepicker('setDate', $(this).val());
+
 	        }
 	    });
 		
@@ -147,9 +147,8 @@
 	<div class="btn-group btn-group-justified" >
     <a href="mainPage.do?page=dom" class="btn btn-primary" >국내여행</a>
     <a href="mainPage.do?page=inter" class="btn btn-primary" >해외여행</a>
-  <!--  <a href="optionSrch.do" class="btn btn-primary" >날짜검색</a>  --> 
     <a href="listQna.do" class="btn btn-primary" >Q&A</a>
-    <a href="listNotice.do" class="btn btn-primary" >공지사항</a><!-- style="background-color: lightblue;" -->
+    <a href="listNotice.do" class="btn btn-primary" >공지사항</a>
    </div>
    
 	<center>
@@ -173,6 +172,7 @@
      <input type="text" id="srch" name="srch" placeholder="검색어를 입력하세요." >  
     </span>
    <span id="srchDateSpan" style="display:none; ">
+   <input type="hidden" id="today" name="today">
     <input type="text" id="startDay" name="startDay" style="width: 135px">		
 	<label>&nbsp<font color="#337ab7"><b> ~ </b></font>&nbsp</label>
 	<input type="text" id="endDay" name="endDay" style="width: 135px">
@@ -182,8 +182,8 @@
     <span id="srchPriceSpan" style="display:none; ">
 
     <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
- 	 <!-- <label for="amount" style="padding: 0px; margin: 0px;">가격 범위</label> -->
- 	 <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold; padding: 0px;margin: 0px;" name="amount">
+ 	 <!-- <label for="amount" style="padding: 0px; margin: 0px;">가격 범위</label> color:#f6931f-->
+ 	 <input type="text" id="amount" readonly style="border:0; color:darkgray; font-weight:bold; padding: 0px;margin: 0px;" name="amount">
 	</p>
  
 	<div id="slider-range" style="width: 330px;padding: 0px;margin: 0px; "></div>
