@@ -36,19 +36,30 @@
 	#srch1:hover{color:#fff;background-color:#fff;border-color:#204d74;
 	}
 
-
+	#draggable { width: 150px; height: 380px; padding: 0.5em;z-index: 999; border-radius: 5px;}
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">  
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-
+		$( "#draggable" ).draggable();
+		
+		var el=$('#draggable');
+		var elpos=el.offset().top;
+		$(window).scroll(function () {
+		    var y=$(this).scrollTop();
+		    if(y<elpos){el.stop().animate({'top':20},500);}
+		    else{el.stop().animate({'top':y-elpos+100},500);}
+		});
+		
+		
+		
 		var startDay;
 		var endDay;
 		var today = $.datepicker.formatDate('yy-mm-dd', new Date());
@@ -200,8 +211,12 @@
     </form>
 </div>
 	</center>
-	
-<hr>
 
+<hr>
+<div style="position: relative; width: 0; height: 0">
+    <div id="draggable" class="ui-widget-content" style="position: absolute; left: 1360px; top: 10px">
+        날씨, 환율, 네이버 번역???가나다라마ㅓㅇ노램노레ㅑㅓㅇ리ㅏㄴ머어'ㅇㄹ;ㅓㄴ마;ㅣㅓㅇㄹ'ㅣㅏㅁ너이ㅏㅓㄹㄴ미ㅏㅓㅇㄹ'ㅣㅏㅁ널'ㅣㅏ너'ㅇ리ㅏㅓㄴ'이ㅏ러'니아ㅓㄹ'ㄴ미ㅓㅏㄹㅇ'민
+    </div>
+</div>
 </body>
 </html>

@@ -89,6 +89,7 @@
     border-radius: 5px;
 }
 .container{
+	padding-left: 100px;
 	width:100%;
 	}
 
@@ -101,9 +102,10 @@
 <body>
 
 <p>
+			
 			<div class="w3-content w3-display-container" >
 			<c:forEach items="${main }" var="m">
-				<a href="detail.do?item_key=${m.item_key }"><img class="mySlides w3-animate-fading" src="resources/img/${m.image01 }" style="height:400px;width:980px;"></a>
+				<a href="detail.do?item_key=${m.item_key }"><img class="mySlides w3-animate-fading" src="resources/img/${m.image01 }" style="height:400px;width:980px; border-radius: 3px;"></a>
 			</c:forEach>
 			  
 			   <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
@@ -114,7 +116,7 @@
 			    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
 			  </div>
 			</div>
-			
+
 			<script>
 			//fading 자동 슬라이드 class="mySlides w3-animate-fading"
 			
@@ -180,13 +182,13 @@
 </script>
 
 <span class="bar1"><font style="margin-left: 60px">BEST</font></span><span class="bar11"><font id="inter" style="margin-left: 60px">해외</font>  </span><span class="bar12" ><font id="dom" style="margin-left: 60px">국내</font></span>
-	<p></p>
+	<p><br></p>
 	<p>
 		<div class="container" >
 		<div class="row" >
 		
 			<c:forEach items="${best01 }" var="m">
-		  <div class="col-md-4" style="height:300px;width:350px;"  >
+		  <div class="col-md-4" style="height:300px;width:350px;padding-top: 5px;"  >
 		    <div class="thumbnail">
 		      <a href="detail.do?item_key=${m.item_key }">
 		        <img src="resources/img/${m.image01 }" alt="Lights" style="height:250px;width:300px;">
@@ -204,7 +206,7 @@
 		  </c:forEach>
 		  <c:if test="${empty page }">
 		  <c:forEach items="${best02 }" var="m">
-		  <div class="col-md-4" style="height:300px;width:350px;"  >
+		  <div class="col-md-4" style="height:300px;width:350px;padding-top: 5px;"  >
 		    <div class="thumbnail">
 		      <a href="detail.do?item_key=${m.item_key }">
 		        <img src="resources/img/${m.image01 }" alt="Lights" style="height:250px;width:300px;">
