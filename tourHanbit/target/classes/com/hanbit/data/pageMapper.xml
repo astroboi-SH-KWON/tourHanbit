@@ -6,7 +6,7 @@
   <select id="getMainImage" resultType="packageVo">
     select rownum,item_key,image01 from 
     (select i.item_key, i.image01 from image i, package p 
-    where i.item_key=p.item_key) where 
+    where i.item_key=p.item_key order by p.hit) where 
     <if test="item01 != null">
     	item_key>#{item01} and #{item02}>item_key and
     </if>    
