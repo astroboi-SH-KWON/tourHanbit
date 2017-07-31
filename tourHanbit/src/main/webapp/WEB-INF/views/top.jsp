@@ -41,10 +41,7 @@
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">  
-  <link rel="stylesheet" type="text/css" href="/finance/s/OVd9g2P4lGg/styles/finance_us.css">
-<link rel="icon"
-        type="image/vnd.microsoft.icon" href="/finance/favicon.ico">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css">   -->
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -64,6 +61,9 @@
 			    if(y<elpos){el.stop().animate({'top':20},500);}
 			    else{el.stop().animate({'top':y-elpos+100},500);}
 		    	
+		    }
+		    if($("#del").is(":checked")){
+		    	el.fadeOut(100);
 		    }
 		    
 		});
@@ -227,7 +227,8 @@
     <div id="draggable" class="ui-widget-content" style="position: absolute; left: 1360px; top: 10px">
        
        
-	스크롤창 고정 <input type="checkbox" id="stp" >
+	스크롤창 고정 <input type="checkbox" id="stp" ><br>
+	오늘은 그만 보겠습니다. <input type="checkbox" id="del" ><br>
     </div>
 </div>
 </body>
