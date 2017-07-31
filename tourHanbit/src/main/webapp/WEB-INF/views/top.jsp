@@ -36,24 +36,20 @@
 	#srch1:hover{color:#fff;background-color:#fff;border-color:#204d74;
 	}
 
-	#draggable { width: 150px; height: 380px; padding: 0.5em;z-index: 999; border-radius: 5px;}
-	#currency-widget {
-    width:140px;
-}
+	#draggable { width: 200px; height: 380px; padding: 0.5em;z-index: 999; border-radius: 5px;}
+
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">  
-<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
-	
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/finance/s/OVd9g2P4lGg/styles/finance_us.css">
+<link rel="icon"
+        type="image/vnd.microsoft.icon" href="/finance/favicon.ico">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.currency.js"></script>
-<script type="text/javascript" src="js/jquery.currency.localization.en_US.js"></script>
-<link type="text/css" rel="stylesheet" href="css/currency.default.css">
-<link type="text/css" rel="stylesheet" href="css/currency.lightblue.css">
+
 <script type="text/javascript">
 	$(function() {
 		$( "#draggable" ).draggable();
@@ -62,8 +58,14 @@
 		var elpos=el.offset().top;
 		$(window).scroll(function () {
 		    var y=$(this).scrollTop();
-		    if(y<elpos){el.stop().animate({'top':20},500);}
-		    else{el.stop().animate({'top':y-elpos+100},500);}
+		    if($("#stp").is(":checked")){
+		    	el.stop();
+		    }else{
+			    if(y<elpos){el.stop().animate({'top':20},500);}
+			    else{el.stop().animate({'top':y-elpos+100},500);}
+		    	
+		    }
+		    
 		});
 		
 		
@@ -127,7 +129,7 @@
 			}
 		});
 		
-		$('#currency-widget').currency();
+		
 
 		
 		
@@ -224,7 +226,8 @@
 <div style="position: relative; width: 0; height: 0">
     <div id="draggable" class="ui-widget-content" style="position: absolute; left: 1360px; top: 10px">
        
-    	<div id="currency-widget"></div>
+       
+	스크롤창 고정 <input type="checkbox" id="stp" >
     </div>
 </div>
 </body>
