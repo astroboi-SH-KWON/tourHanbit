@@ -41,10 +41,10 @@
   </if> 
   
   <if test="startDay != null">
-    	 where p.item_key=i.item_key and 
-    	 d_date>=to_date( #{startDay},'yy/mm/dd') 
+    	 ,subPackage s where p.item_key=i.item_key and i.item_key=s.item_key and
+    	 s.d_date>=to_date( #{startDay},'yy/mm/dd') 
     	 <if test="endDay != null">
-    	 	 and to_date(#{endDay},'yy/mm/dd')>=a_date 
+    	 	 and to_date(#{endDay},'yy/mm/dd')>=s.a_date 
   		</if>    
   </if> 
   

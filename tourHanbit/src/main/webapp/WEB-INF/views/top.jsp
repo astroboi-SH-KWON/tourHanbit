@@ -37,15 +37,23 @@
 	}
 
 	#draggable { width: 150px; height: 380px; padding: 0.5em;z-index: 999; border-radius: 5px;}
+	#currency-widget {
+    width:140px;
+}
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">  
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+	
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.currency.js"></script>
+<script type="text/javascript" src="js/jquery.currency.localization.en_US.js"></script>
+<link type="text/css" rel="stylesheet" href="css/currency.default.css">
+<link type="text/css" rel="stylesheet" href="css/currency.lightblue.css">
 <script type="text/javascript">
 	$(function() {
 		$( "#draggable" ).draggable();
@@ -119,21 +127,8 @@
 			}
 		});
 		
+		$('#currency-widget').currency();
 
-		  function getRate(from, to) {
-			    var script = $("<div></div>");
-			    script.setAttribute('src', "http://query.yahooapis.com/v1/public/yql?q=select%20rate%2Cname%20from%20csv%20where%20url%3D'http%3A%2F%2Fdownload.finance.yahoo.com%2Fd%2Fquotes%3Fs%3D"+from+to+"%253DX%26f%3Dl1n'%20and%20columns%3D'rate%2Cname'&format=json&callback=parseExchangeRate");
-			    document.body.appendChild(script);
-			    $(script).appendTo($("#draggable"))
-			  }
-			  function parseExchangeRate(data) {
-			    var name = data.query.results.row.name;
-			    var rate = parseFloat(data.query.results.row.rate, 10);
-			    alert("Exchange rate " + name + " is " + rate);
-			  }
-			  
-			  getRate("SEK", "USD");
-			  getRate("USD", "SEK");
 		
 		
 	});
@@ -228,7 +223,8 @@
 <hr>
 <div style="position: relative; width: 0; height: 0">
     <div id="draggable" class="ui-widget-content" style="position: absolute; left: 1360px; top: 10px">
-        날씨, 환율, 네이버 번역???가나다라마ㅓㅇ노램노레ㅑㅓㅇ리ㅏㄴ머어'ㅇㄹ;ㅓㄴ마;ㅣㅓㅇㄹ'ㅣㅏㅁ너이ㅏㅓㄹㄴ미ㅏㅓㅇㄹ'ㅣㅏㅁ널'ㅣㅏ너'ㅇ리ㅏㅓㄴ'이ㅏ러'니아ㅓㄹ'ㄴ미ㅓㅏㄹㅇ'민
+       
+    	<div id="currency-widget"></div>
     </div>
 </div>
 </body>

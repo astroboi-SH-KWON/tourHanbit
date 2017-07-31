@@ -46,12 +46,12 @@ th {
 
 			</b></font><br></font><br>
 			<c:if test="${not empty b.d_date }">
-				출발일 : <font color='red'><b><fmt:formatDate value="${b.d_date}" pattern="yyyy년 MM월 dd일"/>
+				출발일 : <font color='red'><b><fmt:formatDate value="${b.d_date}" pattern="yyyy년 MM월 dd일"/></b></font><br>
 			</c:if>
 			<c:if test="${not empty b.price }">
-				가격 : <font color='red'><b>${b.price} ~ 부터
+				가격 : <font color='red'><b>${b.price} ~ 부터</b></font><br>
 			</c:if>
-			 	</b></font><br>도시 : ${b.city }<br> 여행 일수 : ${fn:substring(string1,1,fn:indexOf(string1, "]")) }</a></td>
+			 	도시 : ${b.city }<br> 여행 일수 : ${fn:substring(string1,1,fn:indexOf(string1, "]")) }</a></td>
 			
 		</tr>
 	</c:forEach>
