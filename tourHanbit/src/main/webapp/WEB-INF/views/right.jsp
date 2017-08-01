@@ -104,12 +104,12 @@ function pro(){
 <input type="hidden" id="price" value="${sp.price_sub}">
 
 
-<table width="100%" height="100%">
+<table width="100%" height="100%" >
    
    <tr>
-      <td align="center" colspan="2" style="background-color:#337ab7;">상품가격(성인1인기준)</td>
+      <td align="center" colspan="2" style="background-color:#337ab7; color: lightgray;">상품가격(성인1인기준)</td>
    <tr>
-  	 <td align="center" colspan="2" style="background-color:#337ab7;" id="price_sub"><h2>${sp.price_sub}원</h2></td>
+  	 <td align="center" colspan="2" style="background-color:#337ab7; color: white;" id="price_sub"><h2>${sp.price_sub}원</h2></td>
    </tr>
    </table>
    <table>
@@ -151,7 +151,7 @@ function pro(){
    <tr><td>성인</td>
    <td> 
       
-         <select name="adult_su" id="adult_su" >
+         <select name="adult_su" id="adult_su" style="color: white;">
             <option selected="selected">0</option>
             <option>1</option>
             <option>2</option>
@@ -164,7 +164,7 @@ function pro(){
    <tr><td>아동</td>
    <td> 
       
-         <select name="child_su" id="child_su">
+         <select name="child_su" id="child_su" style="color: white;">
             <option selected="selected">0</option>
             <option>1</option>
             <option>2</option>
@@ -177,7 +177,7 @@ function pro(){
    <tr><td>유아</td>
    <td> 
       
-         <select name="baby_su" id="baby_su">
+         <select name="baby_su" id="baby_su" style="color: white;">
             <option selected="selected">0</option>
             <option>1</option>
             <option>2</option>
@@ -195,7 +195,7 @@ function pro(){
    		</c:if>
    		<c:if test="${sp.reser_sub!=20 }">
    		<%-- <c:if test="${r==1 }"> --%>
-      <td colspan="2" align="center"><input type="button" value="예약" onclick="pro()" style="background-color:#337ab7; "></td>
+      <td colspan="2" align="center"><input type="button" value="예약" onclick="pro()" style="background-color:#337ab7; color: white; "></td>
       <%-- </c:if> --%>
       </c:if>
    </tr>

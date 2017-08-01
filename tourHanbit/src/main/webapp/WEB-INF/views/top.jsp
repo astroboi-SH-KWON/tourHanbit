@@ -36,7 +36,7 @@
 	#srch1:hover{color:#fff;background-color:#fff;border-color:#204d74;
 	}
 
-	#draggable { width: 200px; height: 380px; padding: 0.5em;z-index: 999; border-radius: 5px;}
+	
 
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
@@ -48,27 +48,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
-	$(function() {
-		$( "#draggable" ).draggable();
-		
-		var el=$('#draggable');
-		var elpos=el.offset().top;
-		$(window).scroll(function () {
-		    var y=$(this).scrollTop();
-		    if($("#stp").is(":checked")){
-		    	el.stop();
-		    }else{
-			    if(y<elpos){el.stop().animate({'top':20},500);}
-			    else{el.stop().animate({'top':y-elpos+100},500);}
-		    	
-		    }
-		    if($("#del").is(":checked")){
-		    	el.fadeOut(100);
-		    }
-		    
-		});
-		
-		
+$(function() {		
 		
 		var startDay;
 		var endDay;
@@ -128,10 +108,6 @@
 				$("#srchPriceSpan").css("display","none");				
 			}
 		});
-		
-		
-
-		
 		
 	});
 </script>
@@ -214,7 +190,7 @@
 
     
     </td><td>
-    <input type="submit" id="srch1" value="검색" style="color:#fff;background-color:#337ab7;border-color:#2e6da4" class="btn btn-primary"ocation.href='srch.do?'">
+    <input type="submit" id="srch1" value="검색" style="color:#fff;background-color:#337ab7;border-color:#2e6da4" class="btn btn-primary" location.href='srch.do?'>
 	</td>
 		</tr>
 	</table>
@@ -223,13 +199,6 @@
 	</center>
 
 <hr>
-<div style="position: relative; width: 0; height: 0">
-    <div id="draggable" class="ui-widget-content" style="position: absolute; left: 1360px; top: 10px">
-       
-       
-	스크롤창 고정 <input type="checkbox" id="stp"><br>
-	오늘은 그만 보겠습니다. <input type="checkbox" id="del" ><br>
-    </div>
-</div>
+
 </body>
 </html>
