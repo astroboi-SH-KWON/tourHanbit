@@ -29,21 +29,28 @@ th {
 
 		
 	<h3 align="center"><b>[</b>${srch}<b>]</b> 에 대한 검색 결과</h3>
-	
-	<table border="1" align="center"     width="65%">
-	<tr>
-    <th colspan="2">상품번호</th>
-    <th colspan="6">여행사진</th>
-    <th colspan="10">상품설명</th>
-  </tr>
+	<c:if test="${not empty list }">
+		<table border="1" align="center"     width="65%">
+		<tr>
+	    <th colspan="2">상품번호</th>
+	    <th colspan="6">여행사진</th>
+	    <th colspan="10">상품설명</th>
+	  	</tr>
+  	</c:if>
+  	<c:if test="${empty list }">
+  	<center><h4><b>검색 결과가 없습니다.</b></h4></center>
+		
+  	</c:if>
 	<c:forEach var="b" items="${list }">
 		<tr align="center">
 			<td colspan="2">${b.item_key }</td>
-			<td colspan="6" ><a href="detail.do?item_key=${b.item_key }">
+			<td colspan="6" >
 			<c:if test="${empty b.d_date }">
+				<a href="detail.do?item_key=${b.item_key }">
 				<img src="resources/img/${b.image01}" align="center" style="height:300px;width:500px;">
 			</c:if>
 			<c:if test="${not empty b.d_date }">
+				<a href="detail.do?item_key=${b.item_key_sub }">
 				<c:if test="${b.reser_sub>=20 }">
 					<h2><font color="red">마감</font> </h2>
 					<img src="resources/img/${b.image01}" align="center" style="height:300px;width:500px;filter:blur(5px);">
@@ -59,10 +66,14 @@ th {
 
 			</b></font><br></font><br>
 			<c:if test="${not empty b.d_date }">
-				출발일 : <font color='red'><b><fmt:formatDate value="${b.d_date}" pattern="yyyy년 MM월 dd일"/></b></font><br>
+				출국일 : <font color='red' size="6"><b><fmt:formatDate value="${b.d_date}" pattern="yyyy년 MM월 dd일"/></b></font><br>
+				귀국일 : <font color='red' size="6"><b><fmt:formatDate value="${b.a_date}" pattern="yyyy년 MM월 dd일"/></b></font><br>
 			</c:if>
-			<c:if test="${not empty b.price }">
-				가격 : <font color='red'><b>${b.price} ~ 부터</b></font><br>
+			<c:if test="${empty b.d_date }">
+				<c:if test="${not empty b.price }">
+					<c:set var = "price1" value = "${b.price}+''"/>
+					가격 : <font color='red' size="6"><b>${fn:substring(price1,0,fn:length(price1)-7) }만원 부터</b></font><br>
+				</c:if>
 			</c:if>
 			 	도시 : ${b.city }<br> 여행 일수 : ${fn:substring(string1,1,fn:indexOf(string1, "]")) }</a></td>
 			

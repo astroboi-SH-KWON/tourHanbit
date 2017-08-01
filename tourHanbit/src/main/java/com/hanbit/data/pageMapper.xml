@@ -45,7 +45,8 @@
     	 s.d_date>=to_date( #{startDay},'yy/mm/dd') 
     	 <if test="endDay != null">
     	 	 and to_date(#{endDay},'yy/mm/dd')>=s.a_date 
-  		</if>    
+  		</if>   
+  		order by s.d_date 
   </if> 
   
   <if test="from != null">
