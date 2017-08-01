@@ -39,7 +39,20 @@ th {
 	<c:forEach var="b" items="${list }">
 		<tr align="center">
 			<td colspan="2">${b.item_key }</td>
-			<td colspan="6" ><a href="detail.do?item_key=${b.item_key }"><img src="resources/img/${b.image01}" align="center" style="height:300px;width:500px;"></td>
+			<td colspan="6" ><a href="detail.do?item_key=${b.item_key }">
+			<c:if test="${empty b.d_date }">
+				<img src="resources/img/${b.image01}" align="center" style="height:300px;width:500px;">
+			</c:if>
+			<c:if test="${not empty b.d_date }">
+				<c:if test="${b.reser_sub>=20 }">
+					<h2><font color="red">마감</font> </h2>
+					<img src="resources/img/${b.image01}" align="center" style="height:300px;width:500px;filter:blur(5px);">
+				</c:if>
+				<c:if test="${b.reser_sub<20 }">
+					<img src="resources/img/${b.image01}" align="center" style="height:300px;width:500px;">
+				</c:if>
+			</c:if>
+			</td>
 			<td colspan="10"><font color="blue"><b>
 			<c:set var = "string1" value = "${b.item_name }"/>
 			${fn:substring(string1,fn:indexOf(string1, "]")+1,fn:length(string1)) }

@@ -227,7 +227,7 @@
     <div id="draggable" class="ui-widget-content" style="position: absolute; left: 1360px; top: 10px">
        
        
-	스크롤창 고정 <input type="checkbox" id="stp" ><br>
+	스크롤창 고정 <input type="checkbox" id="stp"><br>
 	오늘은 그만 보겠습니다. <input type="checkbox" id="del" ><br>
     </div>
 </div>
