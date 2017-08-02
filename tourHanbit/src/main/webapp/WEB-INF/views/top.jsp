@@ -122,10 +122,10 @@ $(function() {
     <ul class="nav navbar-nav navbar-right ">
 
 	
-	 <c:if test="${r!=1 }">
-	   <li><a href="insertMember.do"><span class="glyphicon glyphicon-user"></span>회원 가입</a></li>
-      <li><a href="loginMember.do"><span class="glyphicon glyphicon-log-in"></span>로그인</a></li>
-	  </c:if>
+	 <%-- <c:if test="${r!=1 }"> --%>
+	   <li><a href="joinMember.do"><span class="glyphicon glyphicon-user"></span>회원 가입</a></li>
+      <li><a href="loginmember.do"><span class="glyphicon glyphicon-log-in"></span>로그인</a></li>
+	<%--   </c:if> --%>
 	  
 	  
 	  <c:if test="${r==1 }">

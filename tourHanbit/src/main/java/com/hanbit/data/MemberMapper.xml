@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+
+  <select id="memberselectAll" resultType="MemberVo">
+    select * from member
+  </select>
+  
+  <!-- <insert id="memberjoin">
+  insert into member values(#{mem_id},#{mem_pw},#{mem_name},#{mem_addr},#{mem_gender},#{mem_email},#{mem_phone},to_date(#{mem_birthday},'yyyy/mm/dd'))
+  </insert> -->
+  
+  <insert id="memberjoin">
+  insert into member values(#{mem_id},#{mem_pwd},#{mem_name},#{mem_email},#{mem_phone})
+  </insert>
+
+  <select id="memberlogin" resultType="java.lang.String">
+ 	select mem_id, mem_pwd, mem_name, mem_email, mem_phone from member where mem_id=#{mem_id} and mem_pwd=#{mem_pwd}
+  </select>
+
+	<select resultType="MemberVo" id="memberfindpassword">
+	select mem_id, mem_pwd, mem_email from member where mem_id=#{mem_id} and mem_email=#{mem_email}
+	</select>
+	
+	<select id="paymentdetails" resultType="ordersVo">
+	select o.orderid, o.orderdate, p.item_name, p.price from package p, orders o where p.item_key = o.item_key and o.mem_id=#{mem_id}
+	</select>
+	<select id="myqna" resultType="qnaVo">
+		select qna_number,mem_id, qna_title, qna_date from qna where mem_id =#{mem_id}
+	</select>
+	
+	<select id="membermypage" resultType="memberVo">
+		select mem_id, mem_pwd,mem_name,mem_email,mem_phone from member where mem_id=#{mem_id}
+	</select>
+	
+ 	<update id="memberupdate">
+		update member set mem_pwd=#{mem_pwd},mem_email=#{mem_email},mem_phone=#{mem_phone} where mem_id=#{mem_id}
+	</update>
+	
+ 	<delete id="paymentdetailsdelete">
+		delete from orders where orderid=#{orderid}
+	</delete>
+	
+	<select id="memberidoverlap" resultType="java.lang.Integer">
+		select count(*) from member where mem_id=#{mem_id}
+	</select>
+	
+	<select id="airplanorders" resultType="packageVo">
+		select * from package where intro_text like #{intro_text}
+	</select>
+	
+</mapper>
