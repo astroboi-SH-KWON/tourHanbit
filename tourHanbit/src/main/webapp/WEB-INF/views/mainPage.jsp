@@ -178,28 +178,35 @@
 			$("#dom").css("color","#337ab7");
 			$("#inter").html("국내");
 		}
+
+	$( "#draggable" ).draggable();
+	
+	var el=$('#draggable');
+	var elpos=el.offset().top;
+	$(window).scroll(function () {
+	    var y=$(this).scrollTop();
+	    if($("#stp").is(":checked")){
+	    	//el.stop();
+	    	$("#draggable").css({
+	              position: 'absolute',
+	              top: elpos,//this is important for exact place 
+	              bottom: 'auto'
+	          }); 
+	    }else{
+		    if(y<elpos){el.stop().animate({'top':0},500);}
+		    else{el.stop().animate({'top':y-elpos+50},500);}
+	    	
+	    }
+	    if($("#del").is(":checked")){
+	    	el.fadeOut(100);
+	    	//el.stop().animate({'top':-100},500);
+	    }
+	    
+	    
+		    
+	});
 	});
 	
-
-		$( "#draggable" ).draggable();
-		
-		var el=$('#draggable');
-		var elpos=el.offset().top;
-		$(window).scroll(function () {
-		    var y=$(this).scrollTop();
-		    if($("#stp").is(":checked")){
-		    	el.stop();
-		    }else{
-			    if(y<elpos){el.stop().animate({'top':20},500);}
-			    else{el.stop().animate({'top':y-elpos+100},500);}
-		    	
-		    }
-		    if($("#del").is(":checked")){
-		    	el.fadeOut(100);
-		    	//el.stop().animate({'top':-100},500);
-		    }
-		    
-		});
 </script>
 
 <div style="position: relative; width: 0; height: 0">
