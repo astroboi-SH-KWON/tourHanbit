@@ -129,7 +129,7 @@ function pro_pwd()
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
   <!-- <input name="email" placeholder="E-Mail Address" class="form-control"  type="text"> -->
     
-    <input type="text" name="mem_email" required="required" class="form-control selectpicker" style="width: 200px;"><select name="mem_email" placeholder="E-Mail Address" style="max-width: 40%" class="form-control">
+    <input type="text" name="mem_email" required="required" class="form-control selectpicker" style="width: 150px;"><select name="mem_email" placeholder="E-Mail Address" style="max-width: 50%" class="form-control">
 											<option>@naver.com</option>
 											<option>@nate.com</option>
 											<option>@gmail.com</option>
