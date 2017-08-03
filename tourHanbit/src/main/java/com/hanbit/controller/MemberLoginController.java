@@ -43,7 +43,7 @@ public class MemberLoginController {
 		{
 
 			session.setAttribute("id", id);
-			mav.setViewName("redirect:/member/memberMypage.do");
+			mav.setViewName("redirect:/mainPage.do");
 		}
 		
 		else
