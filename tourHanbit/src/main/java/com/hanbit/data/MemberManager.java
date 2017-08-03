@@ -54,6 +54,7 @@ public class MemberManager {
 		
 		int ru =-1;
 		SqlSession session =factory.openSession(true);
+		
 		ru = session.update("member.memberupdate",m);
 		
 		return ru;
@@ -69,6 +70,9 @@ public class MemberManager {
 		map.put("mem_pwd", mem_pwd);
 
 		String id = session.selectOne("member.memberlogin",map);
+		
+		System.out.println("매니저의 id"+ id);
+		
 		return id;
 	}
 

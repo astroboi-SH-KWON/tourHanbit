@@ -36,9 +36,14 @@ public class AdminUpdateItemController {
 		ModelAndView mav= new ModelAndView();
 			
 		
-		mav.addObject("items", dao.getDetailItem(item_key));
-		mav.addObject("schedules", dao.getSchedule(item_key));
 		
+		List<ScheduleVo> list=dao.getSchedule(item_key);
+		int list_size= list.size();
+		
+		
+		mav.addObject("items", dao.getDetailItem(item_key));
+		mav.addObject("schedules", list);
+		mav.addObject("list_size",list_size);
 		
 			
 			mav.addObject("view", "adminUpdateItem.jsp");
