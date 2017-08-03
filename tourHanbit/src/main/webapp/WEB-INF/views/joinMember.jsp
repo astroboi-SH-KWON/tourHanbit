@@ -92,7 +92,7 @@ function pro_pwd()
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="mem_id" id="mem_id" onblur="pro_id()"  placeholder="First Name" class="form-control"  type="text" required="required">
+  <input type="text" name="mem_id" id="mem_id" onblur="pro_id()"  placeholder="First Name" class="form-control" required="required">
 <div><span id="idok"></span></div>
     </div>
   </div>
@@ -104,7 +104,7 @@ function pro_pwd()
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input type="password"  name="mem_pwd" id="mem_pwd"  placeholder="First Name" class="form-control"  onblur="pro_pwd()" required="required">
+  <input type="password"  name="mem_pwd" id="mem_pwd" class="form-control"  onblur="pro_pwd()" required="required">
  <div><span id="msg_pwd"></span></div>
     </div>
   </div>
@@ -115,7 +115,7 @@ function pro_pwd()
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input type="password"  name="mem_pwdk" id="mem_pwdk" placeholder="First Name" class="form-control"  onblur="pro_pwdk()" required="required">
+  <input type="password"  name="mem_pwdk" id="mem_pwdk" class="form-control"  onblur="pro_pwdk()" required="required">
   <div><span id="msg_pwdk"></span></div>
     </div>
   </div>

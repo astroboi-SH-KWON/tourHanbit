@@ -36,8 +36,8 @@ public class MemberJoinController {
 	{
 		String mem_pwd = m.getMem_pwd();
 		String mem_pwdok = mem_pwdk;
-			System.out.println(mem_pwd);
-			System.out.println(mem_pwdok);
+		
+			
 			
 			if(mem_pwd != mem_pwdok)
 			{

@@ -46,6 +46,12 @@ public class MemberManager {
 		int re =-1;
 		SqlSession session = factory.openSession(true);
 
+		System.out.println(m.getMem_id());
+		System.out.println(m.getMem_pwd());
+		System.out.println(m.getMem_name());		
+		System.out.println(m.getMem_email());
+		System.out.println(m.getMem_phone());
+		
 		re = session.insert("member.memberjoin", m);
 		return re;
 	}
