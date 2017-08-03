@@ -127,13 +127,13 @@ position: absolute;
 
 <!-- <form action="airplanorders.do" method="post">
  -->
-<input type="image" value="오세아니아" src="resources/img/오세아니아.JPG" id="oceania" name="oceania" class="continent" width="40" height="40" alt="오세아니아">
-<input type="image" value="아시아" src="resources/img/아시아.JPG" id="asia" name="asia" class="continent" width="40" height="40">
-<input type="image" value="유럽" src="resources/img/유럽.JPG" id="europe" name="europe" class="continent" width="40" height="40">
-<input type="image" value="아프리카" src="resources/img/아프리카.JPG" id="afreeca" class="continent" name="afreeca" width="40" height="40">
-<input type="image" value="남아메리카" src="resources/img/남아메리카.JPG" id="s_america" name="s_america" class="continent" width="40" height="40">
-<input type="image" value="북아메리카" src="resources/img/북아메리카.JPG" id="n_america" name="n_america" class="continent" width="40" height="40">
-<input type="image" value="letsgo" src="resources/img/airplan.png" id="airplane" width="15" height="15">
+<input type="image" value="오세아니아" src="resources/airplane/오세아니아.JPG" id="oceania" name="oceania" class="continent" width="40" height="40" alt="오세아니아">
+<input type="image" value="아시아" src="resources/airplane/아시아.JPG" id="asia" name="asia" class="continent" width="40" height="40">
+<input type="image" value="유럽" src="resources/airplane/유럽.JPG" id="europe" name="europe" class="continent" width="40" height="40">
+<input type="image" value="아프리카" src="resources/airplane/아프리카.JPG" id="afreeca" class="continent" name="afreeca" width="40" height="40">
+<input type="image" value="남아메리카" src="resources/airplane/남아메리카.JPG" id="s_america" name="s_america" class="continent" width="40" height="40">
+<input type="image" value="북아메리카" src="resources/airplane/북아메리카.JPG" id="n_america" name="n_america" class="continent" width="40" height="40">
+<input type="image" value="letsgo" src="resources/airplane/airplan.png" id="airplane" width="15" height="15">
 <!-- 
 </form> -->
 </body>

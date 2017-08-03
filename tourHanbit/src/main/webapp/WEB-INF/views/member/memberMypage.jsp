@@ -29,20 +29,20 @@
   	#my_page_reservation
   	{
   	margin-top: 150px;
-  	
+  	margin-left: 150px;
   	}
   	#my_page_Recommended_goods
   	{
-  	
+  	margin-left: 150px;
   	}
   	#my_page_QNA
   	{
-  	
+  	margin-left: 150px;
   	}
   	#right_mypage
   	{
   	margin-top: 150px;
-  	margin-left: 1350px;
+  	margin-left: 0px;
   	}
   	
   </style>
@@ -59,7 +59,7 @@
     <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin-2/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div align="right"><a href="logout.do"><button>로그아웃</button></a></div>
+
 
 <div class="navbar-default sidebar" role="navigation" id="right_mypage">
 	<div class="sidebar-nav navbar-collapse">

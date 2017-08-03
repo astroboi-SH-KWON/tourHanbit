@@ -44,8 +44,8 @@ public class MemberMyPageController {
 
 		mav.addObject("m",m);
 		
-		mav.addObject("viewPage", "member/memberMypage.jsp");
-		mav.setViewName("/template");
+		mav.addObject("viewPage", "memberMypage.jsp");
+		mav.setViewName("/member/template");
 		
 		return mav;
 	}
