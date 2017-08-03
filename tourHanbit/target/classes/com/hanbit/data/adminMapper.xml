@@ -23,7 +23,7 @@
   	</select>
   	
   	<insert id="insertPackage">
-  		insert into package values(#{item_key}, #{intro_text}, #{price}, #{city},0, #{item_name},0)
+  		insert into package values(#{item_key}, #{intro_text}, #{price}, #{city},0, #{item_name},0,#{city_id})
   	</insert>
   	
   	<insert id="insertImage">
@@ -80,7 +80,7 @@
   	</select>
   	
   	<update id="updateItem">
-  		update package set intro_text=#{intro_text}, price=#{price}, city=#{city}, reser=#{reser}, item_name=#{item_name} where item_key=#{item_key}
+  		update package set intro_text=#{intro_text}, price=#{price}, city=#{city}, reser=#{reser}, item_name=#{item_name},city_id=#{city_id} where item_key=#{item_key}
   	</update>
   	<update id="updateImage">
   		update image set image01=#{image1,jdbcType=VARCHAR}, image02=#{image2,jdbcType=VARCHAR}, image03=#{image3,jdbcType=VARCHAR}, image04=#{image4,jdbcType=VARCHAR}, image05=#{image5,jdbcType=VARCHAR}, image06=#{image6,jdbcType=VARCHAR}, image07=#{image7,jdbcType=VARCHAR}, image08=#{image8,jdbcType=VARCHAR}, image09=#{image9,jdbcType=VARCHAR}, image10=#{image10,jdbcType=VARCHAR}, image11=#{image11,jdbcType=VARCHAR} where item_key=#{item_key} 

@@ -6,31 +6,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	$(function() {
-		var cnt=0;
-		var list_size=eval($("#list_size").val());
-		
-		$("#btn_schedule_add").click(function() {
-			
-			cnt=cnt+1;
-
-			var limitNum =list_size+cnt
-			if(limitNum == 11)
-			{
-				alert("일정은 10일 까지 입력 가능합니다.");
-			}
-			else
-			{				
-				var textarea= $("<textarea></textarea>").attr({name :"day", cols:"100", rows:"10"});
-				
-				$("#schedule_div").append((limitNum)+"일차","<br>",textarea,"<br>");
-			}
-		
-			
-		})
-	});
-</script>
 </head>
 <body>
 <h2>상품 수정</h2>
@@ -41,6 +16,8 @@
 상품 소개글   <br> <textarea  name="intro_text" cols="100" rows="10">${items.intro_text }</textarea><br>
 상품 가격 :  <input type="text" name="price"size="20" value="${items.price }">원<br>
 방문 도시 :  <input type="text" name="city"size="40" value="${items.city }"><br>
+방문 도시 :  <input type="text" name="city_id"size="40" value="${items.city_id }"><br>
+
 이미지1 : <input type="file" name=upload><br>
 이미지2 : <input type="file" name="upload"><br>
 이미지3 : <input type="file" name="upload"><br>
@@ -53,13 +30,10 @@
 이미지10 : <input type="file" name="upload"><br>
 이미지11 : <input type="file" name="upload"><br>
 <h3>스케줄</h3>
-<div id="schedule_div">
-<input type="hidden" value="${list_size }" id="list_size">
 <c:forEach var="s" items="${schedules }" varStatus="status">
 ${status.count }일차  <br> <textarea  name="day" cols="100" rows="10">${s.content }</textarea><br>
 </c:forEach>
-</div>
-<button id="btn_schedule_add">일정 추가</button>
+
 <input type="submit" value="등록" class="btn btn-primary">
 </form>
 </body>

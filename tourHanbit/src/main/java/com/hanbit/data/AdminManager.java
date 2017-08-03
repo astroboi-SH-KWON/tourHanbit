@@ -77,7 +77,8 @@ public class AdminManager {
 			pMap.put("price",piv.getPrice());
 			pMap.put("city",piv.getCity());
 			pMap.put("item_name",piv.getItem_name());
-				
+			pMap.put("city_id",piv.getCity_id());
+		
 			session.insert("admin.insertPackage",pMap);
 			
 			HashMap imgMap= new HashMap();
@@ -204,6 +205,7 @@ public class AdminManager {
 			pMap.put("intro_text", pv.getIntro_text());
 			pMap.put("price", pv.getPrice());
 			pMap.put("city", pv.getCity());
+			pMap.put("city_id", pv.getCity_id());
 			pMap.put("reser", pv.getReser());
 			pMap.put("item_name", pv.getItem_name());
 			
@@ -220,15 +222,18 @@ public class AdminManager {
 			int re=session.update("admin.updateImage",imgMap);
 			
 			HashMap sMap= new HashMap();
+			
+			
 			sMap.put("item_key", pv.getItem_key());
-			for(int j=1;j<days.length-1;j++)
+		
+			int i=0;
+			for(int j=1;j<=days.length;j++)
 			{
+				
 				sMap.put("day_number",j);
-				sMap.put("content", days[j-1]);
-				
+				sMap.put("content", days[i]);
 				int se=session.update("admin.updateSchedule",sMap);
-				
-				
+				i++;
 			}			
 			
 			return re;

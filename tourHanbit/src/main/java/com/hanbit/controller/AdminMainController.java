@@ -48,6 +48,7 @@ public class AdminMainController {
 		code.clear();
 		
 		File file;
+		
 			file= code.startPlot();
 		code.addRCode("library(DBI)");
 			code.addRCode("library(RODBC)");

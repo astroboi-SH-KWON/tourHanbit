@@ -38,14 +38,10 @@ public class AdminUpdateItemController {
 		
 		
 		List<ScheduleVo> list=dao.getSchedule(item_key);
-		int list_size= list.size();
-		
 		
 		mav.addObject("items", dao.getDetailItem(item_key));
 		mav.addObject("schedules", list);
-		mav.addObject("list_size",list_size);
 		
-			
 			mav.addObject("view", "adminUpdateItem.jsp");
 			mav.setViewName("/admin/adminTemplate");
 		return mav;
@@ -57,8 +53,6 @@ public class AdminUpdateItemController {
 		
 		MultipartHttpServletRequest multi=(MultipartHttpServletRequest)request;
 		String[] days=multi.getParameterValues("day");
-		
-		
 		
 		String path = request.getRealPath("resources/img");
 		System.out.println(path);
