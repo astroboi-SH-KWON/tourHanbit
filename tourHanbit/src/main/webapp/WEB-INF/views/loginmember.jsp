@@ -4,17 +4,43 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="resources/js/index.js"></script>
+  <link rel="stylesheet" href="resources/css/style.css">
 <title>Insert title here</title>
 </head>
 <body>
 <h2>로그인</h2>
-<form action="loginmember.do" method="post">
-아이디 : <input type="text" name="mem_id"><br>
-비밀번호 : <input type="password" name="mem_pwd"><br> 
-<input type="submit" value="로그인">
-<input type="reset" value="취소"> 
 
-</form>
+  
+  <div class="wrapper">
+	<div class="container">
+		<h1>Welcome</h1>
+		
+		<form action="loginmember.do" method="post" class="form">
+			<input type="text" name="mem_id" placeholder="Username"><br>
+			<input type="password" name="mem_pwd" placeholder="Password"><br> 
+			<button type="submit" id="login-button">Login</button>
+		</form>
+			<a href="findpassword.do">Find Password<a>
+	</div>
+	
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
 
+
+ 	
+ 
 </body>
 </html>

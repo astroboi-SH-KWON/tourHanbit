@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.hanbit.dao.MemberDao;
 
 @Controller
-@RequestMapping("/member/airplanorders.do")
+@RequestMapping("/airplanorders.do")
 public class AirPlaneOrdersController {
 
 	@Autowired
@@ -56,7 +56,7 @@ public class AirPlaneOrdersController {
 		try{
 		Thread.sleep(2000);
 		}catch(Exception e){System.out.println(e.getMessage());}
-		mav.setViewName("redirect:/main.do");
+		mav.setViewName("redirect:/srch.do");
 		return mav;
 	}
 

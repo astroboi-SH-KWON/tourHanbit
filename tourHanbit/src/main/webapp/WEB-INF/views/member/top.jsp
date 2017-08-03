@@ -134,7 +134,7 @@ $(function() {
 		  <c:if test="${thisis_admin==100}">
 		  	<li><a href="adminLogin.com"><span class="glyphicon glyphicon-log-in"></span>관리자페이지</a></li>
 		  </c:if>
-		 <li><a href="mypage.do"><span ></span>MyPage   </a></li>
+		 <li><a href="memberMypage.do"><span ></span>MyPage   </a></li>
 	  </c:if>
 	 
 	</ul>
