@@ -105,7 +105,7 @@
 			
 			<div class="w3-content w3-display-container" >
 			<c:forEach items="${main }" var="m">
-				<a href="listSubPackage.do?item_key=${m.item_key }"><img class="mySlides w3-animate-fading" src="resources/img/${m.image01 }" style="height:400px;width:980px; border-radius: 3px;"></a>
+				<a href="listSubPackage.do?item_key=${m.item_key }"><img class="mySlides w3-animate-fading" src="/tourapp/resources/img/${m.image01 }" style="height:400px;width:980px; border-radius: 3px;"></a>
 			</c:forEach>
 			  
 			   <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
@@ -228,7 +228,7 @@
 		  <div class="col-md-4" style="height:300px;width:350px;padding-top: 5px;"  >
 		    <div class="thumbnail">
 		      <a href="listSubPackage.do?item_key=${m.item_key }">
-		        <img src="resources/img/${m.image01 }" alt="Lights" style="height:250px;width:300px;">
+		        <img src="/tourapp/resources/img/${m.image01 }" alt="Lights" style="height:250px;width:300px;">
 		        <div class="caption">
 		          <p>
 		          <c:if test="${m.reser==20 }">
@@ -246,7 +246,7 @@
 		  <div class="col-md-4" style="height:300px;width:350px;padding-top: 5px;"  >
 		    <div class="thumbnail">
 		      <a href="listSubPackage.do?item_key=${m.item_key }">
-		        <img src="resources/img/${m.image01 }" alt="Lights" style="height:250px;width:300px;">
+		        <img src="/tourapp/resources/img/${m.image01 }" alt="Lights" style="height:250px;width:300px;">
 		        <div class="caption">
 		          <p>
 		          <c:if test="${m.reser==20 }">
@@ -269,7 +269,7 @@
 <p class="bar2"><font style="margin-left: 100px">EVENT</font>  </p>
 	<c:forEach items="${event }" var="m" begin="0" end="0">
 			<a href="listSubPackage.do?item_key=${m.item_key }"><div class="eventleft">
-			<div class="eventLeftIn"><img src="resources/img/${m.image01 }"  id="event01" style="height:200px;width:250px;"></div>
+			<div class="eventLeftIn"><img src="/tourapp/resources/img/${m.image01 }"  id="event01" style="height:200px;width:250px;"></div>
 			<div class="eventLeftIn">${m.intro_text}</div>
 		  
 		</div></a>
@@ -279,7 +279,7 @@
 <div class="eventRight">
 	<c:forEach items="${event }" var="m" begin="1" end="2">
 	<a href="listSubPackage.do?item_key=${m.item_key }"><div class="eventRightIn">
- 	<div class="eventRightInIn1"><img id="event02" style="height:100px;width:180px;" src="resources/img/${m.image01 }"></div>
+ 	<div class="eventRightInIn1"><img id="event02" style="height:100px;width:180px;" src="/tourapp/resources/img/${m.image01 }"></div>
 	<div class="eventRightInIn2">${m.intro_text}</div>
 	</div></a>
 	</c:forEach>

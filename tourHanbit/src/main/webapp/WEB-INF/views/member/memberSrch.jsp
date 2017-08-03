@@ -47,16 +47,16 @@ th {
 			<td colspan="6" >
 			<c:if test="${empty b.d_date }">
 				<a href="listSubPackage.do?item_key=${b.item_key }">
-				<img src="resources/img/${b.image01}" align="center" style="height:300px;width:500px;">
+				<img src="/tourapp/resources/img/${b.image01}" align="center" style="height:300px;width:500px;">
 			</c:if>
 			<c:if test="${not empty b.d_date }">
 				<a href="detail.do?item_key_sub=${b.item_key_sub }">
 				<c:if test="${b.reser_sub>=20 }">
 					<h2><font color="red">마감</font> </h2>
-					<img src="resources/img/${b.image01}" align="center" style="height:300px;width:500px;filter:blur(5px);">
+					<img src="/tourapp/resources/img/${b.image01}" align="center" style="height:300px;width:500px;filter:blur(5px);">
 				</c:if>
 				<c:if test="${b.reser_sub<20 }">
-					<img src="resources/img/${b.image01}" align="center" style="height:300px;width:500px;">
+					<img src="/tourapp/resources/img/${b.image01}" align="center" style="height:300px;width:500px;">
 				</c:if>
 			</c:if>
 			</td>
