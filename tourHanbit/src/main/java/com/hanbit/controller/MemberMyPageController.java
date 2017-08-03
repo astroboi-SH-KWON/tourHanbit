@@ -43,7 +43,10 @@ public class MemberMyPageController {
 		mav.addObject("order", mem_id);
 
 		mav.addObject("m",m);
-
+		
+		mav.addObject("viewPage", "member/memberMypage.jsp");
+		mav.setViewName("/template");
+		
 		return mav;
 	}
 

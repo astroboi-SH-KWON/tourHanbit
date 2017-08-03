@@ -24,8 +24,12 @@ public class MemberLoginController {
 	}
 
 	@RequestMapping(method=RequestMethod.GET)
-	public void form()
+	public ModelAndView form()
 	{
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("viewPage", "loginmember.jsp");
+		mav.setViewName("/template");
+		return mav;
 	}
 
 	@RequestMapping(method=RequestMethod.POST)

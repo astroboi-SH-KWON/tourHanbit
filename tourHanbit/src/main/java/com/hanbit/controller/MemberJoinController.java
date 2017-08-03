@@ -22,8 +22,13 @@ public class MemberJoinController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public void form()
+	public ModelAndView form()
 	{
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("viewPage", "joinMember.jsp");
+		mav.setViewName("/template");
+		return mav;
+		
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
