@@ -75,7 +75,7 @@ public class MemberManager {
 	}
 
 	
-	public static MemberVo memberfindpassword(String mem_id, String mem_email) {
+	public static String memberfindpassword(String mem_id, String mem_email) {
 		
 		
 		int re = -1;
@@ -84,10 +84,9 @@ public class MemberManager {
 		map.put("mem_id", mem_id);
 		map.put("mem_email", mem_email);
 		
-		MemberVo m = session.selectOne("member.memberfindpassword",map);
+		String mem_pwd = session.selectOne("member.memberfindpassword",map);
 		
-		
-		return m;
+		return mem_pwd;
 	}
 	
 	public static List<OrdersVo> memberpaymentdetails(String mem_id) {

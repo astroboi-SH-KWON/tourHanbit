@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <style type="text/css">
 body{
-background-image: url("resources/img/world.JPG");
+background-image: url("resources/airplane/world.JPG");
 background-repeat: no-repeat;
 }
 #airplane{
@@ -99,7 +99,7 @@ position: absolute;
 	             data:{"oceania":oceania},
 	             success : function(data)
 	             {
-	            	 location.href="main.do";
+	            	 /* location.href="main.do"; */
 	             }
 	            });
         		$("#airplane").animate({ width: "40", height:"40", opacity: 15.0, top:"400",left: "390", borderWidth: "0px" }, 2000 )
@@ -113,7 +113,7 @@ position: absolute;
             data:{"n_america":n_america},
             success : function(data)
             {
-            	location.href="main.do";
+            	location.href="srch.do";
             }
            });
  			$("#airplane").animate({ width: "40", height:"40" , opacity: 15.0, top:"380",left: "+=440", borderWidth: "0px" }, 2000 );

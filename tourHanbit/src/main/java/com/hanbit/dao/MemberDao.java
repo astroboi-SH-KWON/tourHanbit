@@ -39,7 +39,7 @@ public class MemberDao {
 		return MemberManager.membermypage(mem_id);
 	}
 	
-	public MemberVo memberfindpassword(String mem_id, String mem_pwd)
+	public String memberfindpassword(String mem_id, String mem_pwd)
 	{
 		return MemberManager.memberfindpassword(mem_id,mem_pwd);
 	}
