@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <style type="text/css">
 body{
 background-image: url("resources/img/world.JPG");
@@ -127,12 +127,12 @@ position: absolute;
 
 <!-- <form action="airplanorders.do" method="post">
  -->
-<input type="image" value="¿À¼¼¾Æ´Ï¾Æ" src="resources/img/¿À¼¼¾Æ´Ï¾Æ.JPG" id="oceania" name="oceania" class="continent" width="40" height="40" alt="¿À¼¼¾Æ´Ï¾Æ">
-<input type="image" value="¾Æ½Ã¾Æ" src="resources/img/¾Æ½Ã¾Æ.JPG" id="asia" name="asia" class="continent" width="40" height="40">
-<input type="image" value="À¯·´" src="resources/img/À¯·´.JPG" id="europe" name="europe" class="continent" width="40" height="40">
-<input type="image" value="¾ÆÇÁ¸®Ä«" src="resources/img/¾ÆÇÁ¸®Ä«.JPG" id="afreeca" class="continent" name="afreeca" width="40" height="40">
-<input type="image" value="³²¾Æ¸Þ¸®Ä«" src="resources/img/³²¾Æ¸Þ¸®Ä«.JPG" id="s_america" name="s_america" class="continent" width="40" height="40">
-<input type="image" value="ºÏ¾Æ¸Þ¸®Ä«" src="resources/img/ºÏ¾Æ¸Þ¸®Ä«.JPG" id="n_america" name="n_america" class="continent" width="40" height="40">
+<input type="image" value="ì˜¤ì„¸ì•„ë‹ˆì•„" src="resources/img/ì˜¤ì„¸ì•„ë‹ˆì•„.JPG" id="oceania" name="oceania" class="continent" width="40" height="40" alt="ì˜¤ì„¸ì•„ë‹ˆì•„">
+<input type="image" value="ì•„ì‹œì•„" src="resources/img/ì•„ì‹œì•„.JPG" id="asia" name="asia" class="continent" width="40" height="40">
+<input type="image" value="ìœ ëŸ½" src="resources/img/ìœ ëŸ½.JPG" id="europe" name="europe" class="continent" width="40" height="40">
+<input type="image" value="ì•„í”„ë¦¬ì¹´" src="resources/img/ì•„í”„ë¦¬ì¹´.JPG" id="afreeca" class="continent" name="afreeca" width="40" height="40">
+<input type="image" value="ë‚¨ì•„ë©”ë¦¬ì¹´" src="resources/img/ë‚¨ì•„ë©”ë¦¬ì¹´.JPG" id="s_america" name="s_america" class="continent" width="40" height="40">
+<input type="image" value="ë¶ì•„ë©”ë¦¬ì¹´" src="resources/img/ë¶ì•„ë©”ë¦¬ì¹´.JPG" id="n_america" name="n_america" class="continent" width="40" height="40">
 <input type="image" value="letsgo" src="resources/img/airplan.png" id="airplane" width="15" height="15">
 <!-- 
 </form> -->

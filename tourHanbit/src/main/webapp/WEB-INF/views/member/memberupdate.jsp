@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script type="text/javascript">
 
@@ -25,18 +25,18 @@ $(function(){
 
 <form action="memberupdate.do" method="post">
 <table border="1">
-<tr><td>¾ÆÀÌµğ</td><td><input type="text" value="${mem_update_ready.mem_id }" name="mem_id" readonly="readonly"></td><td></td></tr>
-<tr><td>ºñ¹Ğ¹øÈ£</td><td><input type="password" name="mem_pwd" id="mem_pwd" value="${mem_update_ready.mem_pwd }"></td><td></td></tr>
-<tr><td>ºñ¹Ğ¹øÈ£ È®ÀÎ</td><td><input type="password" name="mem_pwdcheck" id="mem_pwdcheck" value="${mem_update_ready.mem_pwd }"></td><td></td></tr>
-<tr><td>ÀÌ¸§</td><td><input type="text" value="${mem_update_ready.mem_name }" name="mem_name" readonly="readonly"></input></td><td></td></tr>
-<tr><td>ÀÌ¸ŞÀÏ</td><td><input type="text" value="${emailch }" name="mem_email" id="mem_email">@
+<tr><td>ì•„ì´ë””</td><td><input type="text" value="${mem_update_ready.mem_id }" name="mem_id" readonly="readonly"></td><td></td></tr>
+<tr><td>ë¹„ë°€ë²ˆí˜¸</td><td><input type="password" name="mem_pwd" id="mem_pwd" value="${mem_update_ready.mem_pwd }"></td><td></td></tr>
+<tr><td>ë¹„ë°€ë²ˆí˜¸ í™•ì¸</td><td><input type="password" name="mem_pwdcheck" id="mem_pwdcheck" value="${mem_update_ready.mem_pwd }"></td><td></td></tr>
+<tr><td>ì´ë¦„</td><td><input type="text" value="${mem_update_ready.mem_name }" name="mem_name" readonly="readonly"></input></td><td></td></tr>
+<tr><td>ì´ë©”ì¼</td><td><input type="text" value="${emailch }" name="mem_email" id="mem_email">@
 											<select name="mem_email" id="mem_emailend" data-type="${endemail }">
 											<option>naver.com</option>
 											<option>nate.com</option>
 											<option>gmail.com</option>
 											<option>hanmail.net</option>
 											</select></td><td></td></tr>
-<tr><td>ÈŞ´ëÆù¹øÈ£ ¹øÈ£ </td><td><select name="mem_phone" id="mem_phonef" data-type="${phonef }"> 
+<tr><td>íœ´ëŒ€í°ë²ˆí˜¸ ë²ˆí˜¸ </td><td><select name="mem_phone" id="mem_phonef" data-type="${phonef }"> 
 			<option>010</option>
 			<option>016</option>
 			<option>018</option>
@@ -44,7 +44,7 @@ $(function(){
 			</select>
 			-<input type="text" name="mem_phone" id="mem_phonec" maxlength="4" value="${phonec }">
 			-<input type="text" name="mem_phone" id="mem_phonee" maxlength="4" value="${phonee }"><br></td><td></td></tr>
-<tr><td></td><td><center><input type="submit" value="Á¤º¸º¯°æ"><input type="reset" value="´Ù½ÃÀÔ·Â"></center></td><td></td></tr>
+<tr><td></td><td><center><input type="submit" value="ì •ë³´ë³€ê²½"><input type="reset" value="ë‹¤ì‹œì…ë ¥"></center></td><td></td></tr>
 </table>
 
 </form>
