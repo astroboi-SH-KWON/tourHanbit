@@ -71,8 +71,6 @@ public class MemberManager {
 
 		String id = session.selectOne("member.memberlogin",map);
 		
-		System.out.println("매니저의 id"+ id);
-		
 		return id;
 	}
 

@@ -220,15 +220,18 @@ public class AdminManager {
 			int re=session.update("admin.updateImage",imgMap);
 			
 			HashMap sMap= new HashMap();
+			
+			
 			sMap.put("item_key", pv.getItem_key());
-			for(int j=1;j<days.length-1;j++)
+		
+			int i=0;
+			for(int j=1;j<=days.length;j++)
 			{
+				
 				sMap.put("day_number",j);
-				sMap.put("content", days[j-1]);
-				
+				sMap.put("content", days[i]);
 				int se=session.update("admin.updateSchedule",sMap);
-				
-				
+				i++;
 			}			
 			
 			return re;
