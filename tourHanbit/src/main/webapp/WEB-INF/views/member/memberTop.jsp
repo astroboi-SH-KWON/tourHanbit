@@ -116,25 +116,25 @@ $(function() {
 	<nav class="navbar navbar-inverse ">
   	<div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="mainPage.do">한빛여행사</a>
+      <a class="navbar-brand" href="memberMainPage.do">한빛여행사</a>
     </div>
 
     <ul class="nav navbar-nav navbar-right ">
 
-	
-	<c:if test="${empty id}">
+
+	 <c:if test="${empty id}">
 	   <li><a href="joinMember.do"><span class="glyphicon glyphicon-user"></span>회원 가입</a></li>
       <li><a href="loginmember.do"><span class="glyphicon glyphicon-log-in"></span>로그인</a></li>
-	<</c:if>
+	</c:if>
 	  
 	  
-	  <c:if test="${not empty id}">
-	  	<li><a href="member/logout.do"><span class="glyphicon glyphicon-log-in"></span>로그아웃</a></li>
+	  <c:if test="${not empty id }">
+	  	<li><a href="logout.do"><span class="glyphicon glyphicon-log-in"></span>로그아웃</a></li>
     
 		  <c:if test="${thisis_admin==100}">
 		  	<li><a href="adminLogin.com"><span class="glyphicon glyphicon-log-in"></span>관리자페이지</a></li>
 		  </c:if>
-		 <li><a href="member/memberMypage.do"><span ></span>MyPage   </a></li>
+		 <li><a href="mypage.do"><span ></span>MyPage   </a></li>
 	  </c:if>
 	 
 	</ul>
@@ -142,16 +142,15 @@ $(function() {
 	</nav>
 <hr>
 	<div class="btn-group btn-group-justified" >
-    <a href="mainPage.do?page=dom" class="btn btn-primary" >국내여행</a>
-    <a href="mainPage.do?page=inter" class="btn btn-primary" >해외여행</a>
+    <a href="memberMainPage.do?page=dom" class="btn btn-primary" >국내여행</a>
+    <a href="memberMainPage.do?page=inter" class="btn btn-primary" >해외여행</a>
     <a href="listQna.do" class="btn btn-primary" >Q&A</a>
     <a href="listNotice.do" class="btn btn-primary" >공지사항</a>
    </div>
    
-   
 	<center>
 <div >
-  <form action="srch.do">
+  <form action="memberSrch.do">
       
 	<table>
 		<tr>

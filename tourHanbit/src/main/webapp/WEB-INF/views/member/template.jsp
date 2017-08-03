@@ -10,14 +10,14 @@
 <body>
 	
 	<table width="100%" border="1">
-		<tr><td colspan="2"> <jsp:include page="top.jsp"/></td></tr>
+		<tr><td colspan="2"> <jsp:include page="memberTop.jsp"/></td></tr>
 		<tr>
 		
 			<td width="80%">  <jsp:include page="${viewPage }"/></td>
 			<c:if test="${!empty(item_key)}">
-			<td width="100%" height="80%" valign="top"><jsp:include page="right.jsp"></jsp:include></td></tr>
+			<td width="100%" height="80%" valign="top"><jsp:include page="memberRight.jsp"></jsp:include></td></tr>
 			</c:if>
-		<tr><td colspan="2"><jsp:include page="bottom.jsp"/></td></tr>
+		<tr><td colspan="2"><jsp:include page="memberBottom.jsp"/></td></tr>
 	
 	</table>
 	

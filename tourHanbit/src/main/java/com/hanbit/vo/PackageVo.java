@@ -8,6 +8,8 @@ public class PackageVo {
 
 	private int item_key,price_sub,price,reser,reser_sub,hit,city_id;
 	private String intro_text,d_date_str,a_date_str,airplane,city,item_name,image01,item_key_sub;
+
+
 	private Date a_date,d_date;
 	
 	public PackageVo() {
@@ -15,7 +17,30 @@ public class PackageVo {
 		// TODO Auto-generated constructor stub
 	}
 
-	
+
+	public PackageVo(int item_key, int price_sub, int price, int reser, int reser_sub, int hit, int city_id,
+			String intro_text, String d_date_str, String a_date_str, String airplane, String city, String item_name,
+			String image01, String item_key_sub, Date a_date, Date d_date) {
+		super();
+		this.item_key = item_key;
+		this.price_sub = price_sub;
+		this.price = price;
+		this.reser = reser;
+		this.reser_sub = reser_sub;
+		this.hit = hit;
+		this.city_id = city_id;
+		this.intro_text = intro_text;
+		this.d_date_str = d_date_str;
+		this.a_date_str = a_date_str;
+		this.airplane = airplane;
+		this.city = city;
+		this.item_name = item_name;
+		this.image01 = image01;
+		this.item_key_sub = item_key_sub;
+		this.a_date = a_date;
+		this.d_date = d_date;
+	}
+
 	public int getItem_key() {
 		return item_key;
 	}
@@ -100,7 +125,7 @@ public class PackageVo {
 	public void setImage01(String image01) {
 		this.image01 = image01;
 	}
-	
+
 	public String getItem_key_sub() {
 		return item_key_sub;
 	}
@@ -120,28 +145,8 @@ public class PackageVo {
 		this.d_date = d_date;
 	}
 
-	public PackageVo(int item_key, int price_sub, int price, int reser, int reser_sub, int hit, int city_id,
-			String intro_text, String d_date_str, String a_date_str, String airplane, String city, String item_name,
-			String image01, String item_key_sub, Date a_date, Date d_date) {
-		super();
-		this.item_key = item_key;
-		this.price_sub = price_sub;
-		this.price = price;
-		this.reser = reser;
-		this.reser_sub = reser_sub;
-		this.hit = hit;
-		this.city_id = city_id;
-		this.intro_text = intro_text;
-		this.d_date_str = d_date_str;
-		this.a_date_str = a_date_str;
-		this.airplane = airplane;
-		this.city = city;
-		this.item_name = item_name;
-		this.image01 = image01;
-		this.item_key_sub = item_key_sub;
-		this.a_date = a_date;
-		this.d_date = d_date;
-	}
+
+	
 	
 	
 	

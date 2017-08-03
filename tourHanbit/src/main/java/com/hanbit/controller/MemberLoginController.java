@@ -43,11 +43,13 @@ public class MemberLoginController {
 		{
 
 			session.setAttribute("id", id);
+
 			mav.setViewName("redirect:/member/memberMypage.do");
 			if(id.equals("admin"))
 			{
 				session.setAttribute("thisis_admin", 100);
 			}
+
 		}
 		
 		else

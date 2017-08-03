@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript">
   
@@ -112,19 +112,19 @@
 						<td>${pd.item_name }</td>
 						<td>${pd.price }</td>
 						<td>${pd.orderdate }</td>
-						<td><c:if test="${pd.deposit == 'yet' }">
+						<td><c:if test="${pd.deposit != 'yet' }">
 						입금 완료
 						</c:if>
-						<c:if test="${pd.deposit != 'yet' }">
+						<c:if test="${pd.deposit == 'yet' }">
 						입금 전
 						</c:if>
 						</td>
 						
 						
-				<td><c:if test="${pd.deposit == 'yet' }">
+				<td><c:if test="${pd.deposit != 'yet' }">
 				<font color="red">결제 완료</font>
 				</c:if>
-				<c:if test="${pd.deposit != 'yet' }">
+				<c:if test="${pd.deposit == 'yet' }">
 				<center><a href="memberMypagedelete.do?orderid=${pd.orderid }">취소</a></center>
 				</c:if></td>
 				</tr>
