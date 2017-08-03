@@ -47,7 +47,7 @@ public class MemberLoginController {
 			mav.setViewName("redirect:/member/memberMypage.do");
 			if(id.equals("admin"))
 			{
-				session.setAttribute("thisis_admin",100);
+				session.setAttribute("thisis_admin",1000);
 			}
 
 		}
