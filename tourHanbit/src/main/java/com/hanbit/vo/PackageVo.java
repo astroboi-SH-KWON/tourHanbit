@@ -6,28 +6,8 @@ import java.util.Date;
 
 public class PackageVo {
 	private int item_key,price,reser;
-	private String intro_text,d_date_str,a_date_str,airplane,city,item_name,image01;
+	private String intro_text,d_date_str,a_date_str,airplane,city,item_name,image01,city_id;
 	private Date a_date,d_date;
-	public PackageVo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public PackageVo(int item_key, int price, int reser, String intro_text, String d_date_str, String a_date_str,
-			String airplane, String city, String item_name, String image01, Date a_date, Date d_date) {
-		super();
-		this.item_key = item_key;
-		this.price = price;
-		this.reser = reser;
-		this.intro_text = intro_text;
-		this.d_date_str = d_date_str;
-		this.a_date_str = a_date_str;
-		this.airplane = airplane;
-		this.city = city;
-		this.item_name = item_name;
-		this.image01 = image01;
-		this.a_date = a_date;
-		this.d_date = d_date;
-	}
 	public int getItem_key() {
 		return item_key;
 	}
@@ -88,6 +68,12 @@ public class PackageVo {
 	public void setImage01(String image01) {
 		this.image01 = image01;
 	}
+	public String getCity_id() {
+		return city_id;
+	}
+	public void setCity_id(String city_id) {
+		this.city_id = city_id;
+	}
 	public Date getA_date() {
 		return a_date;
 	}
@@ -100,5 +86,28 @@ public class PackageVo {
 	public void setD_date(Date d_date) {
 		this.d_date = d_date;
 	}
+	public PackageVo(int item_key, int price, int reser, String intro_text, String d_date_str, String a_date_str,
+			String airplane, String city, String item_name, String image01, String city_id, Date a_date, Date d_date) {
+		super();
+		this.item_key = item_key;
+		this.price = price;
+		this.reser = reser;
+		this.intro_text = intro_text;
+		this.d_date_str = d_date_str;
+		this.a_date_str = a_date_str;
+		this.airplane = airplane;
+		this.city = city;
+		this.item_name = item_name;
+		this.image01 = image01;
+		this.city_id = city_id;
+		this.a_date = a_date;
+		this.d_date = d_date;
+	}
+	public PackageVo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 	
 }

@@ -5,98 +5,154 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <script type="text/javascript">
 
-function reserve()
-{
-	
-	var price = document.getElementById("price").value;
-  var itemkey = document.getElementById("itemkey").value;
-  var ddate = document.getElementById("ddate").value;
-  var adate = document.getElementById("adate").value;
-  var city = document.getElementById("city").value;
-  var orderssu = eval(document.getElementById("orderssu").value);
-  var itemname = document.getElementById("itemname").value;
-  var reser=  eval(document.getElementById("reser").value); 
-  
-   var r = window.open('','','width=300,height=400');
-   
-   if((reser+orderssu)>20){
-	   r.document.write("<h2>예약 가능</h2><h1>인원 수 초과</h1>");
-   }else{
+
+$(function(){
+	 adult_su=0;
+	 child_su=0;
+	 baby_su=0;
+	 price = eval($("#price").val());
+
+	 
+	 $("#adult_su").change(function(){
+	   adult_su=eval($(this).val());
+	   totprice();
+	})
+	$("#child_su").change(function(){
+	   child_su=eval($(this).val());
+	   totprice();
+	})
+	$("#baby_su").change(function(){
+	   baby_su=eval($(this).val());
 	   
-   r.document.write("<table><tr><td>상품가격 </td> ");
-   r.document.write('<td>'+price+'</td></tr>');
-   r.document.write("<tr><td>상품번호 </td>");
-   r.document.write('<td>'+itemkey+'</td></tr>');
-   r.document.write("<tr><td>출발일 </td>");
-   r.document.write('<td>'+ddate+'</td></tr>');
-   r.document.write("<tr><td>도착일   </td>");
-   r.document.write('<td>'+adate+'</td></tr>');
-   r.document.write("<tr><td>방문도시 </td>");
-   r.document.write('<td>'+city+'</td></tr>');
-   r.document.write("<tr><td>예약인원 </td>");
-   r.document.write('<td>'+orderssu+'</td></tr>');
-   r.document.write("<tr><td>상품명   </td>");
-   r.document.write('<td>'+itemname+'</td></tr>');
-   r.document.write("<tr><td>항공사   </td> <td>대한항공"+'</td></tr></table>');
-   r.document.write("<center><h2>예약 완료</h2></center>");
-   }
-   
-   window.location.reload(true);
-   
-   
+	   totprice();
+	}) 
+	
+})
+function totprice(){
+	   $("#tr").empty();
+	   tot_su = adult_su+(child_su*0.8)+(baby_su*0.4);
+	   tot_su2 = adult_su+child_su+baby_su;
+	   tot_p=tot_su*price;
+	   
+	   var td1=$("<td></td>").html("<h4>총가격</h4>");
+	   var td2=$("<td></td>").html(tot_p+"원");
+	   var hidden=$("<input type='hidden' name='totPrice' value="+tot_p+">");
+	   $("#tr").append(td1,td2,hidden);
 }
+
+function pro(){
+	
+	 var item_key_sub = $("#item_key_sub").val();
+ 	  var d_date = $("#d_date").text();
+	  var price_sub = $("#price_sub").text();
+	  var a_date = $("#a_date").text();
+	  var item_name = $("#item_name").text();
+	  var city = $("#city").text();
+	  var airplane = $("#airplane").text();
+	  var orders_su = eval($("#orders_su").val());
+	  var reser_sub=  eval($("#reser_sub").val()); 
+	 
+	 
+	if(confirm("예약하시겠습니까??")==true){
+		
+		if((reser_sub+tot_su2)>20){
+			var l = window.open('','reservation','width=270,height=170,top=200,left=600,location=0');
+		 	  
+			 l.document.write("<h2>예약 가능 인원 수 초과</h2>");
+		   }
+		 	else{	
+		       var r = window.open('','reservation','width=300,height=350,top=200,left=600,location=0');
+		       
+		 	   r.document.write("<table><tr><td style='background-color:#337ab7;'>상품가격 </td>");
+		 	   r.document.write('<td>'+tot_p+'</td></tr>');
+		 	   r.document.write("<tr><td style='background-color:#337ab7;'>상품번호 </td>");
+		 	   r.document.write('<td>'+item_key_sub+'</td></tr>');
+		 	   r.document.write("<tr><td style='background-color:#337ab7;'>출발일 </td>");
+		 	   r.document.write('<td>'+d_date+'</td></tr>');
+		 	   r.document.write("<tr><td style='background-color:#337ab7;'>도착일   </td>");
+		 	   r.document.write('<td>'+a_date+'</td></tr>');
+		 	   r.document.write("<tr><td style='background-color:#337ab7;'>방문도시 </td>");
+		 	   r.document.write('<td>'+city+'</td></tr>');
+		 	   r.document.write("<tr><td style='background-color:#337ab7;'>예약인원 </td>");
+		 	   r.document.write('<td>성인 : '+adult_su+'/아동: '+child_su+'/유아: '+baby_su+'<br>총인원 : '+tot_su2+'</td></tr>');
+		 	   r.document.write("<tr><td style='background-color:#337ab7;'>상품명   </td>");
+		 	   r.document.write('<td>'+item_name+'</td></tr>');
+		 	   r.document.write("<tr><td style='background-color:#337ab7;'>항공사   </td>");
+		 	   r.document.write("<td>"+airplane+"</td></tr>");
+		 	   r.document.write("<tr><td colspan='2'><center><h2>예약 완료</h2></center></td></table>");
+		 	  $("#f").submit();
+		 	   } 
+		
+	}   
+	
+	
+}
+
 
 </script>
 <title>Insert title here</title>
 </head>
 <body>
 
-<form action="orders.do" method="post">
-<input type="hidden" id="price" value="${p.price}">
-<input type="hidden" id="itemkey" value="${p.item_key}">
-<input type="hidden" id="ddate" value="${p.d_date }">
-<input type="hidden" id="adate" value="${p.a_date }">
-<input type="hidden" id="city" value="${p.city }">
-
-<input type="hidden" id="itemname" value="${p.item_name}">
+<form action="insertOrder.do" method="post" id="f">
+<input type="hidden" id="item_key" name="item_key" value="${p.item_key}">
+<input type="hidden" id="item_key_sub" name="item_key_sub" value="${sp.item_key_sub}">
+<input type="hidden" id="reser_sub" value="${sp.reser_sub}">
+<input type="hidden" id="price" value="${sp.price_sub}">
 
 
-<table  width="100%" height="100%">
+<table width="100%" height="100%">
    
    <tr>
-      <td>상품가격 : ${p.price}</td>
+      <td align="center" colspan="2" style="background-color:#337ab7;">상품가격(성인1인기준)</td>
+   <tr>
+  	 <td align="center" colspan="2" style="background-color:#337ab7;" id="price_sub"><h2>${sp.price_sub}원</h2></td>
+   </tr>
+   </table>
+   <table>
+   <tr>
+   <td><center><b>아동</b><font color="gray">(만12세 미만)</font></center></td><td><b>유아</b><font color="gray">(만 2세 미만)</font></td>
    </tr>
    <tr>
-      <td>상품번호 : ${p.item_key}</td>
-      <td><input type="hidden" name="item_key" value="${p.item_key}"> </td>
+   <td><center>${child_p }</center></td><td><center>${baby_p }</center></td>
+   </tr>
+   </table>
+   <table>
+   <tr>
+      <td width="30%">상품번호 </td><td id="item_key_sub">  [${sp.item_key_sub}]</td>
    </tr>
    <tr>
-      <td>출발일 : ${p.d_date}</td>
+      <td>상품명 </td><td id="item_name">  ${p.item_name}</td>
    </tr>
    <tr>
-      <td>도착일 : ${p.a_date}</td>
+      <td>출발일 </td><td id="d_date">  ${sp.d_date}</td>
+   </tr>
+   <tr>
+      <td>도착일 </td><td id="a_date">  ${sp.a_date}</td>
    </tr>
    <tr>
       <td>
-         항공 :
-         <select>
-            <option value="대한항공">대한항공</option>
-         </select>
+         항공 </td><td id="airplane">  ${sp.airplane }
       </td>
    </tr>
    <tr>
-      <td>방문도시 : ${p.city}</td>
+      <td>방문도시 </td><td id="city">${p.city}</td>
    </tr>
    <tr>
-      <td>현재 예약 인원 : ${p.reser}</td>
-      <td><input type="hidden" id="reser" value="${p.reser}"> </td>
+      <td>남은 좌석 </td><td>  ${seats} (최대인원: 20명)</td>
    </tr>
    <tr>
-      <td>예약 희망 인원
+      <td colspan="2"><center>예약 인원</center></td>
       
-         <select name="orders_su" id="orderssu">
+   </tr>
+   <tr><td>성인</td>
+   <td> 
+      
+         <select name="adult_su" id="adult_su" >
+            <option selected="selected">0</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -105,19 +161,45 @@ function reserve()
          </select>
       </td>
    </tr>
-   <tr>
-      <td>상품명 : ${p.item_name}</td>
+   <tr><td>아동</td>
+   <td> 
+      
+         <select name="child_su" id="child_su">
+            <option selected="selected">0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+         </select>
+      </td>
    </tr>
+   <tr><td>유아</td>
+   <td> 
+      
+         <select name="baby_su" id="baby_su">
+            <option selected="selected">0</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+         </select>
+      </td>
+   </tr>
+   <tr id="tr"></tr>
+   
    <tr>
-   		<c:if test="${p.reser==20 }">
-   		<td align="center"><label><font color="red"><b>마감</b></font>성원에 감사합니다.</label> </td>
+   		<c:if test="${sp.reser_sub==20 }">
+   		<td align="center" colspan="2"><label><font color="red"><b>마감</b></font>성원에 감사합니다.</label> </td>
    		</c:if>
-   		<c:if test="${p.reser!=20 }">
-   		<c:if test="${r==1 }">
-      <td align="center"><input type="submit" value="예약" onclick="reserve()" style="background-color:#337ab7; "></td>
-      </c:if>
+   		<c:if test="${sp.reser_sub!=20 }">
+   		<%-- <c:if test="${r==1 }"> --%>
+      <td colspan="2" align="center"><input type="button" value="예약" onclick="pro()" style="background-color:#337ab7; "></td>
+      <%-- </c:if> --%>
       </c:if>
    </tr>
+   
    
 </table>
 </form>

@@ -6,10 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 .mySlides {display:none}
@@ -103,7 +102,7 @@
 <p>
 			<div class="w3-content w3-display-container" >
 			<c:forEach items="${main }" var="m">
-				<a href="detail.do?item_key=${m.item_key }"><img class="mySlides w3-animate-fading" src="resources/img/${m.image01 }" style="height:400px;width:980px;"></a>
+				<a href="listSubPackage.do?item_key=${m.item_key }"><img class="mySlides w3-animate-fading" src="resources/img/${m.image01 }" style="height:400px;width:980px;"></a>
 			</c:forEach>
 			  
 			   <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
@@ -173,7 +172,7 @@
 			<c:forEach items="${best01 }" var="m">
 		  <div class="col-md-4" style="height:300px;width:350px;"  >
 		    <div class="thumbnail">
-		      <a href="detail.do?item_key=${m.item_key }">
+		      <a href="listSubPackage.do?item_key=${m.item_key }">
 		        <img src="resources/img/${m.image01 }" alt="Lights" style="height:250px;width:300px;">
 		        <div class="caption">
 		          <p>
@@ -191,7 +190,7 @@
 		  <c:forEach items="${best02 }" var="m">
 		  <div class="col-md-4" style="height:300px;width:350px;"  >
 		    <div class="thumbnail">
-		      <a href="detail.do?item_key=${m.item_key }">
+		      <a href="listSubPackage.do?item_key=${m.item_key }">
 		        <img src="resources/img/${m.image01 }" alt="Lights" style="height:250px;width:300px;">
 		        <div class="caption">
 		          <p>
@@ -214,17 +213,17 @@
 
 <p class="bar2"><font style="margin-left: 100px">EVENT</font>  </p>
 	<c:forEach items="${event }" var="m" begin="0" end="0">
-			<a href="detail.do?item_key=${m.item_key }"><div class="eventleft">
+			<a href="listSubPackage.do?item_key=${m.item_key }"><div class="eventleft">
 			<div class="eventLeftIn"><img src="resources/img/${m.image01 }"  id="event01" style="height:200px;width:250px;"></div>
 			<div class="eventLeftIn">${m.intro_text}</div>
 		  
 		</div></a>
 	</c:forEach>
 
-
+z
 <div class="eventRight">
 	<c:forEach items="${event }" var="m" begin="1" end="2">
-	<a href="detail.do?item_key=${m.item_key }"><div class="eventRightIn">
+	<a href="listSubPackage.do?item_key=${m.item_key }"><div class="eventRightIn">
  	<div class="eventRightInIn1"><img id="event02" style="height:100px;width:180px;" src="resources/img/${m.image01 }"></div>
 	<div class="eventRightInIn2">${m.intro_text}</div>
 	</div></a>
