@@ -28,6 +28,8 @@
 								<input type="text" name="price"size="20">원<br>
 								<label class="control-label" for="inputSuccess">방문 도시</label>
 								<input type="text" name="city"size="40"><br>
+								<label class="control-label" for="inputSuccess">도시 ID</label>
+								<input type="text" name="city_id"size="40"><br>
 							</div>
 							<div class="form-group">
 								<label class="control-label" for="inputSuccess">이미지1</label>

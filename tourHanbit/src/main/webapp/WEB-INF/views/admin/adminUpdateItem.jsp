@@ -16,6 +16,8 @@
 상품 소개글   <br> <textarea  name="intro_text" cols="100" rows="10">${items.intro_text }</textarea><br>
 상품 가격 :  <input type="text" name="price"size="20" value="${items.price }">원<br>
 방문 도시 :  <input type="text" name="city"size="40" value="${items.city }"><br>
+방문 도시 :  <input type="text" name="city_id"size="40" value="${items.city_id }"><br>
+
 이미지1 : <input type="file" name=upload><br>
 이미지2 : <input type="file" name="upload"><br>
 이미지3 : <input type="file" name="upload"><br>

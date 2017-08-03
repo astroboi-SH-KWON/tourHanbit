@@ -77,7 +77,8 @@ public class AdminManager {
 			pMap.put("price",piv.getPrice());
 			pMap.put("city",piv.getCity());
 			pMap.put("item_name",piv.getItem_name());
-				
+			pMap.put("city_id",piv.getCity_id());
+		
 			session.insert("admin.insertPackage",pMap);
 			
 			HashMap imgMap= new HashMap();
@@ -204,6 +205,7 @@ public class AdminManager {
 			pMap.put("intro_text", pv.getIntro_text());
 			pMap.put("price", pv.getPrice());
 			pMap.put("city", pv.getCity());
+			pMap.put("city_id", pv.getCity_id());
 			pMap.put("reser", pv.getReser());
 			pMap.put("item_name", pv.getItem_name());
 			
