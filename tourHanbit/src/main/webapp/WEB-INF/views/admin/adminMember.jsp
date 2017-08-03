@@ -12,26 +12,42 @@
 </head>
 <body>
 <h2>회원 관리</h2>
-<div class="container">
-	<table class="table">
-		<tr class="info">
-			<td>아이디</td>
-			<td>성함</td>
-			<td>이메일</td>
-			<td>핸드폰번호</td>
-		</tr>
-		
-	<c:forEach var="m" items="${memberList }">
-		<tr class="active">
-			<td>${m.mem_id }</td>
-			<td>${m.mem_name }</td>
-			<td>${m.mem_email }</td>
-			<td>${m.mem_phone }</td>
-			
-		</tr>
-	</c:forEach>
-	
-	</table>
+<div class="panel panel-default">
+    <div class="panel-heading">
+    	<i class="fa fa-male fa-fw"></i>
+    	 회원 목록
+    	<i class="fa fa-female fa-fw"></i>
+	</div>
+   <!-- /.panel-heading -->
+    <div class="panel-body" style="width: 100%">
+    	<div class="row" style="width: 100%">
+		    <div class="col-lg-4" style="width: 100%">
+    			<div class="table-responsive" style="width: 100%">
+    				<table class="table table-bordered table-hover table-striped" style="width: 100%">
+    					<thead>
+						<tr>
+							<td>아이디</td>
+							<td>성함</td>
+							<td>이메일</td>
+							<td>핸드폰번호</td>
+						</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="m" items="${memberList }">
+								<tr>
+									<td>${m.mem_id }</td>
+									<td>${m.mem_name }</td>
+									<td>${m.mem_email }</td>
+									<td>${m.mem_phone }</td>
+									
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 </body>
 </html>

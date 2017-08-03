@@ -7,14 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<fieldset>
-	<legend>3번쩨 프로젝트</legend>
-	<center>
-		<button onclick="location.href='mainPage.do'"><h2>시작</h2></button><br>
-		<a href="admin/adminMain.do">관리자 페이지</a>
-	</center>
-	</fieldset>
-
+<h2>Pie3D Page</h2>
+	<img src="/tourapp/resources/img/${fname2 }">
 </body>
 </html>

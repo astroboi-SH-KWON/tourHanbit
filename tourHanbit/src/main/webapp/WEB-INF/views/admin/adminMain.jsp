@@ -2,37 +2,82 @@
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<style type="text/css">
+#img1 {
+	width: 80%;
+	height: 300px;
+	position: relative;
+	
+}
+#img2{
+	width: 90%;
+	height: 500px;
+	position: relative;
+}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h2>관리자페이지</h2>
+	<h2>Main Page</h2>
 
-<img src="resources/upload/${fname }">
-<h3><font color="blue""><center><매출 현황></center></font></h3>
-<div class="container">
-<table border="1" class="table">
-	<tr class="info">
-		<td>상품번호</td>
-		<td>상품명</td>
-		<td>주문자 수</td>
-		<td>매출현황</td>
-	</tr>
-	<c:forEach var="p" items="${adminMainList }">
-	<tr class="success">
-		<td>${p.item_key }</td>
-		<td>${p.item_name }</td>
-		<td>${p.orders_su }</td>
-		<td>${p.price }</td>
-	</tr>
-	</c:forEach>
-</table>
+<div class="panel panel-default">
+    <div class="panel-heading">
+    	<i class="fa fa-github-alt fa-fw"></i> Main Page
+	</div>
+   <!-- /.panel-heading -->
+    <div class="panel-body" style="width: 100%">
+    	<div class="row" style="width: 100%">
+		    <div class="col-lg-4" style="width: 100%">
+    			<div class="table-responsive" style="width: 100%">
+    				<table class="table table-bordered table-hover table-striped" style="width: 100%">
+							<tr>
+								<td width="60%" colspan="2">
+									<img src="/tourapp/resources/img/${fname }" id="img1" class="rChart" style="margin-left: 8%;">
+								</td>
+								
+							</tr>
+							<tr>
+								<td width="60%">
+									<img src="/tourapp/resources/img/${fname2 }" id="img2" class="rChart" style=" left: 4%; top: 10px;">
+								</td>
+								<td>
+									<!-- //////////////////////////////////////////////////////////////// -->
+									<div class="panel-heading">
+    									<i class="fa fa-linux fa-fw"></i>상품별 주문 현황
+									</div>
+   									<!-- /.panel-heading -->
+    								<div class="panel-body">
+										<table class="table table-bordered table-hover table-striped">
+											<tr>
+												<td>상품번호</td>
+												<td>매출날짜</td>
+												<td>주문자 수</td>
+												<td>매출현황</td>
+											</tr>
+											<c:forEach var="o" items="${adminMainList }">
+												<tr>
+													<td>${o.item_key_sub }</td>
+													<td><fmt:formatDate value="${o.orderdate }" pattern="yyyy/MM/dd"/></td>
+													<td>${o.orders_su }</td>
+													<td>${o.price_sub }</td>
+												</tr>
+											</c:forEach>
+										</table>
+									</div>
+									<!-- ///////////////////////////////////////////////////////////////// -->
+								</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<%-- <img src="C:/stsStudy03/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/tourHanbit/resources/img/${fname }" width="80%" height="400"> --%>
+
 </body>
 </html>

@@ -3,9 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="admin">
+
  	<select id="list" resultType="ordersVo">
  	<!-- 매출현황에는 일일 매출 현황과 예약자 수가 많은 상품순으로 출력하는 창을 볼 수 있음 -->
- 		select a.q item_key, c.item_name, b.w orders_su, a.w price from (select p.item_key q, sum(price) w from package p , orders o where o.item_key=p.item_key group by p.item_key order by sum(orders_su) desc) a, (select p.item_key q, sum(orders_su) w from package p, orders o where o.item_key=p.item_key group by p.item_key order by sum(orders_su) desc) b, (select p.item_key q, item_name from package p, orders o where p.item_key=o.item_key group by p.item_key, item_name) c where a.q = b.q and a.q = c.q order by b.w desc
+	 	select a.q item_key_sub, b.w orders_su, a.w price_sub, b.orderdate from (select s.item_key_sub q, sum(price_sub) w from orders o, subpackage s where o.item_key_sub=s.item_key_sub group by s.item_key_sub order by sum(orders_su) desc) a, (select s.item_key_sub q, sum(orders_su) w, orderdate from subpackage s, orders o where o.item_key_sub=s.item_key_sub group by s.item_key_sub,orderdate order by sum(orders_su) desc) b where a.q = b.q order by b.orderdate asc
+ 		<!-- select a.q item_key, c.item_name, b.w orders_su, a.w price, b.orderdate from (select p.item_key q, sum(price) w from package p , orders o where o.item_key=p.item_key group by p.item_key order by sum(orders_su) desc) a, (select p.item_key q, sum(orders_su) w, orderdate from package p, orders o where o.item_key=p.item_key group by p.item_key,orderdate order by sum(orders_su) desc) b, (select p.item_key q, item_name from package p, orders o where p.item_key=o.item_key group by p.item_key, item_name) c where a.q = b.q and a.q = c.q order by b.orderdate asc -->
  	</select>
   
   	<select id="memberList" resultType="memberVo">
@@ -13,10 +15,93 @@
   	</select>
   	
   	<select id="adminPackageList" resultType="packageVo">
-  		select item_key,intro_text,price,d_date,a_date,airplane,city,reser,item_name from (select rownum n, item_key,intro_text,price,d_date,a_date,airplane,city,reser,item_name from package)a where a.n between #{start} and #{end}
+  		select item_key,intro_text,price,city,reser,item_name from (select rownum n, item_key,intro_text,price,city,reser,item_name from package)a where a.n between #{start} and #{end}
   	</select>
   	
   	<select id="getTotal" resultType="java.lang.Integer">
   		select count(*) from package
   	</select>
+  	
+  	<insert id="insertPackage">
+  		insert into package values(#{item_key}, #{intro_text}, #{price}, #{city},0, #{item_name},0)
+  	</insert>
+  	
+  	<insert id="insertImage">
+  		insert into image values(#{item_key}, #{image1}, #{image2}, #{image3}, #{image4}, #{image5}, #{image6}, #{image7}, #{image8}, #{image9}, #{image10}, #{image11})
+  	</insert>
+  	
+  	<insert id="insertSchedule">
+  		insert into schedule values(#{item_key}, #{day_number}, #{content})
+  	</insert>
+  	
+  	<insert id="insertSubItem">
+  		insert into subpackage values(#{item_key_sub}, #{item_key}, #{price_sub}, to_date(#{d_date},'YYYY-MM-DD HH24:mi'), to_date(#{a_date},'YYYY-MM-DD HH24:mi'), #{airplane},0)
+  	</insert>
+  	
+  	<select id="getDetailItem" resultType="packageVo">
+  		select * from package where item_key= #{item_key}
+  	</select>
+  	
+  	<select id="getSubCount" resultType="subPackageVo">
+  		select item_key_sub from subpackage where item_key=#{item_key}
+  	</select>
+  	
+  	<delete id="deleteSubItem">
+  		delete subpackage where item_key=#{item_key}
+  	</delete>
+  	
+  	<delete id="deleteOrders">
+  		delete orders where item_key=#{item_key}
+  	</delete>
+  	
+  	<delete id="deleteImage">
+  		delete image where item_key=#{item_key}
+  	</delete>
+  	
+  	<delete id="deleteSchedule">
+  		delete schedule where item_key=#{item_key}
+  	</delete>
+  	
+  	<delete id="deleteItem">
+  		delete package where item_key=#{item_key}
+  	</delete>
+  	
+  	<select id="detailSubItem" resultType="subPackageVo">
+  	
+  		select item_key_sub,item_key,price_sub,d_date,a_date,to_char(d_date,'YYYY-MM-DD HH24:mi') d_date_str,to_char(a_date,'YYYY-MM-DD HH24:mi') a_date_str,airplane,reser_sub from subpackage where item_key_sub=#{item_key_sub}
+  	</select>
+  	
+  	<select id="getSchedule" resultType="scheduleVo">
+  		select * from schedule where item_key=#{item_key} order by day_number
+  	</select>
+  	
+  	<select id="getImages" resultType="ImageVo">
+  		select * from image where item_key=#{item_key}
+  	</select>
+  	
+  	<update id="updateItem">
+  		update package set intro_text=#{intro_text}, price=#{price}, city=#{city}, reser=#{reser}, item_name=#{item_name} where item_key=#{item_key}
+  	</update>
+  	<update id="updateImage">
+  		update image set image01=#{image1,jdbcType=VARCHAR}, image02=#{image2,jdbcType=VARCHAR}, image03=#{image3,jdbcType=VARCHAR}, image04=#{image4,jdbcType=VARCHAR}, image05=#{image5,jdbcType=VARCHAR}, image06=#{image6,jdbcType=VARCHAR}, image07=#{image7,jdbcType=VARCHAR}, image08=#{image8,jdbcType=VARCHAR}, image09=#{image9,jdbcType=VARCHAR}, image10=#{image10,jdbcType=VARCHAR}, image11=#{image11,jdbcType=VARCHAR} where item_key=#{item_key} 
+  	</update>
+  	<update id="updateSchedule">
+  		update schedule set content=#{content} where item_key=#{item_key} and day_number=#{day_number}
+  	</update>
+  	
+  	<select id="ordersList" resultType="ordersVo">
+  		select orderid, o.item_key_sub, p.item_name, mem_id, orderdate, deposit from package p ,orders o where p.item_key=o.item_key
+  	</select>
+  	
+  	<update id="ordersCheck">
+  		update orders set deposit='ok' where orderid=#{orderid}
+  	</update>
+  	
+  	<delete id="ordersCancel">
+  		delete orders where orderid=#{orderid}
+  	</delete>
+  	
+  	<update id="updateSubItem">
+  		update subpackage set price_sub=#{price_sub}, airplane=#{airplane}, d_date=to_date(#{d_date},'YYYY-MM-DD HH24:mi'), a_date=to_date(#{a_date},'YYYY-MM-DD HH24:mi') where item_key_sub=#{item_key_sub}
+  	</update>
 </mapper>

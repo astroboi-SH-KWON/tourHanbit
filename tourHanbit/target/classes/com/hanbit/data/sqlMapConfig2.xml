@@ -11,7 +11,9 @@
 		<typeAlias type="com.hanbit.vo.OrdersVo" alias="ordersVo"/>
 		<typeAlias type="com.hanbit.vo.PackageVo" alias="packageVo"/>
 		<typeAlias type="com.hanbit.vo.MemberVo" alias="memberVo"/>
-		<typeAlias alias="qnaVo" type="com.hanbit.vo.QnaVo"/>
+		<typeAlias type="com.hanbit.vo.SubPackageVo" alias="subPackageVo"/>
+		<typeAlias type="com.hanbit.vo.ScheduleVo" alias="scheduleVo"/>
+		<typeAlias type="com.hanbit.vo.ImageVo" alias="imageVo"/>
 	</typeAliases>	
   <environments default="development">
     <environment id="development">
@@ -27,6 +29,5 @@
   <mappers>
     <mapper resource="com/hanbit/data/pageMapper.xml"/>
     <mapper resource="com/hanbit/data/adminMapper.xml"/>
-    <mapper resource="com/hanbit/data/MemberMapper.xml"/>
   </mappers>
 </configuration>
