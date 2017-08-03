@@ -48,7 +48,7 @@ public class MemberLoginController {
 			if(id.equals("admin"))
 			{
 				System.out.println("admi 로그인했어");
-				session.setAttribute("thisis_admin",1000);
+				session.setAttribute("thisis_admin",100);
 			}
 
 		}
