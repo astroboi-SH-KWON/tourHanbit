@@ -5,14 +5,27 @@ package com.hanbit.vo;
 import java.util.Date;
 
 public class PackageVo {
-	private int item_key,price,reser;
-	private String intro_text,d_date_str,a_date_str,airplane,city,item_name,image01,city_id;
+
+	private int item_key,price_sub,price,reser,reser_sub,hit;
+	private String intro_text,d_date_str,a_date_str,airplane,city,item_name,image01,item_key_sub,city_id;
 	private Date a_date,d_date;
+	
+	public PackageVo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 	public int getItem_key() {
 		return item_key;
 	}
 	public void setItem_key(int item_key) {
 		this.item_key = item_key;
+	}
+	public int getPrice_sub() {
+		return price_sub;
+	}
+	public void setPrice_sub(int price_sub) {
+		this.price_sub = price_sub;
 	}
 	public int getPrice() {
 		return price;
@@ -25,6 +38,18 @@ public class PackageVo {
 	}
 	public void setReser(int reser) {
 		this.reser = reser;
+	}
+	public int getReser_sub() {
+		return reser_sub;
+	}
+	public void setReser_sub(int reser_sub) {
+		this.reser_sub = reser_sub;
+	}
+	public int getHit() {
+		return hit;
+	}
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 	public String getIntro_text() {
 		return intro_text;
@@ -72,7 +97,12 @@ public class PackageVo {
 		return city_id;
 	}
 	public void setCity_id(String city_id) {
-		this.city_id = city_id;
+		this.city_id = city_id;}
+	public String getItem_key_sub() {
+		return item_key_sub;
+	}
+	public void setItem_key_sub(String item_key_sub) {
+		this.item_key_sub = item_key_sub;
 	}
 	public Date getA_date() {
 		return a_date;
@@ -103,10 +133,8 @@ public class PackageVo {
 		this.a_date = a_date;
 		this.d_date = d_date;
 	}
-	public PackageVo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+	
 	
 	
 	

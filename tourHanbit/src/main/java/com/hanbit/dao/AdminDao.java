@@ -1,6 +1,8 @@
 //¿Â¡÷»Ø
 package com.hanbit.dao;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -8,9 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import com.hanbit.data.AdminManager;
 import com.hanbit.data.PageManager;
+import com.hanbit.vo.ImageVo;
 import com.hanbit.vo.MemberVo;
 import com.hanbit.vo.OrdersVo;
 import com.hanbit.vo.PackageVo;
+import com.hanbit.vo.ScheduleVo;
+import com.hanbit.vo.SubPackageVo;
 
 @Repository
 public class AdminDao {
@@ -75,6 +80,61 @@ public class AdminDao {
 		totalPage=(int)Math.ceil((double) totalRecord/pageSIZE);
 		
 		return AdminManager.adminPackageList(start,end);
+		
+	}
+	public void insertItem(PackageVo piv, ArrayList<String> fnames, ArrayList<ScheduleVo> s_list) {
+		
+		 AdminManager.insertItem(piv, fnames, s_list);
+		
+	}
+	public void insertSubItem(SubPackageVo spv) {
+		AdminManager.insertSubItem(spv);
+		
+	}
+	public PackageVo getDetailItem(int item_key) {
+		return AdminManager.getDetailItEM(item_key);
+	}
+	public List<SubPackageVo> getSubCount(int item_key) {
+		
+		return AdminManager.getSubCount(item_key);
+	}
+	public int adminDeleteItem(int item_key) {
+			
+		return AdminManager.adminDeleteItem(item_key);
+		
+	}
+	public SubPackageVo adminDetailSubItem(String item_key_sub) {
+		return AdminManager.adminDetailSubItem(item_key_sub);
+		
+	}
+	public List<ScheduleVo> getSchedule(int item_key) {
+		
+		return AdminManager.getSchedule(item_key);
+	}
+	public ImageVo getImages(int item_key) {
+		
+		ImageVo iv=AdminManager.getImages(item_key);
+		
+		return iv;
+	}
+	public int adminUpdateItem(ArrayList<String> fnames, PackageVo pv, String[] days) {
+		return AdminManager.adminUpdateItem(fnames,pv,days);
+		
+	}
+	public List<OrdersVo> ordersList() {
+		return AdminManager.ordersList();
+		
+	}
+	public int adminOrdersCheck(String orderid) {
+		return AdminManager.adminOrdersCheck(orderid);
+		
+	}
+	public int adminOrdersCancel(String orderid) {
+		// TODO Auto-generated method stub
+		return AdminManager.adminOrdersCancel(orderid);
+	}
+	public void adminUpdateSubItem(SubPackageVo s) {
+		 AdminManager.adminUpdateSubItem(s);
 		
 	}
 }

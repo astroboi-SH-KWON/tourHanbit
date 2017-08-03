@@ -12,7 +12,7 @@
 	<legend>3번쩨 프로젝트</legend>
 	<center>
 		<button onclick="location.href='mainPage.do'"><h2>시작</h2></button><br>
-		<a href="adminMain.do">관리자 페이지</a>
+		<a href="admin/adminMain.do">관리자 페이지</a>
 	</center>
 	</fieldset>
 

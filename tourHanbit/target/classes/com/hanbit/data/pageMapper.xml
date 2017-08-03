@@ -6,7 +6,9 @@
   <select id="getMainImage" resultType="packageVo">
     select rownum,item_key,image01 from 
     (select i.item_key, i.image01 from image i, package p 
-    where i.item_key=p.item_key) where 
+
+    where i.item_key=p.item_key order by p.hit) where 
+
     <if test="item01 != null">
     	item_key>#{item01} and #{item02}>item_key and
     </if>    
@@ -31,4 +33,28 @@
     
   </select>
   
+  <select id="serchResults" resultType="packageVo">
+  select * from package p, image i
+  <if test="srch != null">
+    	 where p.item_key=i.item_key and (intro_text like #{srch} or city like #{srch} or item_name like #{srch}) 
+    	 <if test="item != null">
+    	 and p.item_key like #{item}
+    	</if> 
+  </if> 
+  
+  <if test="startDay != null">
+    	 ,subPackage s where p.item_key=i.item_key and i.item_key=s.item_key and
+    	 s.d_date>=to_date( #{startDay},'yy/mm/dd') 
+    	 <if test="endDay != null">
+    	 	 and to_date(#{endDay},'yy/mm/dd')>=s.a_date 
+  		</if>   
+  		order by s.d_date 
+  </if> 
+  
+  <if test="from != null">
+    	 where p.item_key=i.item_key and 
+    	 price between #{from} and #{to} 
+  </if>   
+  </select>
+    
 </mapper>

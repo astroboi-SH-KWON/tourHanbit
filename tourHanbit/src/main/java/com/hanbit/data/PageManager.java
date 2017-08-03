@@ -56,4 +56,22 @@ public class PageManager {
 		session1.close();
 		return list;
 	}
+	public static List<PackageVo> serchResults(String item, String srch, String startDay, String endDay,
+			String amount) {
+		// TODO Auto-generated method stub
+		SqlSession session1=	factory1.openSession();
+		HashMap<String, String> map= new HashMap<String, String>();
+		map.put("item", item);
+		map.put("srch", srch);
+		map.put("startDay", startDay);
+		map.put("endDay", endDay);
+		if(amount!=null){
+			map.put("from", amount.substring(0,amount.indexOf("¸¸")).trim()+"0000");
+			map.put("to", amount.substring(amount.indexOf("~")+1,amount.lastIndexOf("¸¸")).trim()+"0000");
+			//System.out.println(amount.substring(amount.indexOf("~")+1,amount.lastIndexOf("¸¸")).trim()+"0000");			
+		}
+		List<PackageVo> list=	session1.selectList("page.serchResults",map);
+		session1.close();
+		return list;
+	}
 }

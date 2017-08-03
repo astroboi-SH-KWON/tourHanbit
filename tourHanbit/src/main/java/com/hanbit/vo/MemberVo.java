@@ -1,32 +1,30 @@
 package com.hanbit.vo;
 
+import java.util.Date;
+
 public class MemberVo {
 
 	
 	private String mem_id;
-	private String mem_pw;
+	private String mem_pwd;
 	private String mem_name;
 	private String mem_addr;
 	private String mem_gender;
-	private int mem_jumin;
 	private String mem_email;
 	private String mem_phone;
-	public MemberVo() {
-		super();
-		// TODO Auto-generated constructor stub
-		
-	}
+	private String mem_birthday;
+	private String orderid;
 	public String getMem_id() {
 		return mem_id;
 	}
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
 	}
-	public String getMem_pw() {
-		return mem_pw;
+	public String getMem_pwd() {
+		return mem_pwd;
 	}
-	public void setMem_pw(String mem_pw) {
-		this.mem_pw = mem_pw;
+	public void setMem_pwd(String mem_pwd) {
+		this.mem_pwd = mem_pwd;
 	}
 	public String getMem_name() {
 		return mem_name;
@@ -43,14 +41,8 @@ public class MemberVo {
 	public String getMem_gender() {
 		return mem_gender;
 	}
-	public void setMem_gender(String meme_gender) {
-		this.mem_gender = meme_gender;
-	}
-	public int getMem_jumin() {
-		return mem_jumin;
-	}
-	public void setMem_jumin(int mem_jumin) {
-		this.mem_jumin = mem_jumin;
+	public void setMem_gender(String mem_gender) {
+		this.mem_gender = mem_gender;
 	}
 	public String getMem_email() {
 		return mem_email;
@@ -64,19 +56,34 @@ public class MemberVo {
 	public void setMem_phone(String mem_phone) {
 		this.mem_phone = mem_phone;
 	}
-	public MemberVo(String mem_id, String mem_pw, String mem_name, String mem_addr, String meme_gender, int mem_jumin,
-			String mem_email, String mem_phone) {
+	public String getMem_birthday() {
+		return mem_birthday;
+	}
+	public void setMem_birthday(String mem_birthday) {
+		this.mem_birthday = mem_birthday;
+	}
+	public String getOrderid() {
+		return orderid;
+	}
+	public void setOrderid(String orderid) {
+		this.orderid = orderid;
+	}
+	public MemberVo(String mem_id, String mem_pwd, String mem_name, String mem_addr, String mem_gender,
+			String mem_email, String mem_phone, String mem_birthday, String orderid) {
 		super();
 		this.mem_id = mem_id;
-		this.mem_pw = mem_pw;
+		this.mem_pwd = mem_pwd;
 		this.mem_name = mem_name;
 		this.mem_addr = mem_addr;
-		this.mem_gender = meme_gender;
-		this.mem_jumin = mem_jumin;
+		this.mem_gender = mem_gender;
 		this.mem_email = mem_email;
 		this.mem_phone = mem_phone;
+		this.mem_birthday = mem_birthday;
+		this.orderid = orderid;
 	}
-
-	
+	public MemberVo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 }

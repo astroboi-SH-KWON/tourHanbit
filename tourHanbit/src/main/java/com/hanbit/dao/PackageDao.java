@@ -55,4 +55,8 @@ public class PackageDao {
 		}
 		return PageManager.getEventImage(item01,item02);
 	}
+	public List<PackageVo> serchResults(String item, String srch, String startDay, String endDay, String amount) {
+		// TODO Auto-generated method stub
+		return PageManager.serchResults(item, srch, startDay, endDay, amount);
+	}
 }

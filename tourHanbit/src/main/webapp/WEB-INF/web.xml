@@ -3,6 +3,19 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+	<filter>
+	    <filter-name>enc</filter-name>
+	    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+	    <init-param>
+	      <param-name>encoding</param-name>
+	      <param-value>UTF-8</param-value>
+	    </init-param>
+	  </filter>
+	  <filter-mapping>
+	    <filter-name>enc</filter-name>
+	    <url-pattern>/*</url-pattern>
+	  </filter-mapping>
+
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
@@ -29,5 +42,18 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+	<!-- /////////////////////////////////필터 사용하는 부분 건들지마시오//////////////////////////// -->
+	<filter>
+		 <display-name>MemberFilter</display-name>
+  		 <filter-name>MemberFilter</filter-name>
+   		 <filter-class>com.hanbit.filter.MemberFilter</filter-class>
+	</filter>
+	<filter-mapping>
+    	<filter-name>MemberFilter</filter-name>
+    	<url-pattern>/member/*</url-pattern>
+  	</filter-mapping>
+  	
+  	
+<!-- 	////////////////////////////////////////////////////////////////////////// -->
+	
 </web-app>
