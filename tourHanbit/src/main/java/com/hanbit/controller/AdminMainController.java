@@ -55,7 +55,7 @@ public class AdminMainController {
 		code.addRCode("hanbit=odbcConnect('hanbit',uid='hanbit',pwd='hanbit')");
 			code.addRCode("sales=sqlQuery(hanbit,'select sum(price_sub) 매출,orderdate 판매일 from orders o, subpackage s where o.item_key_sub=s.item_key_sub group by orderdate;')");
 	
-		code.addRCode("money=sales$매출");
+			code.addRCode("money=sales$매출");
 			code.addRCode("date=sales$판매일");
 			code.addRCode("coloneIdx= gregexpr(pattern=':',date)");
 			code.addRCode("num=0;");
@@ -101,17 +101,19 @@ public class AdminMainController {
 			code2.addRCode("item_key=package$상품번호");
 			code2.addRCode("item_name=package$상품명");
 			code2.addRCode("reser=package$예약수");
-			code2.addRCode("season1 <- heat.colors(8, alpha=1)");
-			code2.addRCode("season2 <-rainbow(8, s = 1, v = 1, start = 0, end = max(1,8 - 1)/8, alpha = 0.7)");
-			code2.addRCode("season3 <-terrain.colors(8, alpha = 1)");
-			code2.addRCode("season4 <-topo.colors(8, alpha = 1)");
+			code2.addRCode("season1 <- heat.colors(length(item_key), alpha=1)");
+			code2.addRCode("season2 <-rainbow(length(item_key), s = 1, v = 1, start = 0, end = max(1,8 - 1)/8, alpha = 0.7)");
+			code2.addRCode("season3 <-terrain.colors(length(item_key), alpha = 1)");
+			code2.addRCode("season4 <-topo.colors(length(item_key), alpha = 1)");
 			code2.addRCode("mean.df<-as.data.frame(tapply(reser, item_key, mean))");
 			code2.addRCode("mean.df$item_key<-rownames(mean.df)");
 			code2.addRCode("names(mean.df)<-c('reser', 'item_key')");
 			code2.addRCode("d1=ggplot(mean.df, aes(item_key, reser))+geom_bar(stat='identity', fill=season2)+xlab('상품번호')+ylab('예약자 수')+ggtitle('상품별 예약현황')");
 			code2.addRCode("d2=d1+theme(plot.title=element_text(size=15,face='bold',color='dark blue'))+theme(axis.text.x=element_text(angle=45, hjust=1))");
-			code2.addRCode("d3=d2+theme(panel.grid.major.x = element_blank(),panel.grid.minor.x = element_blank())");
-			code2.addRCode("d3+theme(panel.grid.major.y = element_blank(),panel.grid.minor.y = element_blank())");
+			code2.addRCode("d2+theme(panel.grid.major.x = element_blank(),panel.grid.minor.x = element_blank())");
+//			code2.addRCode("d3+theme(panel.grid.major.y = element_blank(),panel.grid.minor.y = element_blank())");
+			
+			
 
 //			code2.addRCode("hanbit=odbcConnect('hanbit',uid='hanbit',pwd='hanbit')");
 //			code2.addRCode("package=sqlQuery(hanbit,'select item_key 상품번호,item_name 상품명,reser 예약수 from package where reser !=0;')");
