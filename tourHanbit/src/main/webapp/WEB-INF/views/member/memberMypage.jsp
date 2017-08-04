@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,13 +14,29 @@
   
   function popupOpen(){
 
-
-	  var popUrl = "paymentoption.do";	
-	  var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";
-		window.open(popUrl,"",popOption);
-
+	      window.open("naver.com", "네이버", "Width=470, Height=470, left=0,top=0, scrollBars=no");
 		}
 
+  $(function(){
+	  var itme_key_sub=$(".item_key_sub").val();
+	  
+	  var item_key_sub_start_day = itme_key_sub.substring(5);
+	  	$(".item_key_sub_start_day").append(item_key_sub_start_day);
+  });
+  $(function(){
+	  var agegroup = $(".agegroup").val();
+	  adult = agegroup.substring(0,1);
+	  child = agegroup.substring(2,3);
+	  little_child = agegroup.substring(4,5);
+	  
+	  $(".adult").append("성인 :"+adult)
+	  $(".child").append("아동 :"+child)
+	  $(".little_child").append("유아 :"+little_child)
+	  
+	  
+  });
+  
+  
   </script>
   <style type="text/css">
   	
@@ -74,18 +91,18 @@
                 	<li>
                     	<a href="memberupdate.do"><i class="fa fa-user"></i>회원정보 수정<span class="fa arrow"></span></a>
                     </li>
-                    <li>
+                    <!-- <li>
                     	<a href="javascript:popupOpen();"><i class="fa fa-money"></i>결제 방법안내<span class="fa arrow"></span></a>
-                    </li>
-                    <li>
+                    </li> -->
+                    <!-- <li>
                     	<a href="memberupdate.do"><i class="fa fa-bank"></i>계좌번호 안내<span class="fa arrow"></span></a>
-                    </li>
-                    <li>
+                    </li> -->
+                  <li>
                     	<a href="javascript:popupOpen();"><i class="fa fa-star"></i>우수 여행 상품<span class="fa arrow"></span></a>
                     </li>
-                	<li>
+                	<!-- <li>
                     	<a href="airplanorders.do"><i class="fa fa-star"></i>대륙별 여행지<span class="fa arrow"></span></a>
-                    </li>
+                    </li> -->
 				</ul>
 			</li>
 		</ul>
@@ -101,19 +118,39 @@
 		<tr>
 			<th>주문 번호</th>
 			<th>상품명</th>
-			<th>가격</th>
+			<th>출발일</th>
+			<th>성인/아동/유아</th>
+			<th>합계</th>
 			<th>주문일</th>
 			<th>진행상황</th>
 			<th>예약 확인/예약 취소</th>
 		</tr>
+						
 			<c:forEach var="pd" items="${Paymentdetails }">
 				<tr>
 						<td>${pd.orderid }</td>
-						<td>${pd.item_name }</td>
-						<td>${pd.price }</td>
-						<td>${pd.orderdate }</td>
+						<td><a href="detailpagepackage.do?item_key_sub=${pd.item_key_sub }">${pd.item_name }</a></td>
+						<input class="item_key_sub" type="hidden" value="${pd.item_key_sub }">
+						<td class="item_key_sub_start_day"></td>
+						<input type="hidden" value="${pd.agegroup }" class="agegroup">
+						<td class="agegroup_ss">
+							<table>
+								<tr>
+									<td class="adult"></td>
+								</tr>
+								<tr>
+									<td class="child"></td>
+								</tr>
+								<tr>
+									<td class="little_child "></td>
+								</tr>
+							</table>
+						</td>
+						<td>${pd.totprice }원</td>
+						
+						<td><fmt:formatDate value="${pd.orderdate }" pattern="yyyy년 MM월 dd일 '<br>'hh시 mm분 ss초"/></td>
 						<td><c:if test="${pd.deposit != 'yet' }">
-						입금 완료
+						<font color="red">입금 완료</font>
 						</c:if>
 						<c:if test="${pd.deposit == 'yet' }">
 						입금 전

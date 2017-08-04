@@ -25,7 +25,7 @@
 	</select>
 	
 	<select id="paymentdetails" resultType="ordersVo">
-	select o.orderid, o.orderdate,o.deposit, p.item_name, p.price from package p, orders o where p.item_key = o.item_key and o.mem_id=#{mem_id}
+	select o.orderid, o.item_key_sub, o.agegroup, o.orderdate, o.deposit, p.item_name, o.totprice from package p, orders o where p.item_key = o.item_key and o.mem_id=#{mem_id}
 	</select>
 	<select id="myqna" resultType="qnaVo">
 		select qna_number,mem_id, qna_title, qna_date from qna where mem_id =#{mem_id}

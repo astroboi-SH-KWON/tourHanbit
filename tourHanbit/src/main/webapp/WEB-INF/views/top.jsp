@@ -128,15 +128,20 @@ $(function() {
 	</c:if>
 	  
 	  
-	  <c:if test="${not empty id }">
-	  	<li><a href="logout.do"><span class="glyphicon glyphicon-log-in"></span>로그아웃</a></li>
-    
+
+	  <c:if test="${not empty id}">
+	  	<li><a href="member/logout.do"><span class="glyphicon glyphicon-log-in"></span>로그아웃</a></li>
+		 <li><a href="member/memberMypage.do"><span ></span>MyPage   </a></li>
+</c:if>
+	 
+
 		  <c:if test="${not empty adminCheck}">
+
 		  	<li><a href="/tourapp/admin/adminMain.do"><span class="glyphicon glyphicon-log-in"></span>관리자페이지</a></li>
 		  </c:if>
-		 <li><a href="memberMypage.do"><span ></span>MyPage   </a></li>
-	  </c:if>
-	 
+
+		
+
 	</ul>
 	</div>
 	</nav>

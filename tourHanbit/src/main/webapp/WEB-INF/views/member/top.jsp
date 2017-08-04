@@ -130,11 +130,11 @@ $(function() {
 	  
 	  <c:if test="${not empty id }">
 	  	<li><a href="logout.do"><span class="glyphicon glyphicon-log-in"></span>로그아웃</a></li>
+		 <li><a href="member/memberMypage.do"><span ></span>MyPage   </a></li>
     
 		  <c:if test="${thisis_admin==100}">
 		  	<li><a href="/tourapp/admin/adminMain.do"><span class="glyphicon glyphicon-log-in"></span>관리자페이지</a></li>
 		  </c:if>
-		 <li><a href="memberMypage.do"><span ></span>MyPage   </a></li>
 	  </c:if>
 	 
 	</ul>
