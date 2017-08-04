@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+
+	<delete id ="deleteNotice" parameterType="int">
+	delete from notice where notice_number = #{notice_number}
+	</delete>
+
+<select id="getTotal" resultType="java.lang.Integer">
+  	select nvl(count(*),0) from notice
+  	<if test="keyword != null">
+   	 	where ${searchField} like '%' || #{keyword} || '%'
+  	</if>
+  </select>
+
+ <select id="selectAll" resultType="NoticeVo">
+  
+  select notice_number,notice_title,notice_content,notice_hit,notice_date,notice_fname,
+notice_fsize,notice_top from
+(select rownum n, notice_number,notice_title,notice_content,notice_hit,notice_date,notice_fname,
+notice_fsize,notice_top from
+(select * from notice
+<if test="keyword != null">
+   	 	where ${searchField} like '%' || #{keyword} || '%' 
+  	</if>
+ order by notice_number desc)) a
+where a.n between #{start} and #{end}
+
+  </select>
+  
+  <insert id="insertNotice">
+  insert into notice values(#{notice_number},#{notice_title},#{notice_content},0,sysdate,#{notice_fname},#{notice_fsize},#{notice_top})
+   </insert>
+   
+   <select id="getNextNo" resultType="java.lang.Integer">
+   	select nvl(max(notice_number),0)+1 from notice
+   </select>
+   
+   <select id="detailNotice" resultType="noticeVo">
+   select * from notice where notice_number = #{notice_number}
+   </select>
+   
+ 	<update id="updateHit">
+ 	update notice set notice_hit=notice_hit+1 where notice_number = #{notice_number}
+ 	</update>  
+ 	
+ 	
+ 	<update id="updateNotice">
+ 	update notice set notice_title=#{notice_title},notice_content=#{notice_content},notice_fname=#{notice_fname},notice_fsize=#{notice_fsize} where notice_number = #{notice_number}
+ 	</update>
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+   
+</mapper>
