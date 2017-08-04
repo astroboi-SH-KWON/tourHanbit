@@ -37,6 +37,7 @@
 								<td>도시</td>
 								<td>예약자 수</td>
 								<td>소개글</td>
+								<td>도시번호</td>
 							</tr>
 							</thead>
 						   	<tbody>
@@ -47,6 +48,7 @@
 									<td>${p.city }</td>
 									<td>${p.reser }</td>
 									<td>${p.intro_text }</td>
+									<td>${p.city_id }</td>
 								</tr>
 							</tbody>
 					</table>

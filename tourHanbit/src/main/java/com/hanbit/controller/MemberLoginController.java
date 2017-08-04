@@ -48,7 +48,8 @@ public class MemberLoginController {
 			if(id.equals("admin"))
 			{
 				System.out.println("admi 로그인했어");
-				session.setAttribute("thisis_admin",100);
+				session.setAttribute("adminCheck","ok");
+				mav.setViewName("redirect:/admin/adminMain.do");
 			}
 
 		}
