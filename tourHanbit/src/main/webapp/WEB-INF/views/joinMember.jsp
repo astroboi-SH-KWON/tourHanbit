@@ -13,6 +13,9 @@
 <script src="resources/js/join-index"></script>
 <script type="text/javascript">
 
+
+
+
 var mem_id =""
 function pro_id()
 {
@@ -81,6 +84,7 @@ function pro_pwd()
 
 </head>
 <body>
+
 <div class="container">
 <form class="well form-horizontal" action="joinMember.do" method="post"  id="contact_form">
 <fieldset>
@@ -98,6 +102,17 @@ function pro_pwd()
   </div>
 </div>
 
+<!-- 이름 -->
+<div class="form-group">
+  <label class="col-md-4 control-label" >이름</label> 
+    <div class="col-md-4 inputGroupContainer">
+    <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input class="form-control"  type="text" name="mem_name" id="mem_name">
+    </div>
+  </div>
+</div>
+
 <!-- 비밀번호 -->
 <div class="form-group">
   <label class="col-md-4 control-label">비밀번호</label>  
@@ -109,6 +124,7 @@ function pro_pwd()
     </div>
   </div>
 </div>
+
 <!-- 비밀번호확인 -->
 <div class="form-group">
   <label class="col-md-4 control-label">비밀번호 확인</label>  
