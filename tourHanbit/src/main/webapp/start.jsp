@@ -8,7 +8,6 @@
  
 </head>
 <body>
-	
 	<fieldset>
 	<legend>3번쩨 프로젝트</legend>
 	<center>
@@ -17,6 +16,5 @@
 		<a href="airplanorders.do">비행기</a>
 	</center>
 	</fieldset>
-
 </body>
 </html>

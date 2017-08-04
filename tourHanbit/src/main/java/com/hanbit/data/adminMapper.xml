@@ -46,10 +46,6 @@
   		select item_key_sub from subpackage where item_key=#{item_key}
   	</select>
   	
-  	<delete id="deleteSubItem">
-  		delete subpackage where item_key=#{item_key}
-  	</delete>
-  	
   	<delete id="deleteOrders">
   		delete orders where item_key=#{item_key}
   	</delete>
@@ -68,7 +64,7 @@
   	
   	<select id="detailSubItem" resultType="subPackageVo">
   	
-  		select item_key_sub,item_key,price_sub,d_date,a_date,to_char(d_date,'YYYY-MM-DD HH24:mi') d_date_str,to_char(a_date,'YYYY-MM-DD HH24:mi') a_date_str,airplane,reser_sub from subpackage where item_key_sub=#{item_key_sub}
+  		select item_key_sub,item_key,price_sub,d_date d_date_dType,a_date a_date_dType,to_char(d_date,'YYYY-MM-DD HH24:mi') d_date_str,to_char(a_date,'YYYY-MM-DD HH24:mi') a_date_str,airplane,reser_sub from subpackage where item_key_sub=#{item_key_sub}
   	</select>
   	
   	<select id="getSchedule" resultType="scheduleVo">
@@ -104,4 +100,8 @@
   	<update id="updateSubItem">
   		update subpackage set price_sub=#{price_sub}, airplane=#{airplane}, d_date=to_date(#{d_date},'YYYY-MM-DD HH24:mi'), a_date=to_date(#{a_date},'YYYY-MM-DD HH24:mi') where item_key_sub=#{item_key_sub}
   	</update>
+  	
+  	<delete id="deleteSubItem">
+  		delete subpackage where item_key_sub=#{item_key_sub} and item_key=#{item_key}
+  	</delete>
 </mapper>

@@ -47,7 +47,7 @@
 								<td>
 									<!-- //////////////////////////////////////////////////////////////// -->
 									<div class="panel-heading">
-    									<i class="fa fa-linux fa-fw"></i>상품별 주문 현황
+    									<i class="fa fa-linux fa-fw"></i>출발 날짜별 상품 주문 현황
 									</div>
    									<!-- /.panel-heading -->
     								<div class="panel-body">
