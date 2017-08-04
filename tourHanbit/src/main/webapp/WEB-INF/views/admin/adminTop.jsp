@@ -25,7 +25,7 @@
 </head>
 <body>
 <p style="margin-left: 85%; top: 5%;">
-	 <button type="button" onclick="location.href='admin_logout.do'">사용자 페이지 이동</button>
+	 <button type="button" onclick="location.href='/tourapp/mainPage.do'">사용자 페이지 이동</button>
 	</p>
 	
 </body>
