@@ -33,21 +33,26 @@
 			})
 		$(".btn_orderCancel").on("click", function() {
 			
-			var tr=$(this).closest("tr");
-			var orderid=$(tr).find("td").first().text();
+			var ck =confirm("해당 주문을 취소 하시겠습니까?");
 			
-			$.ajax({
-				url:"adminOrderCancel.do",
-				type:"get",
-				data:{"orderid":orderid},
-				success:function(data)
-				{
-					if(data==1)
+			if(ck)
+			{
+				var tr=$(this).closest("tr");
+				var orderid=$(tr).find("td").first().text();
+				
+				$.ajax({
+					url:"adminOrderCancel.do",
+					type:"get",
+					data:{"orderid":orderid},
+					success:function(data)
 					{
-						tr.remove();
+						if(data==1)
+						{
+							tr.remove();
+						}
 					}
-				}
-			})
+				})
+			}
 		})
 	});
   </script>

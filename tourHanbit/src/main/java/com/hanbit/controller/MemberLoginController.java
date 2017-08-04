@@ -47,7 +47,6 @@ public class MemberLoginController {
 			mav.setViewName("redirect:/member/memberMypage.do");
 			if(id.equals("admin"))
 			{
-				System.out.println("admi 로그인했어");
 				session.setAttribute("adminCheck","ok");
 				mav.setViewName("redirect:/admin/adminMain.do");
 			}
