@@ -33,7 +33,7 @@
 			})
 		$(".btn_orderCancel").on("click", function() {
 			
-			var ck =confirm("해당 주문을 취소 하시겠습니까?");
+			var ck =confirm("주문을 취소 하시겠습니까?");
 			
 			if(ck)
 			{
