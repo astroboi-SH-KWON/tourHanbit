@@ -351,7 +351,7 @@ public class AdminMainController {
 	@RequestMapping("/admin/adminDeleteSubItem.do")
 	public ModelAndView adminDeleteSubItem(String item_key_sub,int item_key)
 	{
-		ModelAndView mav= new ModelAndView("redirect:/admin/adminDetailItem.do?item_key="+item_key);
+		ModelAndView mav= new ModelAndView("redirect:/adminDetailItem.do?item_key="+item_key);
 			dao.adminDeleteSubItem(item_key_sub,item_key);
 		
 			

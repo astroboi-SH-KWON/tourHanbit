@@ -42,12 +42,14 @@
 	<beans:property name="javaMailSender" ref="javaMailSender"/>
 	</beans:bean>
 	
+	<beans:bean id="multipartResolver" 
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 	
 	
 	
 	
 	
-	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></beans:bean>
+
 	
 	<context:component-scan base-package="com.hanbit.tourapp" />
 	<context:component-scan base-package="com.hanbit.dao" />
