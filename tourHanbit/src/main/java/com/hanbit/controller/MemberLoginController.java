@@ -42,9 +42,8 @@ public class MemberLoginController {
 	{
 		ModelAndView mav = new ModelAndView();
 		String login_id = dao.memberlogin(mem_id,mem_pwd);
-		
-
-		
+		String login_name = dao.memberloginname(mem_id,mem_pwd);
+			
 				/*List<OrdersVo> memiditemkey = dao.memiditemkey(mem_id);
 
 				ArrayList<Integer> list = new ArrayList<Integer>();
@@ -56,13 +55,15 @@ public class MemberLoginController {
 					System.out.println(item_key);
 					list.add(item_key);
 				}	
-				System.out.println("로그인 컨트롤러에서 "+list);*/
-				
+				System.out.println("로그인 컨트롤러에서 "+list);
+				*/
 	
 		if(login_id != null)
 		{
 			session.setAttribute("id", login_id);
+			session.setAttribute("name", login_name);
 			/*session.setAttribute("mypage_item_key_list", list);*/
+			
 
 			mav.setViewName("redirect:/mainPage.do");
 			if(login_id.equals("admin"))

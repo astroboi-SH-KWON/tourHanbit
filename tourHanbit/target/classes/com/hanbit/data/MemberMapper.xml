@@ -20,6 +20,9 @@
  	<!-- select m.mem_id, m.mem_pwd, m.mem_name, m.mem_email, m.mem_phone from member m, orders o where m.mem_id=o.mem_id and m.mem_id=#{mem_id} and m.mem_pwd=#{mem_pwd} -->
  	select mem_id from member where mem_id=#{mem_id} and mem_pwd=#{mem_pwd}
   </select>
+<select id="memberloginname" resultType="java.lang.String">
+ 	 select mem_name from member where mem_id=#{mem_id} and mem_pwd=#{mem_pwd}	
+  </select>
 
 	<select resultType="java.lang.String" id="memberfindpassword">
 	select mem_pwd from member where mem_id=#{mem_id} and mem_email=#{mem_email}
@@ -59,6 +62,6 @@
 	 
 	<select id="memiditemkey" resultType="ordersVo">
 		select item_key from orders where mem_id=#{mem_id}
-	</select>  -->
+	</select> -->
 	
 </mapper>

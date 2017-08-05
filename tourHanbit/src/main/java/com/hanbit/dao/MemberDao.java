@@ -69,6 +69,11 @@ public class MemberDao {
 	{
 		return MemberManager.airplaneorders(oceania);
 	}
+
+	public String memberloginname(String mem_id, String mem_pwd) {
+		
+		return MemberManager.memberloginname(mem_id,mem_pwd);
+	}
 	
 /*	public List<OrdersVo> recommendation(String mem_id,ArrayList<Integer> login_item_key)
 	{
