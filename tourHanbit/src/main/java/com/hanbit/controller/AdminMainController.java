@@ -353,9 +353,21 @@ public class AdminMainController {
 	{
 		ModelAndView mav= new ModelAndView("redirect:/adminDetailItem.do?item_key="+item_key);
 			dao.adminDeleteSubItem(item_key_sub,item_key);
-		
-			
 
+		return mav;
+	}
+	@RequestMapping("/admin/adminMemberDetail.do")
+	public ModelAndView adminMemberDetail(String mem_id)
+	{
+		ModelAndView mav= new ModelAndView();
+		
+		MemberVo m=dao.adminMemberDetail(mem_id);
+		
+		
+		mav.addObject("m",m);
+		mav.addObject("view","adminMemberDetail.jsp");
+		mav.setViewName("/admin/adminTemplate");
+		
 		return mav;
 	}
 }

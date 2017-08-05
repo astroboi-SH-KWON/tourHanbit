@@ -36,7 +36,7 @@
 							<c:forEach var="m" items="${memberList }">
 								<tr>
 									<td>${m.mem_id }</td>
-									<td>${m.mem_name }</td>
+									<td><a href="adminMemberDetail.do?mem_id=${m.mem_id }">${m.mem_name }</a></td>
 									<td>${m.mem_email }</td>
 									<td>${m.mem_phone }</td>
 									

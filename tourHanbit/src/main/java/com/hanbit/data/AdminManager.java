@@ -302,4 +302,12 @@ public class AdminManager {
 			session.delete("admin.deleteSubItem",map);
 			
 		}
+
+		public static MemberVo adminMemberDetail(String mem_id) {
+			
+			SqlSession session= factory.openSession();
+			MemberVo m= session.selectOne("admin.memberDetail",mem_id);
+			
+			return m;
+		}
 }
