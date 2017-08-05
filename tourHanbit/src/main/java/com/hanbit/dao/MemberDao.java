@@ -29,7 +29,7 @@ public class MemberDao {
 		return MemberManager.memberupdate(m);	
 	}
 	
-	public String memberlogin(String mem_id, String mem_pwd) 
+	public MemberVo memberlogin(String mem_id, String mem_pwd) 
 	{
 		return MemberManager.memberlogin(mem_id,mem_pwd);
 	}
@@ -67,6 +67,11 @@ public class MemberDao {
 	public List<PackageVo> airplaneorders(String oceania)
 	{
 		return MemberManager.airplaneorders(oceania);
+	}
+	
+	public List<OrdersVo> recommendation(String mem_id,int login_item_key)
+	{
+		return MemberManager.recommendation(mem_id,login_item_key);
 	}
 	
 }

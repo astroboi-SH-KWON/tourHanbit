@@ -14,6 +14,7 @@ public class MemberVo {
 	private String mem_phone;
 	private String mem_birthday;
 	private String orderid;
+	private int item_key;
 	public String getMem_id() {
 		return mem_id;
 	}
@@ -68,8 +69,14 @@ public class MemberVo {
 	public void setOrderid(String orderid) {
 		this.orderid = orderid;
 	}
+	public int getItem_key() {
+		return item_key;
+	}
+	public void setItem_key(int item_key) {
+		this.item_key = item_key;
+	}
 	public MemberVo(String mem_id, String mem_pwd, String mem_name, String mem_addr, String mem_gender,
-			String mem_email, String mem_phone, String mem_birthday, String orderid) {
+			String mem_email, String mem_phone, String mem_birthday, String orderid, int item_key) {
 		super();
 		this.mem_id = mem_id;
 		this.mem_pwd = mem_pwd;
@@ -80,10 +87,12 @@ public class MemberVo {
 		this.mem_phone = mem_phone;
 		this.mem_birthday = mem_birthday;
 		this.orderid = orderid;
+		this.item_key = item_key;
 	}
 	public MemberVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	
 }
