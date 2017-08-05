@@ -102,6 +102,7 @@ function pro(){
 <input type="hidden" id="item_key_sub" name="item_key_sub" value="${sp.item_key_sub}">
 <input type="hidden" id="reser_sub" value="${sp.reser_sub}">
 <input type="hidden" id="price" value="${sp.price_sub}">
+<input type="hidden" id="mem_id" value="${id }">
 
 
 <table width="100%" height="100%">

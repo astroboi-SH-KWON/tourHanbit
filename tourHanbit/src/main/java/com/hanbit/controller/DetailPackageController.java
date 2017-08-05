@@ -6,6 +6,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,10 +57,9 @@ public class DetailPackageController {
 		return str;
 	}
 	@RequestMapping("insertOrder.do")
-	public ModelAndView insertOrder(int item_key,String item_key_sub,int adult_su,int child_su,int baby_su,int totPrice){
+	public ModelAndView insertOrder(int item_key,String item_key_sub,int adult_su,int child_su,int baby_su,int totPrice,String mem_id){
 		
 		ModelAndView mav= new ModelAndView();
-		String mem_id= "hanbit1";
 		int orders_su= adult_su+child_su+baby_su;
 		String ageGroup=adult_su+"/"+child_su+"/"+baby_su;
 		int re=dao.insertOrder(item_key,item_key_sub,orders_su,ageGroup,mem_id,totPrice);
@@ -86,7 +87,7 @@ public class DetailPackageController {
 	
 	
 	@RequestMapping("detail.do")
-	public ModelAndView detail(String item_key_sub){
+	public ModelAndView detail(String item_key_sub,HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		
 		int item_key=Integer.parseInt(item_key_sub.substring(0, item_key_sub.indexOf("_")));
@@ -95,6 +96,7 @@ public class DetailPackageController {
 		mav.addObject("p", dao.detailPackage(item_key));
 		mav.addObject("sp", dao.detailSubPackage(item_key_sub));
 		int re=dao.addHit(item_key);
+		mav.addObject("id", session.getAttribute("id"));
 		if(re==1){
 			System.out.println("hit수가 올라갔습니다.");
 		}
