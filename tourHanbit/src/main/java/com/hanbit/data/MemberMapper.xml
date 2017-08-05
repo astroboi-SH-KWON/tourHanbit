@@ -56,12 +56,15 @@
 	</select>
 	
 	
-	<!-- <select id="recommendation" resultType="ordersVo">
-	 select item_key from orders where mem_id in (select mem_id from orders where item_key in (#{item_key}) and mem_id!=#{mem_id}) and item_key not in(select item_key from orders where mem_id=#{mem_id})
+	 <select id="recommendation" resultType="ordersVo">
+	 <!-- select p.item_key, p.item_name, p.price from orders o,package p where o.mem_id in (select mem_id from orders where item_key =#{item_key} and mem_id!=#{mem_id}) and item_key not in(select item_key from orders where mem_id=#{mem_id}); -->
+	 <!-- select distinct p.item_name, p.price from orders o,package p where o.mem_id in (select o.mem_id from orders o,package p where p.item_key =#{item_key} and o.mem_id!=#{mem_id}) and p.item_key not in(select item_key from orders where mem_id=#{mem_id}) -->
+	 
+	select rownum, a.* from (select distinct p.item_name, p.price from orders o,package p where o.mem_id in (select o.mem_id from orders o,package p where p.item_key =#{item_key} and o.mem_id!=#{mem_id}) and p.item_key not in(select item_key from orders where mem_id=#{mem_id})) a where rownum between 1 and 4
 	</select>
 	 
 	<select id="memiditemkey" resultType="ordersVo">
 		select item_key from orders where mem_id=#{mem_id}
-	</select> -->
+	</select>
 	
 </mapper>

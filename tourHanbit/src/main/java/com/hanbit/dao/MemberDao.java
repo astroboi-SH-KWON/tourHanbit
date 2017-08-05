@@ -75,7 +75,7 @@ public class MemberDao {
 		return MemberManager.memberloginname(mem_id,mem_pwd);
 	}
 	
-/*	public List<OrdersVo> recommendation(String mem_id,ArrayList<Integer> login_item_key)
+	public List<OrdersVo> recommendation(String mem_id,ArrayList<Integer> login_item_key)
 	{
 		return MemberManager.recommendation(mem_id,login_item_key);
 	}
@@ -84,5 +84,5 @@ public class MemberDao {
 	{
 		return MemberManager.memiditemkey(mem_id);
 	}
-*/
+
 }

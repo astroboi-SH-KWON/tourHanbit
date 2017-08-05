@@ -69,7 +69,7 @@ public class MemberManager {
 		map.put("mem_pwd", mem_pwd);
 
 		String id = session.selectOne("member.memberlogin",map);
-		System.out.println("아이디"+id);
+		
 		return id;
 	}
 
@@ -82,7 +82,7 @@ public class MemberManager {
 		map.put("mem_id", mem_id);
 		map.put("mem_pwd", mem_pwd);
 		String memberlogin_name = session.selectOne("member.memberloginname",map);
-		System.out.println("이름"+memberlogin_name);
+		
 		return memberlogin_name;
 	}
 	
@@ -135,7 +135,7 @@ public class MemberManager {
 	{
 		
 		SqlSession session = factory.openSession();
-		System.out.println(mem_id_ok);
+		
 		int mid_list = session.selectOne("member.memberidoverlap",mem_id_ok);
 		session.close();
 		return mid_list;
@@ -154,22 +154,26 @@ public class MemberManager {
 	public static List<PackageVo> airplaneorders(String oceania) {
 		SqlSession session = factory.openSession();
 		List<PackageVo> air_list = session.selectList("member.airplanorders",oceania);
-		System.out.println("여기서는"+oceania);
+		
 		return air_list;
 	}
 
 	
 
-	/*public static List<OrdersVo> recommendation(String mem_id,ArrayList<Integer> login_item_key) {
+	public static List<OrdersVo> recommendation(String mem_id,ArrayList<Integer> login_item_key) {
 		SqlSession session = factory.openSession();
 		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		List<OrdersVo> recommendation=null;
+		
 		map.put("mem_id", mem_id);
-		map.put("item_key", login_item_key);
 		
-		System.out.println("여기는 매니저"+mem_id);
-		System.out.println("여기는 매니저"+login_item_key);
-		
-		List<OrdersVo> recommendation = session.selectList("member.recommendation",map);
+		for(int i=0; i<login_item_key.size();i++)
+		{
+			map.put("item_key", login_item_key.get(i));
+			recommendation = session.selectList("member.recommendation",map);
+
+		}
 		
 		return recommendation;
 	}
@@ -177,7 +181,8 @@ public class MemberManager {
 	public static List<OrdersVo> memiditemkey(String mem_id) {
 		SqlSession session = factory.openSession();
 		List<OrdersVo> memiditemkey = session.selectList("member.memiditemkey",mem_id);
+		
 		return memiditemkey;
 	}
-*/
+
 }

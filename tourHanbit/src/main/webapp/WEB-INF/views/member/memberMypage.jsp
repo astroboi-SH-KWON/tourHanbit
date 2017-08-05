@@ -178,9 +178,16 @@
 		</tr>
 		<tr>
 			<th>상품 명</th>
-			<th>출발일/도착일</th>
 			<th>상품 가격</th>
+			
 		</tr>
+		<c:forEach var="re" items="${mem_recommendation }">
+		<tr>
+			<td>${re.item_name }</td>
+			<td>${re.price }</td>
+			<td></td>
+		</tr>
+		</c:forEach>
 	</table>
 	
 <hr>

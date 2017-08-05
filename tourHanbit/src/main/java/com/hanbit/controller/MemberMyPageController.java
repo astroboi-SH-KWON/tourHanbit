@@ -30,16 +30,13 @@ public class MemberMyPageController {
 	{
 		ModelAndView mav = new ModelAndView();
 		String mem_id=(String)session.getAttribute("id");
-		/*ArrayList<Integer> mypage_item_key_list = (ArrayList<Integer>)session.getAttribute("mypage_item_key_list");
+		ArrayList<Integer> mypage_item_key_list = (ArrayList<Integer>)session.getAttribute("mypage_item_key_list");
 		
-		for(int i=0; i<mypage_item_key_list.size(); i++)
-		{
-			System.out.println("마이페이지 컨트롤러에서"+mypage_item_key_list.get(i));
-		}*/
 
 		MemberVo mem_update_ready = dao.membermypage(mem_id);
 		List<OrdersVo> Paymentdetails= dao.paymentdetails(mem_id);
-		/*List<OrdersVo> mem_recommendation = dao.recommendation(mem_id,mypage_item_key_list);*/
+		
+		List<OrdersVo> mem_recommendation = dao.recommendation(mem_id,mypage_item_key_list);
 		
 		session.setAttribute("mem_update_ready", mem_update_ready);
 	
@@ -49,7 +46,7 @@ public class MemberMyPageController {
 		mav.addObject("myqna",dao.myqna(mem_id));
 		mav.addObject("membermypage",dao.membermypage(mem_id));
 		mav.addObject("order", mem_id);
-
+		mav.addObject("mem_recommendation",mem_recommendation);
 		mav.addObject("m",m);
 		
 		mav.addObject("viewPage", "memberMypage.jsp");
