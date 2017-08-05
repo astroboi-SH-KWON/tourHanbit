@@ -140,4 +140,8 @@ public class AdminDao {
 	public void adminDeleteSubItem(String item_key_sub, int item_key) {
 		AdminManager.adminDeleteSubItem(item_key_sub, item_key);
 	}
+	public MemberVo adminMemberDetail(String mem_id) {
+		return AdminManager.adminMemberDetail(mem_id);
+		
+	}
 }

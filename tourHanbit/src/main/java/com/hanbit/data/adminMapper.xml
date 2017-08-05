@@ -104,4 +104,8 @@
   	<delete id="deleteSubItem">
   		delete subpackage where item_key_sub=#{item_key_sub} and item_key=#{item_key}
   	</delete>
+  	
+  	<select id="memberDetail" resultType="memberVo">
+  		select * from member where mem_id=#{mem_id}
+  	</select>
 </mapper>
