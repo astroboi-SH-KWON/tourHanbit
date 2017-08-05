@@ -16,9 +16,12 @@
   insert into member values(#{mem_id},#{mem_pwd},#{mem_name},#{mem_email},#{mem_phone})
   </insert>
 
-  <select id="memberlogin" resultType="memberVo">
+  <select id="memberlogin" resultType="java.lang.String">
  	<!-- select m.mem_id, m.mem_pwd, m.mem_name, m.mem_email, m.mem_phone from member m, orders o where m.mem_id=o.mem_id and m.mem_id=#{mem_id} and m.mem_pwd=#{mem_pwd} -->
- 	select mem_id, mem_pwd,mem_name,mem_email,mem_phone from member where mem_id=#{mem_id} and mem_pwd=#{mem_pwd}
+ 	select mem_id from member where mem_id=#{mem_id} and mem_pwd=#{mem_pwd}
+  </select>
+<select id="memberloginname" resultType="java.lang.String">
+ 	 select mem_name from member where mem_id=#{mem_id} and mem_pwd=#{mem_pwd}	
   </select>
 
 	<select resultType="java.lang.String" id="memberfindpassword">
@@ -53,12 +56,12 @@
 	</select>
 	
 	
-	<select id="recommendation" resultType="ordersVo">
+	<!-- <select id="recommendation" resultType="ordersVo">
 	 select item_key from orders where mem_id in (select mem_id from orders where item_key in (#{item_key}) and mem_id!=#{mem_id}) and item_key not in(select item_key from orders where mem_id=#{mem_id})
 	</select>
 	 
 	<select id="memiditemkey" resultType="ordersVo">
 		select item_key from orders where mem_id=#{mem_id}
-	</select> 
+	</select> -->
 	
 </mapper>

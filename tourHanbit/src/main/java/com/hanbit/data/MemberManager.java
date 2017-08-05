@@ -59,7 +59,7 @@ public class MemberManager {
 		return ru;
 	}
 
-	public static MemberVo memberlogin(String mem_id, String mem_pwd) {
+	public static String memberlogin(String mem_id, String mem_pwd) {
 		
 		int re = -1;
 		SqlSession session = factory.openSession();
@@ -68,11 +68,24 @@ public class MemberManager {
 		map.put("mem_id", mem_id);
 		map.put("mem_pwd", mem_pwd);
 
-		MemberVo id = session.selectOne("member.memberlogin",map);
-		
+		String id = session.selectOne("member.memberlogin",map);
+		System.out.println("아이디"+id);
 		return id;
 	}
 
+	
+	
+	public static String memberloginname(String mem_id, String mem_pwd) {
+		SqlSession session = factory.openSession();
+		HashMap<String, String> map = new HashMap<String, String>();
+		
+		map.put("mem_id", mem_id);
+		map.put("mem_pwd", mem_pwd);
+		String memberlogin_name = session.selectOne("member.memberloginname",map);
+		System.out.println("이름"+memberlogin_name);
+		return memberlogin_name;
+	}
+	
 	
 	public static String memberfindpassword(String mem_id, String mem_email) {
 		
@@ -128,7 +141,7 @@ public class MemberManager {
 		return mid_list;
 	}
 
-/*	public static List<PackageVo> airplanorders(String city,String intro_text) {
+	public static List<PackageVo> airplanorders(String city,String intro_text) {
 		SqlSession session = factory.openSession();
 		HashMap<String, String> map =  new HashMap<String, String>();
 		
@@ -136,7 +149,7 @@ public class MemberManager {
 		map.put("intro_text", "%"+intro_text+"%");
 		List<PackageVo> airplanorders = session.selectList("member.airplanorders",map);
 		return airplanorders;
-	}*/
+	}
 
 	public static List<PackageVo> airplaneorders(String oceania) {
 		SqlSession session = factory.openSession();
@@ -145,7 +158,9 @@ public class MemberManager {
 		return air_list;
 	}
 
-	public static List<OrdersVo> recommendation(String mem_id,ArrayList<Integer> login_item_key) {
+	
+
+	/*public static List<OrdersVo> recommendation(String mem_id,ArrayList<Integer> login_item_key) {
 		SqlSession session = factory.openSession();
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("mem_id", mem_id);
@@ -164,5 +179,5 @@ public class MemberManager {
 		List<OrdersVo> memiditemkey = session.selectList("member.memiditemkey",mem_id);
 		return memiditemkey;
 	}
-
+*/
 }
