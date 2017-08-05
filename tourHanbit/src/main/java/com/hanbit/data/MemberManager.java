@@ -59,7 +59,7 @@ public class MemberManager {
 		return ru;
 	}
 
-	public static MemberVo memberlogin(String mem_id, String mem_pwd) {
+	public static String memberlogin(String mem_id, String mem_pwd) {
 		
 		int re = -1;
 		SqlSession session = factory.openSession();
@@ -68,7 +68,7 @@ public class MemberManager {
 		map.put("mem_id", mem_id);
 		map.put("mem_pwd", mem_pwd);
 
-		MemberVo id = session.selectOne("member.memberlogin",map);
+		String id = session.selectOne("member.memberlogin",map);
 		
 		return id;
 	}
@@ -128,7 +128,7 @@ public class MemberManager {
 		return mid_list;
 	}
 
-/*	public static List<PackageVo> airplanorders(String city,String intro_text) {
+	public static List<PackageVo> airplanorders(String city,String intro_text) {
 		SqlSession session = factory.openSession();
 		HashMap<String, String> map =  new HashMap<String, String>();
 		
@@ -136,7 +136,7 @@ public class MemberManager {
 		map.put("intro_text", "%"+intro_text+"%");
 		List<PackageVo> airplanorders = session.selectList("member.airplanorders",map);
 		return airplanorders;
-	}*/
+	}
 
 	public static List<PackageVo> airplaneorders(String oceania) {
 		SqlSession session = factory.openSession();

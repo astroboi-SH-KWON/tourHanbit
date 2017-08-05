@@ -41,11 +41,11 @@ public class MemberLoginController {
 	public ModelAndView memberlogin(String mem_id, String mem_pwd, HttpSession session)
 	{
 		ModelAndView mav = new ModelAndView();
-		MemberVo id = dao.memberlogin(mem_id,mem_pwd);
+		String login_id = dao.memberlogin(mem_id,mem_pwd);
 		
-				String login_id =id.getMem_id();
-				
-				List<OrdersVo> memiditemkey = dao.memiditemkey(mem_id);
+
+		
+				/*List<OrdersVo> memiditemkey = dao.memiditemkey(mem_id);
 
 				ArrayList<Integer> list = new ArrayList<Integer>();
 				int item_key = 0;
@@ -56,16 +56,16 @@ public class MemberLoginController {
 					System.out.println(item_key);
 					list.add(item_key);
 				}	
-				System.out.println("로그인 컨트롤러에서 "+list);
+				System.out.println("로그인 컨트롤러에서 "+list);*/
 				
 	
-		if(id != null)
+		if(login_id != null)
 		{
 			session.setAttribute("id", login_id);
-			session.setAttribute("mypage_item_key_list", list);
+			/*session.setAttribute("mypage_item_key_list", list);*/
 
 			mav.setViewName("redirect:/mainPage.do");
-			if(id.equals("admin"))
+			if(login_id.equals("admin"))
 			{
 				session.setAttribute("adminCheck","ok");
 				mav.setViewName("redirect:/admin/adminMain.do");

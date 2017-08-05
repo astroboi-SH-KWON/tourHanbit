@@ -30,7 +30,7 @@ public class MemberDao {
 		return MemberManager.memberupdate(m);	
 	}
 	
-	public MemberVo memberlogin(String mem_id, String mem_pwd) 
+	public String memberlogin(String mem_id, String mem_pwd) 
 	{
 		return MemberManager.memberlogin(mem_id,mem_pwd);
 	}
@@ -70,7 +70,7 @@ public class MemberDao {
 		return MemberManager.airplaneorders(oceania);
 	}
 	
-	public List<OrdersVo> recommendation(String mem_id,ArrayList<Integer> login_item_key)
+/*	public List<OrdersVo> recommendation(String mem_id,ArrayList<Integer> login_item_key)
 	{
 		return MemberManager.recommendation(mem_id,login_item_key);
 	}
@@ -79,5 +79,5 @@ public class MemberDao {
 	{
 		return MemberManager.memiditemkey(mem_id);
 	}
-
+*/
 }
