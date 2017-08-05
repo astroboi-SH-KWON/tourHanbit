@@ -96,8 +96,8 @@ public class DetailPackageController {
 		mav.addObject("p", dao.detailPackage(item_key));
 		mav.addObject("sp", dao.detailSubPackage(item_key_sub));
 		int re=dao.addHit(item_key);
-		mav.addObject("id", session.getAttribute("id"));/*
-		mav.addObject("name", session.getAttribute("name"));*/
+		mav.addObject("id", session.getAttribute("id"));
+		mav.addObject("name", session.getAttribute("name"));
 		if(re==1){
 			System.out.println("hit수가 올라갔습니다.");
 		}
