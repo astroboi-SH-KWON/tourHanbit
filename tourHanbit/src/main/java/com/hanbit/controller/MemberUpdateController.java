@@ -44,7 +44,7 @@ public class MemberUpdateController {
 		mav.addObject("phonef", phonef);
 		mav.addObject("phonec", phonec);
 		mav.addObject("phonee", phonee);
-		mav.addObject("viewPage", "member/memberupdate.jsp");
+		mav.addObject("viewPage", "memberupdate.jsp");
 		mav.setViewName("/member/template");
 		return mav;
 	}

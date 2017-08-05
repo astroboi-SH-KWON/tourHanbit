@@ -54,7 +54,7 @@ function pro(){
 	  var airplane = $("#airplane").text();
 	  var orders_su = eval($("#orders_su").val());
 	  var reser_sub=  eval($("#reser_sub").val()); 
-	 
+	  var mem_name=  $("#mem_name").val(); 
 	 
 	if(confirm("예약하시겠습니까??")==true){
 		
@@ -64,10 +64,12 @@ function pro(){
 			 l.document.write("<h2>예약 가능 인원 수 초과</h2>");
 		   }
 		 	else{	
-		       var r = window.open('','reservation','width=300,height=350,top=200,left=600,location=0');
+		       var r = window.open('','reservation','width=350,height=350,top=200,left=600,location=0');
 		       
-		 	   r.document.write("<table><tr><td style='background-color:#337ab7;'>상품가격 </td>");
+		 	   r.document.write("<table><tr><td style='background-color:#337ab7;'>상품총가격 </td>");
 		 	   r.document.write('<td>'+tot_p+'</td></tr>');
+		 	  r.document.write("<tr><td style='background-color:#337ab7;'>예약자 성함 </td>");
+		 	   r.document.write('<td>'+mem_name+'</td></tr>');
 		 	   r.document.write("<tr><td style='background-color:#337ab7;'>상품번호 </td>");
 		 	   r.document.write('<td>'+item_key_sub+'</td></tr>');
 		 	   r.document.write("<tr><td style='background-color:#337ab7;'>출발일 </td>");
@@ -102,7 +104,8 @@ function pro(){
 <input type="hidden" id="item_key_sub" name="item_key_sub" value="${sp.item_key_sub}">
 <input type="hidden" id="reser_sub" value="${sp.reser_sub}">
 <input type="hidden" id="price" value="${sp.price_sub}">
-<input type="hidden" id="mem_id" value="${id }">
+<input type="hidden" id="mem_name" value="${name}">
+<input type="hidden" name="mem_id" value="${id }">
 
 
 <table width="100%" height="100%">

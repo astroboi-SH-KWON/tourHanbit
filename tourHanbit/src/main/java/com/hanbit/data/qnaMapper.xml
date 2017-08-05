@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="qna">
+
+	<delete id ="deleteQna" parameterType="int">
+	delete from qna where qna_number = #{qna_number}
+	</delete>
+
+<select id="getTotal" resultType="java.lang.Integer">
+  	select nvl(count(*),0) from qna
+  	<if test="keyword != null">
+   	 	where ${searchField} like '%' || #{keyword} || '%'
+  	</if>
+  </select>
+
+ <select id="selectAll" resultType="QnaVo">
+  
+ select qna_number,mem_id,qna_title,qna_date,qna_content,qna_fname,qna_fsize,qna_pwd 
+from (select rownum n, qna_number,mem_id,qna_title,qna_date,qna_content,qna_fname,qna_fsize,qna_pwd
+from (select * from qna 
+<if test="keyword != null">
+   	 	where ${searchField} like '%' || #{keyword} || '%' 
+  	</if>order by qna_number desc)) a
+where a.n between #{start} and #{end}
+
+
+  </select>
+  
+  <insert id="insertQna">
+  insert into qna values(#{qna_number},#{mem_id},#{qna_title},sysdate,#{qna_content},#{qna_fname},#{qna_fsize},#{qna_pwd})
+   </insert>
+   
+   <select id="getNextNo" resultType="java.lang.Integer">
+   	select nvl(max(qna_number),0)+1 from qna
+   </select>
+   
+     <select id="getNextNo_c" resultType="java.lang.Integer">
+   	select nvl(max(rno),0)+1 from reply
+   </select>
+   
+   
+   <select id="detailQna" resultType="QnaVo">
+   select * from qna where qna_number = #{qna_number}
+   </select>
+   
+ 	
+ 	
+ 	<update id="updateQna">
+ 	update qna set qna_title=#{qna_title},mem_id=#{mem_id},qna_content=#{qna_content},qna_fname=#{qna_fname},qna_fsize=#{qna_fsize},qna_pwd=#{qna_pwd} where qna_number = #{qna_number}
+ 	</update>
+ 	
+ 	
+ 	
+ 	<insert id="insertReply">
+ 	insert into reply values(#{rno},#{qna_number},#{mem_id},#{rcontent},sysdate,sysdate)
+ 	</insert>
+ 	
+ 	<update id="updateReply"> 
+   update relpy set rcontent = #{rcontent},rdate_update = sysdate where rno = #{rno} 
+  </update> 
+  
+  
+   <delete id="deleteReply" parameterType="int"> 
+   delete from reply where rno = #{rno} 
+  </delete> 
+   
+  <select id="getReply" parameterType="int"> 
+   select *  
+   from reply
+   where rno = #{rno} 
+  </select> 
+   
+  <select id="getReplyList" resultType="replyVo"> 
+   select *  
+   from reply
+   where qna_number = #{qna_number} 
+   order by rno desc 
+  </select>
+
+	
+   
+</mapper>

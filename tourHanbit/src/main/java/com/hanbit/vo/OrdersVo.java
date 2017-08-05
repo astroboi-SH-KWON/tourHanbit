@@ -13,25 +13,9 @@ public class OrdersVo {
 	private String orderid;
 	private String mem_id;
 	private Date orderdate;
+	private String agegroup;
 	private String deposit;
-	public OrdersVo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public OrdersVo(int item_key, String item_key_sub, String item_name, int price, int price_sub, int orders_su,
-			String orderid, String mem_id, Date orderdate, String deposit) {
-		super();
-		this.item_key = item_key;
-		this.item_key_sub = item_key_sub;
-		this.item_name = item_name;
-		this.price = price;
-		this.price_sub = price_sub;
-		this.orders_su = orders_su;
-		this.orderid = orderid;
-		this.mem_id = mem_id;
-		this.orderdate = orderdate;
-		this.deposit = deposit;
-	}
+	private int totprice;
 	public int getItem_key() {
 		return item_key;
 	}
@@ -86,10 +70,44 @@ public class OrdersVo {
 	public void setOrderdate(Date orderdate) {
 		this.orderdate = orderdate;
 	}
+	public String getAgegroup() {
+		return agegroup;
+	}
+	public void setAgegroup(String agegroup) {
+		this.agegroup = agegroup;
+	}
 	public String getDeposit() {
 		return deposit;
 	}
 	public void setDeposit(String deposit) {
 		this.deposit = deposit;
 	}
+	public int getTotprice() {
+		return totprice;
+	}
+	public void setTotprice(int totprice) {
+		this.totprice = totprice;
+	}
+	public OrdersVo(int item_key, String item_key_sub, String item_name, int price, int price_sub, int orders_su,
+			String orderid, String mem_id, Date orderdate, String agegroup, String deposit, int totprice) {
+		super();
+		this.item_key = item_key;
+		this.item_key_sub = item_key_sub;
+		this.item_name = item_name;
+		this.price = price;
+		this.price_sub = price_sub;
+		this.orders_su = orders_su;
+		this.orderid = orderid;
+		this.mem_id = mem_id;
+		this.orderdate = orderdate;
+		this.agegroup = agegroup;
+		this.deposit = deposit;
+		this.totprice = totprice;
+	}
+	public OrdersVo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 }

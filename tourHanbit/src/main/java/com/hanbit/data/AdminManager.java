@@ -291,4 +291,15 @@ public class AdminManager {
 			session.update("admin.updateSubItem",map);
 			
 		}
+
+		public static void adminDeleteSubItem(String item_key_sub, int item_key) {
+			SqlSession session= factory.openSession(true);
+			HashMap map =new HashMap();
+			
+			map.put("item_key_sub", item_key_sub);
+			map.put("item_key", item_key);
+			
+			session.delete("admin.deleteSubItem",map);
+			
+		}
 }

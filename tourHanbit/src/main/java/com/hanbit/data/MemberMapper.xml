@@ -16,8 +16,9 @@
   insert into member values(#{mem_id},#{mem_pwd},#{mem_name},#{mem_email},#{mem_phone})
   </insert>
 
-  <select id="memberlogin" resultType="java.lang.String">
- 	select mem_id, mem_pwd, mem_name, mem_email, mem_phone from member where mem_id=#{mem_id} and mem_pwd=#{mem_pwd}
+  <select id="memberlogin" resultType="memberVo">
+ 	<!-- select m.mem_id, m.mem_pwd, m.mem_name, m.mem_email, m.mem_phone from member m, orders o where m.mem_id=o.mem_id and m.mem_id=#{mem_id} and m.mem_pwd=#{mem_pwd} -->
+ 	select mem_id, mem_pwd,mem_name,mem_email,mem_phone from member where mem_id=#{mem_id} and mem_pwd=#{mem_pwd}
   </select>
 
 	<select resultType="java.lang.String" id="memberfindpassword">
@@ -25,7 +26,7 @@
 	</select>
 	
 	<select id="paymentdetails" resultType="ordersVo">
-	select o.orderid, o.orderdate,o.deposit, p.item_name, p.price from package p, orders o where p.item_key = o.item_key and o.mem_id=#{mem_id}
+	select o.orderid, o.item_key_sub, o.agegroup, o.orderdate, o.deposit, p.item_name, o.totprice from package p, orders o where p.item_key = o.item_key and o.mem_id=#{mem_id}
 	</select>
 	<select id="myqna" resultType="qnaVo">
 		select qna_number,mem_id, qna_title, qna_date from qna where mem_id =#{mem_id}
@@ -50,5 +51,14 @@
 	<select id="airplanorders" resultType="packageVo">
 		select * from package where intro_text like #{intro_text}
 	</select>
+	
+	
+	<select id="recommendation" resultType="ordersVo">
+	 select item_key from orders where mem_id in (select mem_id from orders where item_key in (#{item_key}) and mem_id!=#{mem_id}) and item_key not in(select item_key from orders where mem_id=#{mem_id})
+	</select>
+	 
+	<select id="memiditemkey" resultType="ordersVo">
+		select item_key from orders where mem_id=#{mem_id}
+	</select> 
 	
 </mapper>

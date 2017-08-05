@@ -121,22 +121,27 @@ $(function() {
 
     <ul class="nav navbar-nav navbar-right ">
 
-	
-	 <%-- <c:if test="${r!=1 }"> --%>
+
+	 <c:if test="${empty id}">
 	   <li><a href="joinMember.do"><span class="glyphicon glyphicon-user"></span>회원 가입</a></li>
       <li><a href="loginmember.do"><span class="glyphicon glyphicon-log-in"></span>로그인</a></li>
-	<%--   </c:if> --%>
+	</c:if>
 	  
 	  
-	  <c:if test="${r==1 }">
-	  	<li><a href="logoutMember.do"><span class="glyphicon glyphicon-log-in"></span>로그아웃</a></li>
-    
-		  <c:if test="${thisis_admin==100}">
-		  	<li><a href="adminLogin.com"><span class="glyphicon glyphicon-log-in"></span>관리자페이지</a></li>
-		  </c:if>
-		 <li><a href="mypage.do"><span ></span>MyPage   </a></li>
-	  </c:if>
+
+	  <c:if test="${not empty id}">
+	  	<li><a href="member/logout.do"><span class="glyphicon glyphicon-log-in"></span>로그아웃</a></li>
+		 <li><a href="member/memberMypage.do"><span ></span>MyPage   </a></li>
+</c:if>
 	 
+
+		  <c:if test="${not empty adminCheck}">
+
+		  	<li><a href="/tourapp/admin/adminMain.do"><span class="glyphicon glyphicon-log-in"></span>관리자페이지</a></li>
+		  </c:if>
+
+		
+
 	</ul>
 	</div>
 	</nav>
@@ -147,7 +152,6 @@ $(function() {
     <a href="listQna.do" class="btn btn-primary" >Q&A</a>
     <a href="listNotice.do" class="btn btn-primary" >공지사항</a>
    </div>
-   
    
 	<center>
 <div >

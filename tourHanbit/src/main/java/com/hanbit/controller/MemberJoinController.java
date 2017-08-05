@@ -36,8 +36,8 @@ public class MemberJoinController {
 	{
 		String mem_pwd = m.getMem_pwd();
 		String mem_pwdok = mem_pwdk;
-			System.out.println(mem_pwd);
-			System.out.println(mem_pwdok);
+		
+			
 			
 			if(mem_pwd != mem_pwdok)
 			{
@@ -45,7 +45,8 @@ public class MemberJoinController {
 			}
 		String email = m.getMem_email();
 		String phone = m.getMem_phone();
-		m.setMem_email(email.replace(",","@"));
+		m.setMem_email(email.replace(",",""));
+		System.out.println(email);
 		m.setMem_phone(phone.replaceAll(",", "-"));
 		ModelAndView mav = new ModelAndView();
 		int re = dao.join(m);

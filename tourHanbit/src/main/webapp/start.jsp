@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,7 +8,6 @@
  
 </head>
 <body>
-	
 	<fieldset>
 	<legend>3번쩨 프로젝트</legend>
 	<center>
@@ -18,6 +16,5 @@
 		<a href="airplanorders.do">비행기</a>
 	</center>
 	</fieldset>
-
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.hanbit.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -25,13 +26,20 @@ public class MemberMyPageController {
 	
 	
 	@RequestMapping("/member/memberMypage.do")
-	public ModelAndView mypage_member(HttpSession session, MemberVo m)
+	public ModelAndView mypage_member(HttpSession session, MemberVo m,OrdersVo o)
 	{
 		ModelAndView mav = new ModelAndView();
 		String mem_id=(String)session.getAttribute("id");
+		ArrayList<Integer> mypage_item_key_list = (ArrayList<Integer>)session.getAttribute("mypage_item_key_list");
 		
+		for(int i=0; i<mypage_item_key_list.size(); i++)
+		{
+			System.out.println("마이페이지 컨트롤러에서"+mypage_item_key_list.get(i));
+		}
+
 		MemberVo mem_update_ready = dao.membermypage(mem_id);
 		List<OrdersVo> Paymentdetails= dao.paymentdetails(mem_id);
+		List<OrdersVo> mem_recommendation = dao.recommendation(mem_id,mypage_item_key_list);
 		
 		session.setAttribute("mem_update_ready", mem_update_ready);
 	
