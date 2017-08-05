@@ -1,5 +1,6 @@
 package com.hanbit.controller;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -45,15 +46,23 @@ public class MemberLoginController {
 				String login_id =id.getMem_id();
 				
 				List<OrdersVo> memiditemkey = dao.memiditemkey(mem_id);
-				OrdersVo item_key = memiditemkey.get(0);
-				/*for(int i=0;)*/
-				System.out.println(item_key.getItem_key());
+
+				ArrayList<Integer> list = new ArrayList<Integer>();
+				int item_key = 0;
+				for(int i=0; i < memiditemkey.size();i ++)
+				{
+					OrdersVo memid_itemkey=memiditemkey.get(i);
+					item_key = memid_itemkey.getItem_key();
+					System.out.println(item_key);
+					list.add(item_key);
+				}	
+				System.out.println("로그인 컨트롤러에서 "+list);
 				
 	
 		if(id != null)
 		{
 			session.setAttribute("id", login_id);
-			
+			session.setAttribute("mypage_item_key_list", list);
 
 			mav.setViewName("redirect:/mainPage.do");
 			if(id.equals("admin"))

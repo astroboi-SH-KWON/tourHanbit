@@ -1,5 +1,6 @@
 package com.hanbit.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -69,7 +70,7 @@ public class MemberDao {
 		return MemberManager.airplaneorders(oceania);
 	}
 	
-	public List<OrdersVo> recommendation(String mem_id,int login_item_key)
+	public List<OrdersVo> recommendation(String mem_id,ArrayList<Integer> login_item_key)
 	{
 		return MemberManager.recommendation(mem_id,login_item_key);
 	}
@@ -78,5 +79,5 @@ public class MemberDao {
 	{
 		return MemberManager.memiditemkey(mem_id);
 	}
-	
+
 }

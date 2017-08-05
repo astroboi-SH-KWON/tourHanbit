@@ -34,6 +34,8 @@ public class QnaController {
 		
 		
 		HttpSession session = request.getSession();
+		String mem_id = (String)session.getAttribute("id");
+		System.out.println(mem_id);
 		String searchField2 = (String)session.getAttribute("searchField");
 		String keyword2 = (String)session.getAttribute("keyword");
 		
