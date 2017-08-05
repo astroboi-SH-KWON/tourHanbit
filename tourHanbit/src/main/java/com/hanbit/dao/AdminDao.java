@@ -137,4 +137,7 @@ public class AdminDao {
 		 AdminManager.adminUpdateSubItem(s);
 		
 	}
+	public void adminDeleteSubItem(String item_key_sub, int item_key) {
+		AdminManager.adminDeleteSubItem(item_key_sub, item_key);
+	}
 }

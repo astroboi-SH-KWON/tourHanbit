@@ -53,8 +53,12 @@
 	</select>
 	
 	
-	<select id="recommendation" resultType="ordersVo">
+	<!-- <select id="recommendation" resultType="ordersVo">
 	 select item_key from orders where mem_id in (select mem_id from orders where item_key in (#{item_key}) and mem_id!=#{mem_id}) and item_key not in(select item_key from orders where mem_id=#{mem_id})
+	</select>
+	 -->
+	<select id="memiditemkey" resultType="ordersVo">
+		select item_key from orders where mem_id=#{mem_id}
 	</select>
 	
 </mapper>

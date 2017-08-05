@@ -74,4 +74,9 @@ public class MemberDao {
 		return MemberManager.recommendation(mem_id,login_item_key);
 	}
 	
+	public List<OrdersVo> memiditemkey(String mem_id)
+	{
+		return MemberManager.memiditemkey(mem_id);
+	}
+	
 }

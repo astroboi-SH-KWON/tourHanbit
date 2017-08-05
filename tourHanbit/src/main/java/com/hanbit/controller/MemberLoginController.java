@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.hanbit.dao.MemberDao;
 import com.hanbit.vo.MemberVo;
+import com.hanbit.vo.OrdersVo;
 
 @Controller
 @RequestMapping("/loginmember.do")
@@ -43,10 +44,12 @@ public class MemberLoginController {
 		
 				String login_id =id.getMem_id();
 				
-				/*MemberVo recommendation = dao.recommendation(mem_id, login_item_key);*/
+				List<OrdersVo> memiditemkey = dao.memiditemkey(mem_id);
+				OrdersVo item_key = memiditemkey.get(0);
+				/*for(int i=0;)*/
+				System.out.println(item_key.getItem_key());
+				
 	
-		
-
 		if(id != null)
 		{
 			session.setAttribute("id", login_id);

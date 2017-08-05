@@ -155,4 +155,10 @@ public class MemberManager {
 		return recommendation;
 	}
 
+	public static List<OrdersVo> memiditemkey(String mem_id) {
+		SqlSession session = factory.openSession();
+		List<OrdersVo> memiditemkey = session.selectList("member.memiditemkey",mem_id);
+		return memiditemkey;
+	}
+
 }

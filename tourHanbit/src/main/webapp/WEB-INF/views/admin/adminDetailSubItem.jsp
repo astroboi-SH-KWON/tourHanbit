@@ -34,8 +34,8 @@
 							<tr>
 								<td>${spv.item_key_sub }</td>
 								<td>${spv.price_sub }</td>
-								<td><fmt:formatDate value="${spv.d_date }" pattern="yyyy-MM-dd HH:mm"/></td>
-								<td><fmt:formatDate value="${spv.a_date }" pattern="yyyy-MM-dd HH:mm"/></td>
+								<td><fmt:formatDate value="${spv.d_date_dType }" pattern="yyyy-MM-dd HH:mm"/></td>
+								<td><fmt:formatDate value="${spv.a_date_dType }" pattern="yyyy-MM-dd HH:mm"/></td>
 								<td>${spv.airplane }</td>
 								<td>${spv.reser_sub }</td>
 							</tr>
@@ -49,6 +49,6 @@
 
 	<br>
 	<button onclick="location.href='adminUpdateSubItem.do?item_key_sub=${spv.item_key_sub}'">수정</button>
-	<button onclick="location.href='adminDeleteSubItem.do?item_key_sub=${spv.item_key_sub}'">삭제</button>
+	<button onclick="location.href='adminDeleteSubItem.do?item_key_sub=${spv.item_key_sub}&&item_key=${spv.item_key }'">삭제</button>
 </body>
 </html>
