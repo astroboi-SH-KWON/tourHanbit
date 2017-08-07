@@ -6,8 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+
+
+</style>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
@@ -20,7 +26,9 @@
 				"${i.image06 }", "${i.image07 }", "${i.image08 }",
 				"${i.image09 }", "${i.image10 }", "${i.image11 }", ]
 		var city_id = $("#city_id").val();
+		var item_key = $("#item_key").val();
 		
+		$( "#accordion" ).accordion();
 		$.ajax({
 			url:"weather.do",
 			dataType:"json",
@@ -49,6 +57,44 @@
 			}
 			
 		})
+		
+		$.ajax({
+			url:"listReview.do",
+			dataType:"json",
+			type:"post",
+			data: {"item_key":item_key},
+			success: function(data){
+				alert("성공!!!"+data);
+				$.each(data,function(index,item){
+					alert(item.review_title);
+		               var tr = $("<tr></tr>");
+		               var tr2 = $("<tr></tr>");
+		               var td1 = $("<td style='width:10%;'></td>").text(item.review_number);
+		               var td2 = $("<td id='title' style='width:50%;'></td>").text(item.review_title);
+		               var td3 = $("<td style='width:20%;'></td>").text(item.review_date);
+		               var td4 = $("<td 'style='width:20%;'></td>").text(item.mem_id);
+		               var td5 = $("<td id='review_content' colspan='4'></td>").text(item.review_content);
+		               
+		               $(tr).append(td1,td2,td3,td4).appendTo($("#tab"));
+		               $(tr2).append(td5).appendTo($("#tab"));
+		               td3.toggle(function(){
+		            	   $("#review_content").hide();
+		            	   alert("dddd");
+		               },function(){
+		            	   $("#review_content").show();
+		               })
+		       
+		            });
+					
+				
+			},
+			error: function(data){
+				alert("실패!!!"+data);
+			}
+			
+		})
+		
+		$("<a></a>")
 
 
 		function listImage() {
@@ -117,6 +163,7 @@
 </head>
 <body>
 	<input type="hidden" id="city_id" value="${p.city_id }">
+	<input type="hidden" id="item_key" value="${item_key }">
 	
 	<table width="100%">
 		<tr>
@@ -216,30 +263,16 @@
 		</tr>
 	</table>
 	
-
-<table border="1">
-
+<table border="1"  id="tab"  style="width:100%">
 <tr>
-<td>번호</td>
-<td>제목</td>
-<td>날짜</td>
-<td>날짜</td>
+<th>번호</th>
+<th>제목</th>
+<th>작성 시간</th>
+<th>작성자</th>
 </tr>
 
-<c:forEach var="q" items="${list}">
-<tr>
-<td>${q.qna_number}</td>
-<td><a href="detailQna.do?qna_number=${q.qna_number}">${q.qna_title}</a></td>
-<td>${q.qna_date}</td>
-<td>${q.mem_id}</td>
 
-</tr>
-</c:forEach>
 </table>
-
-전체페이지:
 <center>${pageStr}</center>
-<a href="listQna.do?cutSession=0">목록보기</a>
-
 </body>
 </html>

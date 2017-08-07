@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class ReviewVo {
 
 	private int review_number;
+	private int item_key;
 	private String mem_id;
 	private String review_title;
 	private String review_date;
@@ -14,15 +15,15 @@ public class ReviewVo {
 	private String score;
 	private String review_fname;
 	private MultipartFile uploadFile;
-	
 	public ReviewVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ReviewVo(int review_number, String mem_id, String review_title, String review_date, String review_content,
-			String score, String review_fname, MultipartFile uploadFile) {
+	public ReviewVo(int review_number, int item_key, String mem_id, String review_title, String review_date,
+			String review_content, String score, String review_fname, MultipartFile uploadFile) {
 		super();
 		this.review_number = review_number;
+		this.item_key = item_key;
 		this.mem_id = mem_id;
 		this.review_title = review_title;
 		this.review_date = review_date;
@@ -36,6 +37,12 @@ public class ReviewVo {
 	}
 	public void setReview_number(int review_number) {
 		this.review_number = review_number;
+	}
+	public int getItem_key() {
+		return item_key;
+	}
+	public void setItem_key(int item_key) {
+		this.item_key = item_key;
 	}
 	public String getMem_id() {
 		return mem_id;
@@ -79,7 +86,6 @@ public class ReviewVo {
 	public void setUploadFile(MultipartFile uploadFile) {
 		this.uploadFile = uploadFile;
 	}
-	
 	
 	
 	

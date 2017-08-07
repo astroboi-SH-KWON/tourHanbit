@@ -76,7 +76,7 @@ public class DetailPackageDao {
 				{
 					str = str + "<a value="+i+"'>"+ i + "</a>&nbsp;";
 				}
-				
+				   
 				if( end < totalPage  )
 				{
 					str = str + "<a href='listQna.do?pageNUM="+(end+1)+"'>[¥Ÿ¿Ω]</a>&nbsp;";

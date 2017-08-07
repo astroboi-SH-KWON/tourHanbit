@@ -28,9 +28,9 @@
   update package set hit=hit+1 where item_key =#{item_key}
   </select>
   <select id="selectReview" resultType="com.hanbit.vo.ReviewVo">
- select review_number,mem_id,review_title,review_date,review_content,review_fname,score
-from (select rownum n,review_number,mem_id,review_title,review_date,review_content,review_fname,score
-from (select * from review where itme_key=#{itme_key}
+ select review_number,item_key,mem_id,review_title,review_date,review_content,review_fname,score
+from (select rownum n,review_number,item_key,mem_id,review_title,review_date,review_content,review_fname,score
+from (select * from review where item_key=#{item_key}
 order by review_number desc)) a
 where a.n between #{start} and #{end}
   </select>

@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,7 +22,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hanbit.dao.DetailPackageDao;
 import com.hanbit.dao.QnaDao;
 import com.hanbit.vo.PackageVo;
+import com.hanbit.vo.ReviewVo;
 import com.hanbit.vo.ScheduleVo;
+
+import net.sf.json.JSONObject;
 @Controller
 public class DetailPackageController {
 	@Autowired
@@ -122,25 +126,39 @@ public class DetailPackageController {
 		
 	}
 	
-	@RequestMapping("/listReview.do") 
-	public ModelAndView list(@RequestParam(value="pageNUM",defaultValue="1")int pageNUM,int item_key,HttpServletRequest request)
+	@ResponseBody
+	@RequestMapping(value="/listReview.do",produces = "text/plain;charset=utf-8") 
+	public String list(@RequestParam(value="pageNUM",defaultValue="1")int pageNUM,int item_key)
 	{
-		
-		
-		HttpSession session = request.getSession();
-		String mem_id = (String)session.getAttribute("id");
-		
+
+		JSONArray arr= new JSONArray();
 		int start,end;
-		
+		System.out.println("아이템키다 : "+ item_key+"페이지 번호다 :"+pageNUM);
 		start = (pageNUM-1) * DetailPackageDao.pageSIZE + 1;
 		end = start + DetailPackageDao.pageSIZE -1;
 		
-		
-		ModelAndView mav = new ModelAndView();
-		
-		mav.addObject("list",dao.listReview(start,end,item_key));
-		mav.addObject("pageStr",dao.getPageStr(pageNUM));
-		return mav;
+		System.out.println(start+"     ///    "+end);
+		String str="";
+		List<ReviewVo> list = dao.listReview(start,end,item_key);
+		for(ReviewVo r : list){
+			JSONObject obj= new JSONObject();
+			obj.put("review_number", r.getReview_number());
+			obj.put("mem_id", r.getMem_id());
+			obj.put("review_title", r.getReview_title());
+			obj.put("review_date", r.getReview_date());
+			obj.put("review_content", r.getReview_content());
+			obj.put("score", r.getScore());
+			obj.put("review_fname", r.getReview_fname());
+
+			System.out.println( r.getReview_title());
+			arr.add(obj);
+		}
+		JSONObject obj2= new JSONObject();
+		obj2.put("pageStr", dao.getPageStr(pageNUM));
+		arr.add(obj2);
+		System.out.println("나와랏!!!   : " +arr.toJSONString());
+		str=arr.toJSONString();
+		return str;
 	}
 	
 	

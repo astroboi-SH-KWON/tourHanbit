@@ -19,3 +19,22 @@
 </body>
 </html>
 
+   var tr = $("<tr></tr>");
+		               var td1 = $("<td></td>").text(item.review_number);
+		               var td2 = $("<td></td>").text(item.review_title);
+		               var td3 = $("<td></td>").text(item.review_date);
+		               var td4 = $("<td></td>").text(item.mem_id);
+		               $(tr).append(td1,td2,td3,td4).appendTo($("#tb"));
+		               
+		               
+		               <table border="1"  id="tb" align="center" style="width:100%">
+<tr>
+<th>번호</th>
+<th>제목</th>
+<th>날짜</th>
+<th>작성자</th>
+</tr>
+
+
+</table>
+<center>${pageStr}</center>
