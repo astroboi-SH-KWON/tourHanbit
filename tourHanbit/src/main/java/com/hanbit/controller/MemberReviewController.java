@@ -22,6 +22,13 @@ public class MemberReviewController {
 	@Autowired
 	private ReviewDao dao;
 	
+	
+	
+	public void setDao(ReviewDao dao) {
+		this.dao = dao;
+	}
+
+
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView form(String reivew_item_key,HttpSession session)
 	{
@@ -42,18 +49,19 @@ public class MemberReviewController {
 	{
 		ModelAndView mav = new ModelAndView();
 		String path = request.getRealPath("resources/upload");
-		
 		String review_fname= "";
 		r.setReview_fname(review_fname);
 		try{
 			MultipartFile file = r.getUplodfile();
+			//////ÁøÁÖ½ÖÂ¯Â¯
 			String review_fname1 = file.getOriginalFilename();
-			if(review_fname1 != null && review_fname1.equals(""))
+			if(review_fname1 != null && !review_fname1.equals(""))
 			{
 				review_fname = review_fname1;
 				byte data[] = file.getBytes();
 				r.setReview_fname(review_fname1);
 				FileOutputStream fos = new FileOutputStream(path+"/"+review_fname);
+				System.out.println(fos);
 				fos.write(data);
 			}
 			

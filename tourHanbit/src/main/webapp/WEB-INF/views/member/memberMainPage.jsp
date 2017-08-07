@@ -47,9 +47,10 @@
 
 	}
 	.eventRightInIn2{
-	width: 50%;
+	width: 300px;
+    height: 110px;
     float: left;
-	font-size: 0.5em;
+	overflow: scroll;
 	}
 	.bar1{
 	color: white;
@@ -96,7 +97,8 @@
 .col-md-4{
 
 }
-#draggable { width: 200px; height: 380px; padding: 0.5em;z-index: 999; border-radius: 5px;}
+
+
 </style>
 </head>
 <body>
@@ -209,14 +211,7 @@
 	
 </script>
 
-<div style="position: relative; width: 0; height: 0">
-    <div id="draggable" class="ui-widget-content" style="position: absolute; left: 1360px; top: 10px">
-       
-       
-	스크롤창 고정 <input type="checkbox" id="stp"><br>
-	오늘은 그만 보겠습니다. <input type="checkbox" id="del" ><br>
-    </div>
-</div>
+
 
 <span class="bar1"><font style="margin-left: 60px">BEST</font></span><span class="bar11"><font id="inter" style="margin-left: 60px">해외</font>  </span><span class="bar12" ><font id="dom" style="margin-left: 60px">국내</font></span>
 	<p><br></p>
@@ -270,7 +265,7 @@
 	<c:forEach items="${event }" var="m" begin="0" end="0">
 			<a href="listSubPackage.do?item_key=${m.item_key }"><div class="eventleft">
 			<div class="eventLeftIn"><img src="/tourapp/resources/img/${m.image01 }"  id="event01" style="height:200px;width:250px;"></div>
-			<div class="eventLeftIn">${m.intro_text}</div>
+			<div class="eventLeftIn" style="height:200px; overflow: scroll;">${m.intro_text}</div>
 		  
 		</div></a>
 	</c:forEach>

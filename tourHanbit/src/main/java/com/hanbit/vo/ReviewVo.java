@@ -15,6 +15,7 @@ public class ReviewVo {
 	private String review_fname;
 	private String score;
 	private MultipartFile uplodfile;
+	
 	public int getReview_number() {
 		return review_number;
 	}
@@ -81,6 +82,10 @@ public class ReviewVo {
 		this.review_fname = review_fname;
 		this.score = score;
 		this.uplodfile = uplodfile;
+	}
+	public ReviewVo() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	
 	

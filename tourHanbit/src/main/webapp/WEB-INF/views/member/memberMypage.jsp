@@ -82,7 +82,6 @@
 </head>
 <body>
 
-
 <div class="navbar-default sidebar" role="navigation" id="right_mypage">
 	<div class="sidebar-nav navbar-collapse">
     	<ul class="nav" id="side-menu">
@@ -160,10 +159,16 @@
 				<center><a href="memberMypagedelete.do?orderid=${pd.orderid }">취소</a></center>
 				</c:if></td>
 				
-				<td><a href="memberReview.do?reivew_item_key=${pd.item_key }">후기 작성</a></td>
+				<td>
+					<c:if test="${empty pd.score }"> 
+						<a href="memberReview.do?reivew_item_key=${pd.item_key }">후기 작성</a>
+					</c:if>
+					<c:if test="${not empty pd.score  }">
+						<font color="red">이미 작성 완료</font><br>
+						<a href="memberReviewUpdate.do?review_item_key=${pd.item_key }">후기 삭제</a>
+					</c:if>
+				</td>
 				</tr>
-				
-				
 			</c:forEach>
 	</table>
 	

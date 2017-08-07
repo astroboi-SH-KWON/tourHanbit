@@ -19,6 +19,7 @@ import com.hanbit.vo.MemberVo;
 import com.hanbit.vo.OrdersVo;
 import com.hanbit.vo.PackageVo;
 import com.hanbit.vo.QnaVo;
+import com.hanbit.vo.ReviewVo;
 
 public class MemberManager {
 
@@ -194,6 +195,29 @@ public class MemberManager {
 		
 		return memiditemkey;
 	}
+	
+		public static List<ReviewVo> reivewonlyone(ArrayList<Integer> mypage_item_key_list, String mem_id) {
+		
+		SqlSession session = factory.openSession();
+		System.out.println("매니저에서 맴버"+mem_id);
+		
+		System.out.println("매니저에서 리스트"+mypage_item_key_list);
+		List<ReviewVo> onlyone=null;
+		
+		HashMap map = new HashMap();
+		map.put("mem_id", mem_id);
+		int item_key=0;
+		for(int i=0; i<mypage_item_key_list.size();i++)
+		{
+			/*map.put("item_key", mypage_item_key_list.get(i));*/
+			item_key =mypage_item_key_list.get(i);
+			map.put("item_key", item_key);
+			onlyone = session.selectList("member.reviewonlyone",map);
+			
 
-
+		}
+		
+		/*List<ReviewVo> rv =  session.selectList("member.reviewonlyone",mypage_item_key_list);*/
+		return onlyone;
+	}
 }

@@ -16,7 +16,7 @@ public class QnaDao {
 	public static int pageSIZE = 4;
 	public static int totalRecord;
 	public static int totalPage;
-	public static int pageGroup = 5;
+	public static int pageGroup = 3;
 	
 	
 	public String getPageStr(int pageNUM,String searchField,String keyword)
@@ -71,8 +71,6 @@ public class QnaDao {
 	{
 		totalRecord= getTotal(searchField,keyword);
 		totalPage = (int)Math.ceil((double)totalRecord/pageSIZE);
-		System.out.println("totalRecord:"+ totalRecord);
-		System.out.println("totalPage:"+ totalPage);
 		return QnaManager.list(start,end,searchField,keyword);
 	}
 	

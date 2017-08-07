@@ -29,6 +29,9 @@ public class MemberSearchController {
 			}
 			mav.addObject("list", dao.serchResults(item,"%"+srch+"%",null,null,null));
 			mav.addObject("srch", srch);
+			if(srch==null||srch.equals("")){
+				mav.addObject("list", null);
+			}
 		}else if(srchOption.equals("3")){
 			mav.addObject("srch", startDay+" 부터  "+endDay+" 까지");
 			if(startDay==null||startDay.equals("")){

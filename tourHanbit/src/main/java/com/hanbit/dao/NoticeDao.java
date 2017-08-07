@@ -14,7 +14,7 @@ public class NoticeDao {
 	public static int pageSIZE = 4;
 	public static int totalRecord;
 	public static int totalPage;
-	public static int pageGroup = 5;
+	public static int pageGroup = 3;
 	
 	
 	public String getPageStr(int pageNUM,String searchField,String keyword)
@@ -26,7 +26,12 @@ public class NoticeDao {
 				int end = start+pageGroup-1;
 				
 				
+				if(end > totalPage)
+					end=totalPage;
+				
 				String str = "";
+				
+				System.out.println("start:"+start);
 				
 				if( start > pageGroup  )
 				{

@@ -18,20 +18,23 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <style type="text/css">
 
-
+#form1
+{
+text-align: center;
+}
 
 </style>
 </head>
 <body>
-	<h2>공지사항요</h2>
-	<form action="listNotice.do" method="post" class="form-horizontal">
+	<h2 align="center">공지사항요</h2>
+	<form action="listNotice.do" method="post" id="form1"  >
 		<select name="searchField" >
 			<option value="notice_title">제목</option>
 			<option value="notice_content">내용</option>
 		</select> <input type="text" name="keyword"> 
 		<input type="submit" value="검색">
 	</form>
-	<table border="1" class="table table-striped">
+	<table border="1" class="table table-striped" align="center" style="width:80%">
 	<tr>
 			<td>번호</td>
 			<td>제목</td>
@@ -48,10 +51,11 @@
 			</tr>
 	</c:forEach>
 	</table>
+	
+	<button onclick="location.href='listNotice.do?cutSession=0'">목록보기</button>
+	<c:if test="${mem_id eq 'admin'}">
+	<button onclick="location.href='insertNotice.do'">글등록</button>
+	</c:if>
 	<center>${pageStr}</center>
-	<a href="listNotice.do?cutSession=0">목록보기</a>
-	<button onclick="location.href='insertNotice.do'">
-	글등록
-	</button>
 </body>
 </html>

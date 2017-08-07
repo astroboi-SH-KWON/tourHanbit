@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 
 import com.hanbit.dao.QnaDao;
 import com.hanbit.vo.QnaVo;
@@ -35,23 +37,29 @@ public class InsertQnaController {
 
 
 	@RequestMapping(method=RequestMethod.GET)
-	public ModelAndView form()
+	public ModelAndView form(HttpSession session)
 	{
 		
 		ModelAndView mav = new ModelAndView();
+		String mem_id = (String) session.getAttribute("mem_id");
+		
 		int qna_number = dao.getNextNo();
+		mav.addObject("mem_id_ok", mem_id);
 		mav.addObject("qna_number", qna_number);
+		mav.setViewName("/template");
+		mav.addObject("viewPage","insertQna.jsp");
+		
 		return mav;
 	}
 	
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public ModelAndView submit(QnaVo q,HttpServletRequest request)
+	public ModelAndView submit(QnaVo q,HttpServletRequest request, HttpSession session)
 	{
 		System.out.println(q.getQna_content());
 		String path = request.getRealPath("resources/upload");
 		System.out.println(path);
-		
+		String mem_id = (String) session.getAttribute("mem_id");
 		String qna_fname = "";
 		q.setQna_fname(qna_fname);
 		try{
@@ -73,7 +81,9 @@ public class InsertQnaController {
 		
 		
 		dao.insertQna(q);
-		ModelAndView mav = new ModelAndView("redirect:/listQna.do");
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("redirect:/listQna.do");
 		return mav;
 	
 	

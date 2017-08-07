@@ -1,26 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/member/memberReview.do" method="post" enctype="multipart/form-data">
-<input type="text" name=item_key value="${reivew_item_key }" readonly="readonly"><br>
-ÀÛ¼ºÀÚ : <input type="text" name="mem_id" value="${mem_id }" readonly="readonly"><br>
-Á¦¸ñ : <input type="text" name="review_title"><br>
-³»¿ë : <textarea rows="10" cols="10" name="reivew_content"></textarea><br>
-Ã·ºÎÆÄÀÏ : <input type="file" name=review_fname><br>
+<form action="memberReview.do" method="post" enctype="multipart/form-data">
 
-ÆòÁ¡ : <table border="1">
+<input type="text" name=item_key value="${reivew_item_key }" readonly="readonly"><br>
+ìž‘ì„±ìž : <input type="text" name="mem_id" value="${mem_id }" readonly="readonly"><br>
+ì œëª© : <input type="text" name="review_title"><br>
+ë‚´ìš© : <textarea rows="10" cols="10" name="review_content"></textarea><br>
+ì²¨ë¶€íŒŒì¼ : <input type="file" name=uploadFile><br>
+
+í‰ì  : <table border="1">
 <tr>
-	<td>°¡ÀÌµå</td>
-	<td>È£ÅÚ</td>
-	<td>½Ä»ç</td>
-	<td>ÀÏÁ¤</td>
-	<td>ÀüÃ¼¸¸Á·µµ</td>
+	<td>ê°€ì´ë“œ</td>
+	<td>í˜¸í…”</td>
+	<td>ì‹ì‚¬</td>
+	<td>ì¼ì •</td>
+	<td>ì „ì²´ë§Œì¡±ë„</td>
 </tr>
 <tr>
 	<td>
@@ -75,7 +76,7 @@
 </tr>
 
 </table>
-<input type="submit" value="ÀÔ·Â">
+<input type="submit" value="ìž…ë ¥">
 </form>
 </body>
 </html>

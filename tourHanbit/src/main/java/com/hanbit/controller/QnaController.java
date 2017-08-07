@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,13 +35,12 @@ public class QnaController {
 		
 		
 		HttpSession session = request.getSession();
-		String mem_id = (String)session.getAttribute("id");
-		System.out.println(mem_id);
+		String mem_id = (String) session.getAttribute("id");
+		session.setAttribute("mem_id", mem_id);
+		
 		String searchField2 = (String)session.getAttribute("searchField");
 		String keyword2 = (String)session.getAttribute("keyword");
 		
-		System.out.println("검색필드:"+searchField2);
-		System.out.println("검색어:"+keyword2);
 		
 		
 		if(keyword != null && !keyword.trim().equals(""))
@@ -67,10 +67,14 @@ public class QnaController {
 		end = start + QnaDao.pageSIZE -1;
 		
 		
-		System.out.println("cont");
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list",dao.listQna(start,end,searchField2,keyword2));
 		mav.addObject("pageStr",dao.getPageStr(pageNUM,searchField2,keyword2));
+		
+		mav.setViewName("/template");
+		mav.addObject("viewPage","listQna.jsp");
+		
 		return mav;
 	}
 	
@@ -81,10 +85,18 @@ public class QnaController {
 	
 	@RequestMapping("/detailQna.do")
 	public ModelAndView detailQna(int qna_number,HttpSession session)
-	{			
+	{	
+		
+		
+		String mem_id = (String) session.getAttribute("id");
+		session.setAttribute("mem_id", mem_id);
+		
 		session.setAttribute("qna_number", qna_number);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("q", dao.detailQna(qna_number));
+		mav.setViewName("/template");
+		mav.addObject("viewPage","detailQna.jsp");
+		
 		return mav;
 	}
 	
@@ -95,21 +107,18 @@ public class QnaController {
 	@RequestMapping("/deleteQna.do")
 	public ModelAndView deleteQna(int qna_number)
 	{
+	
+	
 		ModelAndView mav = new ModelAndView("redirect:/listQna.do");
 		mav.addObject("q",dao.deleteQna(qna_number));
 		
-		return mav;
-	}
-	
-	
-	@RequestMapping("/updateQna.do")
-	public ModelAndView updateQna(int qna_number)
-	{
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("q",dao.deleteQna(qna_number));
+		
+		
 		
 		return mav;
 	}
+	
+	
 	
 	
 	

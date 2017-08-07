@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,23 +25,23 @@ text-decoration: none;
 <title>Insert title here</title>
 </head>
 <body>
+<div align="center">
 <h2>게시물 상세</h2>
 	<hr>
-<form action="">
 
-
-
-</form>
 	제목 : ${n.notice_title }<br>
 	등록일 : ${n.notice_date }<br>
 	내용 : <br>
 	<textarea rows="10" cols="60" readonly="readonly">${n.notice_content }</textarea><br>
-	첨부파일 : ${n.notice_fname }(${n.notice_fsize })
+
+	첨부파일 : <img src="/tourapp/resources/upload/${n.notice_fname }"><br>
 	
 	
 	
 	<a href="updateNotice.do?notice_number=${n.notice_number}">수정</a>
 	<a href="deleteNotice.do?notice_number=${n.notice_number}">삭제</a>
-	<h4><a href="listNotice.do">돌아가기</a></h4>
+	<br>
+	<button onclick="location.href='listNotice.do'">돌아가기</button>
+	</div>
 </body>
 </html>
