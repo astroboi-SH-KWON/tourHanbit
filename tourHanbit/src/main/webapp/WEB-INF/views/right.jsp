@@ -198,9 +198,9 @@ function pro(){
    		<td align="center" colspan="2"><label><font color="red"><b>마감</b></font>성원에 감사합니다.</label> </td>
    		</c:if>
    		<c:if test="${sp.reser_sub!=20 }">
-   		<%-- <c:if test="${r==1 }"> --%>
+   		<c:if test="${id!=null }"> 
       <td colspan="2" align="center"><input type="button" value="예약" onclick="pro()" style="background-color:#337ab7; "></td>
-      <%-- </c:if> --%>
+       </c:if> 
       </c:if>
    </tr>
    
