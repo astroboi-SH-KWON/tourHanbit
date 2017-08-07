@@ -46,9 +46,10 @@
 
 	}
 	.eventRightInIn2{
-	width: 50%;
+	width: 300px;
+    height: 110px;
     float: left;
-	font-size: 0.5em;
+	overflow: scroll;
 	}
 	.bar1{
 	color: white;
@@ -266,7 +267,7 @@
 	<c:forEach items="${event }" var="m" begin="0" end="0">
 			<a href="listSubPackage.do?item_key=${m.item_key }"><div class="eventleft">
 			<div class="eventLeftIn"><img src="resources/img/${m.image01 }"  id="event01" style="height:200px;width:250px;"></div>
-			<div class="eventLeftIn">${m.intro_text}</div>
+			<div class="eventLeftIn" style="height:200px; overflow: scroll;">${m.intro_text}</div>
 		  
 		</div></a>
 	</c:forEach>
