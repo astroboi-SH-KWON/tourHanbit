@@ -87,7 +87,7 @@ $(function(){
   <!-- <input name="email" placeholder="E-Mail Address" class="form-control"  type="text"> -->
     
     <input type="text" name="mem_email" value="${emailch }" required="required" class="form-control selectpicker" style="width: 150px;">
-    										<select data-type="${endemail } name="mem_email" placeholder="E-Mail Address" style="max-width: 50%" class="form-control">
+    										<select data-type="${endemail }" name="mem_email" placeholder="E-Mail Address" style="max-width: 50%" class="form-control">
 											<option>@naver.com</option>
 											<option>@nate.com</option>
 											<option>@gmail.com</option>

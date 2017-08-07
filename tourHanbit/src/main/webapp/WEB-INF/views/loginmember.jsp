@@ -22,7 +22,7 @@
 			<input type="password" name="mem_pwd" placeholder="Password"><br> 
 			<button type="submit" id="login-button">Login</button>
 		</form>
-			<a href="findpassword.do">Find Password<a>
+			<font size="4"><a href="findpassword.do">Find Password</a></font>
 	</div>
 	
 	<ul class="bg-bubbles">

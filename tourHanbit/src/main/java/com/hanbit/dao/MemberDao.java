@@ -84,5 +84,10 @@ public class MemberDao {
 	{
 		return MemberManager.memiditemkey(mem_id);
 	}
+	
+	public int memberleave(String mem_id)
+	{
+		return MemberManager.memberleave(mem_id);
+	}
 
 }

@@ -46,7 +46,7 @@ public class MemberJoinController {
 		String email = m.getMem_email();
 		String phone = m.getMem_phone();
 		m.setMem_email(email.replace(",",""));
-		System.out.println(email);
+		
 		m.setMem_phone(phone.replaceAll(",", "-"));
 		ModelAndView mav = new ModelAndView();
 		int re = dao.join(m);

@@ -7,14 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>비밀번호 찾기</h2>
-
-<form action="findpassword.do" method="post">
-아이디 : <input type="text" name="mem_id" id="mem_id">
-이메일 : <input type="text" name="mem_email">
-<input type="submit" value="찾기">
-<input type="reset" value="다시입력">
+<center><font color="skyblue" size="10">${leavemem_id }</font> 님 정말 <font color="red" size="7">탈퇴</font> 하시겠습니까?
+<form action="memberleave.do" method="post">
+<input type="submit" value="예">
 </form>
-
+</center>
 </body>
 </html>

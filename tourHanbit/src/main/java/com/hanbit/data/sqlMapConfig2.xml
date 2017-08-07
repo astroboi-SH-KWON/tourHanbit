@@ -15,6 +15,7 @@
 		<typeAlias type="com.hanbit.vo.ScheduleVo" alias="scheduleVo"/>
 		<typeAlias type="com.hanbit.vo.ImageVo" alias="imageVo"/>
 		<typeAlias type="com.hanbit.vo.QnaVo" alias="qnaVo"/>
+		<typeAlias type="com.hanbit.vo.ReviewVo" alias="reviewVo"/>
 	</typeAliases>	
   <environments default="development">
     <environment id="development">
@@ -31,5 +32,6 @@
     <mapper resource="com/hanbit/data/pageMapper.xml"/>
     <mapper resource="com/hanbit/data/adminMapper.xml"/>
     <mapper resource="com/hanbit/data/MemberMapper.xml"/>
+    <mapper resource="com/hanbit/data/reviewMapper.xml"/>
   </mappers>
 </configuration>

@@ -59,6 +59,16 @@ public class MemberManager {
 		return ru;
 	}
 
+	public static int memberleave(String mem_id) {
+		
+		int re = -1;
+		SqlSession session = factory.openSession(true);
+		System.out.println("매니저에서 "+mem_id);
+		int leave = session.delete("member.memberleave",mem_id);
+		
+		return re;
+	}
+	
 	public static String memberlogin(String mem_id, String mem_pwd) {
 		
 		int re = -1;
@@ -184,5 +194,6 @@ public class MemberManager {
 		
 		return memiditemkey;
 	}
+
 
 }

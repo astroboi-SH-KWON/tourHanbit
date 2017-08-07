@@ -96,7 +96,7 @@ function pro_pwd()
   <div class="col-md-4 inputGroupContainer">
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input type="text" name="mem_id" id="mem_id" onblur="pro_id()"  placeholder="First Name" class="form-control" required="required">
+  <input type="text" name="mem_id" id="mem_id" onblur="pro_id()" class="form-control" required="required">
 <div><span id="idok"></span></div>
     </div>
   </div>
@@ -120,7 +120,7 @@ function pro_pwd()
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
   <input type="password"  name="mem_pwd" id="mem_pwd" class="form-control"  onblur="pro_pwd()" required="required">
- <div><span id="msg_pwd"></span></div>
+ <div><font color="red"><span id="msg_pwd"></span></font></div>
     </div>
   </div>
 </div>
@@ -132,7 +132,7 @@ function pro_pwd()
   <div class="input-group">
   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
   <input type="password"  name="mem_pwdk" id="mem_pwdk" class="form-control"  onblur="pro_pwdk()" required="required">
-  <div><span id="msg_pwdk"></span></div>
+  <div><font color="red"><span id="msg_pwdk"></span></font></div>
     </div>
   </div>
 </div>
@@ -145,7 +145,8 @@ function pro_pwd()
         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
   <!-- <input name="email" placeholder="E-Mail Address" class="form-control"  type="text"> -->
     
-    <input type="text" name="mem_email" required="required" class="form-control selectpicker" style="width: 150px;"><select name="mem_email" placeholder="E-Mail Address" style="max-width: 50%" class="form-control">
+    <input type="text" name="mem_email" required="required" class="form-control selectpicker" style="width: 150px;">
+    										<select name="mem_email" placeholder="E-Mail Address" style="max-width: 50%" class="form-control">
 											<option>@naver.com</option>
 											<option>@nate.com</option>
 											<option>@gmail.com</option>
