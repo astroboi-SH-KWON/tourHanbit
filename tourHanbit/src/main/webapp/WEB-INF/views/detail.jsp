@@ -5,16 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
 <style type="text/css">
 
 
 </style>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
 	$(function() {
@@ -57,18 +65,17 @@
 			}
 			
 		})
-		
+		pro5(1);
+		function pro5(pageNUM){
 		$.ajax({
 			url:"listReview.do",
 			dataType:"json",
 			type:"post",
-			data: {"item_key":item_key},
-			success: function(data){
-				alert("성공!!!"+data);
+			data: {"item_key":item_key,"pageNUM":pageNUM},
+			success: function(data){s
 				$.each(data,function(index,item){
-					alert(item.review_title);
-		               var tr = $("<tr></tr>");
-		               var tr2 = $("<tr></tr>");
+		                tr = $("<tr></tr>");
+		                tr2 = $("<tr></tr>");
 		               var td1 = $("<td style='width:10%;'></td>").text(item.review_number);
 		               var td2 = $("<td id='title' style='width:50%;'></td>").text(item.review_title);
 		               var td3 = $("<td style='width:20%;'></td>").text(item.review_date);
@@ -76,15 +83,15 @@
 		               var td5 = $("<td id='review_content' colspan='4'></td>").text(item.review_content);
 		               
 		               $(tr).append(td1,td2,td3,td4).appendTo($("#tab"));
-		               $(tr2).append(td5).appendTo($("#tab"));
-		               td3.toggle(function(){
-		            	   $("#review_content").hide();
-		            	   alert("dddd");
-		               },function(){
-		            	   $("#review_content").show();
-		               })
-		       
+		               $(tr2).append(td5).appendTo($("#tab"));    
 		            });
+				$("#str").html(data[0].pageStr);
+				$(td2).toggle(function(){
+	            	 alert("Ddd");
+	           	  },function(){
+	           		alert("Ddd");
+	           	  })
+	       
 					
 				
 			},
@@ -93,8 +100,13 @@
 			}
 			
 		})
+		}
 		
-		$("<a></a>")
+		$(document).on("click","a",function(){
+			alert($(this).html());
+			var pageNUM=$(this).html();
+			pro5(pageNUM);
+		});
 
 
 		function listImage() {
@@ -263,7 +275,7 @@
 		</tr>
 	</table>
 	
-<table border="1"  id="tab"  style="width:100%">
+<table border="1" class="table table-striped" align="center" id="tab"  style="width:100%">
 <tr>
 <th>번호</th>
 <th>제목</th>
@@ -273,6 +285,6 @@
 
 
 </table>
-<center>${pageStr}</center>
+<center id="str">${pageStr}</center>
 </body>
 </html>

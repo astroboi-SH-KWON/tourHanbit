@@ -140,6 +140,9 @@ public class DetailPackageController {
 		System.out.println(start+"     ///    "+end);
 		String str="";
 		List<ReviewVo> list = dao.listReview(start,end,item_key);
+		JSONObject obj2= new JSONObject();
+		obj2.put("pageStr", dao.getPageStr(pageNUM));
+		arr.add(obj2);
 		for(ReviewVo r : list){
 			JSONObject obj= new JSONObject();
 			obj.put("review_number", r.getReview_number());
@@ -153,9 +156,7 @@ public class DetailPackageController {
 			System.out.println( r.getReview_title());
 			arr.add(obj);
 		}
-		JSONObject obj2= new JSONObject();
-		obj2.put("pageStr", dao.getPageStr(pageNUM));
-		arr.add(obj2);
+		
 		System.out.println("³ª¿Í¶ù!!!   : " +arr.toJSONString());
 		str=arr.toJSONString();
 		return str;

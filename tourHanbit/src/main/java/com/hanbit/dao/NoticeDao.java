@@ -26,6 +26,9 @@ public class NoticeDao {
 				int end = start+pageGroup-1;
 				
 				
+				if(end > totalPage)
+					end=totalPage;
+				
 				String str = "";
 				
 				System.out.println("start:"+start);

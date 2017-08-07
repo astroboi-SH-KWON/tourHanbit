@@ -58,7 +58,9 @@ public class AdminOrdersController {
 		String orderid="";
 		int re=-1;
 		orderid=request.getParameter("orderid");
-			re=dao.adminOrdersCancel(orderid);
+			OrdersVo o=dao.getOrders(orderid);
+		
+			re=dao.adminOrdersCancel(o);
 			
 		try {
 			response.getWriter().print(re);

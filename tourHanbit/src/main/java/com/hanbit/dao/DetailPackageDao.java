@@ -68,18 +68,18 @@ public class DetailPackageDao {
 				
 				if( start > pageGroup  )
 				{
-					str = str + "<a href='listQna.do?pageNUM="+(start-1)+"'>[이전]</a>&nbsp;";
+					str = str + "<a value="+(start-1)+">[이전]</a>&nbsp;";
 				}
 				
 				
 				for(int i=start; i<= end; i++)
 				{
-					str = str + "<a value="+i+"'>"+ i + "</a>&nbsp;";
+					str = str + "<a value="+i+">"+ i + "</a>&nbsp;";
 				}
 				   
 				if( end < totalPage  )
 				{
-					str = str + "<a href='listQna.do?pageNUM="+(end+1)+"'>[다음]</a>&nbsp;";
+					str = str + "<a value="+(end+1)+">[다음]</a>&nbsp;";
 				}
 		
 		

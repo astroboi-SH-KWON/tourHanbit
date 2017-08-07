@@ -51,6 +51,31 @@
 	        	};
 	        }
 	    });
+		$("#btn_submit").click(function(){
+			var item_key= $("#item_key").val();
+			var item_key_sub=item_key+"_"+d_date_str;
+			
+			var check_date=0;
+			$(".oldItem_key_sub").each(function(idx){
+				if($(this).val()==item_key_sub)
+				{
+					check_date=1;
+					alert("이미 존재하는 출발일자 입니다.");
+					
+				}
+			})
+			if(check_date==0)
+			{
+				$("#insert_form").submit();
+			}
+			else{
+				return false;
+				
+			}
+		})
+		
+	
+		
 		
 	});
 </script>
@@ -60,15 +85,18 @@
 <h2>서브 패키지 등록</h2>
 <hr>
 
-<form action="adminInsertSubItem.do" method="post">
+<form action="adminInsertSubItem.do" method="post" id="insert_form">
 <table>
 	<tr>
-		<td>상품번호 : <input type="text" value="${item_key }" name="item_key" readonly="readonly"></td>
+		<td>상품번호 : <input type="text" value="${item_key }" name="item_key" id="item_key" readonly="readonly"></td>
 	</tr>
 	<tr>
 		<td>가격 : <input type="text" name="price_sub"></td>
 	</tr>
 	<tr>
+		<c:forEach var="sc" items="${subCount }">
+			<input type="hidden" value="${sc.item_key_sub }" class="oldItem_key_sub">
+		</c:forEach>
 		<td>기간 : <input type="text" name="d_date_str" id="d_date_str"></td>
 		<td>시간: <input type="text" name="d_date_str_time" size="3"></td>
 		<td><label>&nbsp<font color="#337ab7"><b> ~ </b></font>&nbsp</label></td>
@@ -95,10 +123,9 @@
 		</td>
 	</tr>
 	<tr>
-		<td><input type="submit" value="등록"></td>
+		<td><button type="button" id="btn_submit">등록</button></td>
 	</tr>
 </table>
 </form>
-
 </body>
 </html>
