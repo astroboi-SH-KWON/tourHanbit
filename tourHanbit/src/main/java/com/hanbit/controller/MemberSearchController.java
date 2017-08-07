@@ -34,7 +34,6 @@ public class MemberSearchController {
 			}
 		}else if(srchOption.equals("3")){
 			mav.addObject("srch", startDay+" 부터  "+endDay+" 까지");
-			System.out.println("");
 			if((startDay==null||startDay.equals(""))&&endDay!=null&&!endDay.equals("")){
 				startDay=today;
 				mav.addObject("srch", endDay+" 까지");
