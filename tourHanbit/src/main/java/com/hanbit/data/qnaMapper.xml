@@ -17,8 +17,8 @@
 
  <select id="selectAll" resultType="QnaVo">
   
- select qna_number,mem_id,qna_title,qna_date,qna_content,qna_fname,qna_fsize,qna_pwd 
-from (select rownum n, qna_number,mem_id,qna_title,qna_date,qna_content,qna_fname,qna_fsize,qna_pwd
+ select qna_number,mem_id,qna_title,qna_date,qna_content,qna_fname,qna_fsize
+from (select rownum n, qna_number,mem_id,qna_title,qna_date,qna_content,qna_fname,qna_fsize
 from (select * from qna 
 <if test="keyword != null">
    	 	where ${searchField} like '%' || #{keyword} || '%' 
@@ -29,7 +29,7 @@ where a.n between #{start} and #{end}
   </select>
   
   <insert id="insertQna">
-  insert into qna values(#{qna_number},#{mem_id},#{qna_title},sysdate,#{qna_content},#{qna_fname},#{qna_fsize},#{qna_pwd})
+  insert into qna values(#{qna_number},#{mem_id},#{qna_title},sysdate,#{qna_content},#{qna_fname},#{qna_fsize})
    </insert>
    
    <select id="getNextNo" resultType="java.lang.Integer">
@@ -48,13 +48,13 @@ where a.n between #{start} and #{end}
  	
  	
  	<update id="updateQna">
- 	update qna set qna_title=#{qna_title},mem_id=#{mem_id},qna_content=#{qna_content},qna_fname=#{qna_fname},qna_fsize=#{qna_fsize},qna_pwd=#{qna_pwd} where qna_number = #{qna_number}
+ 	update qna set qna_title=#{qna_title},mem_id=#{mem_id},qna_content=#{qna_content},qna_fname=#{qna_fname},qna_fsize=#{qna_fsize}where qna_number = #{qna_number}
  	</update>
  	
  	
  	
  	<insert id="insertReply">
- 	insert into reply values(#{rno},#{qna_number},#{mem_id},#{rcontent},sysdate,sysdate)
+ 	insert into reply values(#{rno},#{qna_number},#{mem_id},#{rcontent})
  	</insert>
  	
  	<update id="updateReply"> 

@@ -41,6 +41,10 @@ public class InsertNoticeController {
 		ModelAndView mav = new ModelAndView();
 		int notice_number = dao.getNextNo();
 		mav.addObject("notice_number", notice_number);
+		mav.setViewName("/template");
+		mav.addObject("viewPage","insertNotice.jsp");
+		
+		
 		return mav;
 	}
 	

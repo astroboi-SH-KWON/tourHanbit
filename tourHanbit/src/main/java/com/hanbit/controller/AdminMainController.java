@@ -1,4 +1,4 @@
-//장주환
+/*//장주환
 
 package com.hanbit.controller;
 
@@ -139,7 +139,7 @@ public class AdminMainController {
 			FileCopyUtils.copy(fis2, fos2);
 			fis2.close();
 			fos2.close();
-			/*code.addRCode("library(DBI)");
+			code.addRCode("library(DBI)");
 			code.addRCode("library(RODBC)");
 			code.addRCode("library(igraph)");
 			code.addRCode("hanbit=odbcConnect('hanbit',uid='hanbit',pwd='hanbit')");
@@ -157,12 +157,12 @@ public class AdminMainController {
 			
 			code.addRCode("plot(price,type='o',col='red',ylim=c(0,max(price)),axes=FALSE,ann=FALSE)");
 			code.addRCode("axis(1,at=1:6, lab=key_item)");
-			code.addRCode("axis(2,ylim=c(0,max(price)))");*/
+			code.addRCode("axis(2,ylim=c(0,max(price)))");
 			
 			
 			
-			/*mav.addObject("fname",fname);
-			mav.addObject("fname2",fname2);*/
+			mav.addObject("fname",fname);
+			mav.addObject("fname2",fname2);
 			request.getSession().setAttribute("fname", fname);
 			request.getSession().setAttribute("fname2", fname2);
 		
@@ -371,3 +371,4 @@ public class AdminMainController {
 		return mav;
 	}
 }
+*/
