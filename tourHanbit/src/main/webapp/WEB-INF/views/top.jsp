@@ -35,8 +35,125 @@
 
 	#srch1:hover{color:#fff;background-color:#fff;border-color:#204d74;
 	}
-
+	#draggable { width: 250px; height: 200px; padding: 0.5em;z-index: 999; border-radius: 5px;background: none}
 	
+	@font-face {
+    font-family: 'weather';
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot');
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.woff') format('woff'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.ttf') format('truetype'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.svg#artill_clean_weather_iconsRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  background: #1192d3 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/austin-2.jpg) no-repeat bottom right;
+  background-size: cover;
+}
+
+body {
+  padding: 45px 0;
+  font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+#weather {
+  width: 200px;
+  margin: 0px auto;
+  text-align: center;
+  text-transform: uppercase;
+  background: none
+}
+
+i {
+  color: skyblue;
+  font-family: weather;
+  font-size: 80px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.0;
+  text-transform: none;
+}
+
+.icon-0:before { content: ":"; }
+.icon-1:before { content: "p"; }
+.icon-2:before { content: "S"; }
+.icon-3:before { content: "Q"; }
+.icon-4:before { content: "S"; }
+.icon-5:before { content: "W"; }
+.icon-6:before { content: "W"; }
+.icon-7:before { content: "W"; }
+.icon-8:before { content: "W"; }
+.icon-9:before { content: "I"; }
+.icon-10:before { content: "W"; }
+.icon-11:before { content: "I"; }
+.icon-12:before { content: "I"; }
+.icon-13:before { content: "I"; }
+.icon-14:before { content: "I"; }
+.icon-15:before { content: "W"; }
+.icon-16:before { content: "I"; }
+.icon-17:before { content: "W"; }
+.icon-18:before { content: "U"; }
+.icon-19:before { content: "Z"; }
+.icon-20:before { content: "Z"; }
+.icon-21:before { content: "Z"; }
+.icon-22:before { content: "Z"; }
+.icon-23:before { content: "Z"; }
+.icon-24:before { content: "E"; }
+.icon-25:before { content: "E"; }
+.icon-26:before { content: "3"; }
+.icon-27:before { content: "a"; }
+.icon-28:before { content: "A"; }
+.icon-29:before { content: "a"; }
+.icon-30:before { content: "A"; }
+.icon-31:before { content: "6"; }
+.icon-32:before { content: "1"; }
+.icon-33:before { content: "6"; }
+.icon-34:before { content: "1"; }
+.icon-35:before { content: "W"; }
+.icon-36:before { content: "1"; }
+.icon-37:before { content: "S"; }
+.icon-38:before { content: "S"; }
+.icon-39:before { content: "S"; }
+.icon-40:before { content: "M"; }
+.icon-41:before { content: "W"; }
+.icon-42:before { content: "I"; }
+.icon-43:before { content: "W"; }
+.icon-44:before { content: "a"; }
+.icon-45:before { content: "S"; }
+.icon-46:before { content: "U"; }
+.icon-47:before { content: "S"; }
+
+#weather h2 {
+  margin: 0 0 8px;
+  color: skyblue;
+  font-size: 50px;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+#weather ul {
+  margin: 0;
+  padding: 0;
+}
+
+#weather li {
+  background: #fff;
+  background: rgba(173,216,230,0.70);
+  padding: 20px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+#weather .currently {
+  margin: 0 20px;
+}
+
+#deldiv{float: right;background: none;text-shadow: 2px 2px #FFF}
 
 </style>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
@@ -46,7 +163,7 @@
 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.1.0/jquery.simpleWeather.min.js"></script>
 <script type="text/javascript">
 $(function() {		
 		
@@ -108,6 +225,69 @@ $(function() {
 				$("#srchPriceSpan").css("display","none");				
 			}
 		});
+
+		var dragFlag= "true";
+		if(document.cookie!=null && document.cookie !=""){
+			dragFlag=document.cookie; 
+		}
+		var url=window.location.href;
+		if(url.indexOf('ainPage')>0 && dragFlag=="true"){
+			$("#draggable").css('display','inline')
+		}
+		$( "#draggable" ).draggable();
+		
+		var el=$('#draggable');
+		var elpos=el.offset().top;
+		$(window).scroll(function () {
+		    var y=$(this).scrollTop();
+		    if($("#del").is(":checked")){
+		    	$("#draggable").css('display','none');
+		    	document.cookie = "false";
+		    }else{
+			    if(y<elpos){el.stop().animate({'top':20},500);}
+			    else{el.stop().animate({'top':y-elpos+100},500);}
+		    	
+		    }
+		    
+			    
+		});
+		
+		$.simpleWeather({
+		    location: 'SEOUL',
+		    woeid: '',
+		    unit: 'c',
+		    success: function(weather) {
+		      html = '<a href="srch.do?srchOption=0&srch=서울"><h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+		      html += '<ul><li><b> 한국 서울 </b></li><ul></a>';			  
+		      $("#weather").html(html);
+		    },
+		    error: function(error) {
+		      $("#weather").html('<p>'+error+'</p>');
+		    }
+		  });
+		
+		var city_en = ["OSAKA","CEBU","PARIS","SHANGHAI","PRAHA","SEOUL", "LONDON", "TOKYO","PUSAN","SYDNEY","DANANG"];
+		var city_kr = ["일본 오사카","필리핀 세부","프랑스 파리","중국 상하이","체코 프라하","한국 서울", "영국 런던", "일본 도쿄","한국 부산","호주 시드니","베트남 다낭"];
+		var i=-1;
+		setInterval( function() {
+			i++;
+			if(i>=city_kr.length){ i=0}
+			$.simpleWeather({
+			    location: city_en[i],
+			    woeid: '',
+			    unit: 'c',
+			    success: function(weather) {
+			      html = '<a href="srch.do?srchOption=0&srch='+city_kr[i].split(" ")[1]+'"><h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+			      html += '<ul><li><b>'+city_kr[i]+'</b></li><ul></a>';			  
+			      $("#weather").html(html);
+			    },
+			    error: function(error) {
+			      $("#weather").html('<p>'+error+'</p>');
+			    }
+			  });
+			
+			
+		} , 2000);
 		
 	});
 </script>
@@ -204,6 +384,11 @@ $(function() {
 	</center>
 
 <hr>
-
+	<div style="position: relative; width: 0; height: 0">
+    	<div id="draggable" class="ui-widget-content" style="position: absolute; left: 1250px; top: 10px ;display:none;">       
+		<div id="weather"></div>
+		<div id="deldiv"><input type="checkbox" id="del" ><b>오늘은 그만 보겠습니다.</b> </div><br>
+    	</div>
+    </div>
 </body>
 </html>
