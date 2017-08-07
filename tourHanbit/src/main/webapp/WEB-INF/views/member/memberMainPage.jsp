@@ -227,11 +227,11 @@
 		          		<font color="red"><b>마감</b></font>
 		          </c:if>
 					<c:set var = "item_name" value = "${m.item_name }" />
-					<c:if test="${fn:length(item_name)>25}">
-						<c:set var = "item_name1" value = "${fn:substring(item_name, 0, 25)}" />
+					<c:if test="${fn:length(item_name)>21}">
+						<c:set var = "item_name1" value = "${fn:substring(item_name, 0, 21)}" />
 						${item_name1}...
 					</c:if>
-      				<c:if test="${fn:length(item_name)<=25}">
+      				<c:if test="${fn:length(item_name)<=21}">
 						${item_name}
 					</c:if>
 					</p>
@@ -252,11 +252,11 @@
 		          		<font color="red"><b>마감</b></font>
 		          </c:if>
 					<c:set var = "item_name" value = "${m.item_name }" />
-					<c:if test="${fn:length(item_name)>25}">
-						<c:set var = "item_name1" value = "${fn:substring(item_name, 0, 25)}" />
+					<c:if test="${fn:length(item_name)>21}">
+						<c:set var = "item_name1" value = "${fn:substring(item_name, 0, 21)}" />
 						${item_name1}...
 					</c:if>
-      				<c:if test="${fn:length(item_name)<=25}">
+      				<c:if test="${fn:length(item_name)<=21}">
 						${item_name}
 					</c:if>
 					</p>
