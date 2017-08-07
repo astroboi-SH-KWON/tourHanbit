@@ -56,7 +56,7 @@ html {
 }
 
 body {
-  padding: 45px 0;
+  padding: 10px 0;
   font: 13px 'Open Sans', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
