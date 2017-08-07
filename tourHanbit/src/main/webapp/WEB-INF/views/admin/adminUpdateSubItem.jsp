@@ -52,6 +52,12 @@
 	        }
 	    });
 		
+		
+		var oldAir= $("#airplane").attr("oldAir");
+		$("#airplane").val(oldAir).text();
+		$("#airplane").find("option:"+oldAir).attr("selected","selected");
+		
+		
 	});
 </script>
 </head>
@@ -80,7 +86,24 @@
 					<td>시간: <input type="text" name="a_date_str_time" size="3" value="${s.a_date_str_time }"></td>
 				</tr>
 				<tr>
-					<td>항공기 : <input type="text" name="airplane" value="${s.airplane }"></td>
+					<td>항공기 :
+					
+						<select name="airplane" id="airplane" oldAir="${s.airplane }">
+							<option value="대한항공">대한항공</option>
+							<option value="아시아나">아시아나</option>
+							<option value="진에어">진에어</option>
+							<option value="에어부산">에어부산</option>
+							<option value="제주항공">제주항공</option>
+							<option value="네덜란드항공">네덜란드항공</option>
+							<option value="제주항공">제주항공</option>
+							<option value="이스타항공">이스타항공</option>
+							<option value="세부퍼시픽">세부퍼시픽</option>
+							<option value="호주에어">호주에어</option>
+							<option value="에어프랑스">에어프랑스</option>
+							<option value="러시아항공">러시아항공</option>
+							<option value="필리핀항공">필리핀항공</option>
+						</select> 
+					</td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="수정"></td>

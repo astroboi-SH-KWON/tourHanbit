@@ -36,7 +36,8 @@ public class AdminInsertSubItemController {
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView subInsertSubmit(SubPackageVo spv)
 	{
-		ModelAndView mav= new ModelAndView("redirect:/admin/adminListItem.do");
+		int item_key=spv.getItem_key();
+		ModelAndView mav= new ModelAndView("redirect:/admin/adminDetailItem.do?item_key="+item_key);
 	
 			dao.insertSubItem(spv);
 		
