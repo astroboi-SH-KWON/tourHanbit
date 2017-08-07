@@ -1,6 +1,7 @@
 package com.hanbit.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,10 @@ public class AdminInsertSubItemController {
 	{
 		ModelAndView mav= new ModelAndView();
 			
+		List<SubPackageVo> subCount=dao.getSubCount(item_key);
+		
+			
+			mav.addObject("subCount",subCount);
 			mav.addObject("item_key",item_key);
 			mav.addObject("view","adminInsertSubItem.jsp");
 			mav.setViewName("/admin/adminTemplate");
