@@ -34,6 +34,9 @@ public class NoticeController {
 	{
 		
 		HttpSession session = request.getSession();
+		
+		String mem_id = (String) session.getAttribute("id");
+		session.setAttribute("mem_id", mem_id);
 		String searchField2 = (String)session.getAttribute("searchField");
 		String keyword2 = (String)session.getAttribute("keyword");
 		
@@ -69,6 +72,10 @@ public class NoticeController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list",dao.listNotice(start,end,searchField2,keyword2));
 		mav.addObject("pageStr",dao.getPageStr(pageNUM,searchField2,keyword2));
+		
+		mav.setViewName("/template");
+		mav.addObject("viewPage","listNotice.jsp");
+		
 		return mav;
 	}
 	
@@ -83,6 +90,8 @@ public class NoticeController {
 		ModelAndView mav = new ModelAndView();
 		dao.updateHit(notice_number);
 		mav.addObject("n", dao.detailNotice(notice_number));
+		mav.setViewName("/template");
+		mav.addObject("viewPage","detailNotice.jsp");
 		return mav;
 	}
 	
@@ -105,6 +114,8 @@ public class NoticeController {
 	{
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("n",dao.deleteNotice(notice_number));
+		mav.setViewName("/template");
+		mav.addObject("viewPage","updateNotice.jsp");
 		
 		return mav;
 	}

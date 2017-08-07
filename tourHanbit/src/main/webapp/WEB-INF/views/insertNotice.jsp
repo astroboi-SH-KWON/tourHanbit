@@ -9,20 +9,30 @@
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
+<style type="text/css">
+#insertB
+{
+text-align: center;
+
+}
+
+</style>
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 
-<h2>등록</h2>
+<h2 align="center">등록</h2>
 <form action="insertNotice.do" method="post" enctype="multipart/form-data" >
 <input type="hidden" name="notice_number" value="${notice_number}">
 
 
-<div class="form-group">
- <div class="col-xs-4">
+<div class="form-group" style="text-align: center">
+ 
 제목:<input type="text" name="notice_title" class="form-control" placeholder="제목을 입력하세요"><br>
-</div>
+
 <br><br><br><br><br>
 내용:
 <textarea class="form-control" rows="5" cols="5" name="notice_content" placeholder="내용을 입력하세요"></textarea><br>

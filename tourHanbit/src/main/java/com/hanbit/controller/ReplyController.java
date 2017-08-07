@@ -39,9 +39,10 @@ public class ReplyController {
 	
 	
 	@RequestMapping("/insertReply.do")
-	public void insertReply(ReplyVo r,HttpServletRequest request)
+	public void insertReply(ReplyVo r,HttpServletRequest request,HttpSession session)
 	{
-		
+		String mem_id = (String) session.getAttribute("mem_id");
+		System.out.println(mem_id);
 		int rno = dao.getNextNo_c();
 		r.setRno(rno);
 		dao.insertReply(r);
