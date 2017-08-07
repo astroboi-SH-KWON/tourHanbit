@@ -7,12 +7,19 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.hanbit.data.DetailPackageManager;
+import com.hanbit.data.QnaManager;
 import com.hanbit.vo.ImageVo;
 import com.hanbit.vo.PackageVo;
+import com.hanbit.vo.QnaVo;
+import com.hanbit.vo.ReviewVo;
 import com.hanbit.vo.ScheduleVo;
 import com.hanbit.vo.SubPackageVo;
 @Repository
 public class DetailPackageDao {
+	public static int pageSIZE = 4;
+	public static int totalRecord;
+	public static int totalPage;
+	public static int pageGroup = 5;
 
 	public PackageVo detailPackage(int item_key){
 		return DetailPackageManager.detailPackage(item_key);
@@ -44,4 +51,40 @@ public class DetailPackageDao {
 		// TODO Auto-generated method stub
 		return DetailPackageManager.addHit(item_key);
 	}
+	public List<ReviewVo> listReview(int start, int end, int item_key) {
+		// TODO Auto-generated method stub
+		return DetailPackageManager.listReview(start,end,item_key);
+	}
+	public String getPageStr(int pageNUM)
+	{
+		
+		int start = 
+				(pageNUM + pageGroup-1) / pageGroup * pageGroup - (pageGroup-1);				
+				
+				int end = start+pageGroup-1;
+				
+				
+				String str = "";
+				
+				if( start > pageGroup  )
+				{
+					str = str + "<a href='listQna.do?pageNUM="+(start-1)+"'>[이전]</a>&nbsp;";
+				}
+				
+				
+				for(int i=start; i<= end; i++)
+				{
+					str = str + "<a value="+i+"'>"+ i + "</a>&nbsp;";
+				}
+				
+				if( end < totalPage  )
+				{
+					str = str + "<a href='listQna.do?pageNUM="+(end+1)+"'>[다음]</a>&nbsp;";
+				}
+		
+		
+		
+		return str;
+	}
+	
 }

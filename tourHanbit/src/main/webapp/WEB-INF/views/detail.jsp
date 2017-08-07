@@ -43,9 +43,6 @@
 						$("<td style='text-align:center;'></td>").html("습도 : "+data.list[0].main.humidity).appendTo(tr4);
 					})
 					$("#tb").append(tr5,tr,tr2,tr3,tr4);
-				
-				
-				
 			},
 			error: function(data){
 				alert("응답실패"+data)
@@ -218,6 +215,31 @@
 				src="resources/content01.JPG" id="content"></td>
 		</tr>
 	</table>
+	
+
+<table border="1">
+
+<tr>
+<td>번호</td>
+<td>제목</td>
+<td>날짜</td>
+<td>날짜</td>
+</tr>
+
+<c:forEach var="q" items="${list}">
+<tr>
+<td>${q.qna_number}</td>
+<td><a href="detailQna.do?qna_number=${q.qna_number}">${q.qna_title}</a></td>
+<td>${q.qna_date}</td>
+<td>${q.mem_id}</td>
+
+</tr>
+</c:forEach>
+</table>
+
+전체페이지:
+<center>${pageStr}</center>
+<a href="listQna.do?cutSession=0">목록보기</a>
 
 </body>
 </html>

@@ -6,17 +6,20 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hanbit.dao.DetailPackageDao;
+import com.hanbit.dao.QnaDao;
 import com.hanbit.vo.PackageVo;
 import com.hanbit.vo.ScheduleVo;
 @Controller
@@ -118,6 +121,28 @@ public class DetailPackageController {
 		return mav;	
 		
 	}
+	
+	@RequestMapping("/listReview.do") 
+	public ModelAndView list(@RequestParam(value="pageNUM",defaultValue="1")int pageNUM,int item_key,HttpServletRequest request)
+	{
+		
+		
+		HttpSession session = request.getSession();
+		String mem_id = (String)session.getAttribute("id");
+		
+		int start,end;
+		
+		start = (pageNUM-1) * DetailPackageDao.pageSIZE + 1;
+		end = start + DetailPackageDao.pageSIZE -1;
+		
+		
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("list",dao.listReview(start,end,item_key));
+		mav.addObject("pageStr",dao.getPageStr(pageNUM));
+		return mav;
+	}
+	
 	
 
 	
