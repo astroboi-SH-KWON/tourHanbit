@@ -22,40 +22,51 @@
 {
 text-align: center;
 }
+#td-center
+{
+text-align: center;
+}
 
 </style>
 </head>
 <body>
 	<h2 align="center">공지사항요</h2>
 	<form action="listNotice.do" method="post" id="form1"  >
-		<select name="searchField" >
+		<select name="searchField" style="color: white;">
 			<option value="notice_title">제목</option>
 			<option value="notice_content">내용</option>
 		</select> <input type="text" name="keyword"> 
-		<input type="submit" value="검색">
+		<input type="submit" value="검색" >
 	</form>
-	<table border="1" class="table table-striped" align="center" style="width:80%">
-	<tr>
-			<td>번호</td>
-			<td>제목</td>
-			<td>날짜</td>
-			<td>조회수</td>
-
+	<table  class="table table-striped" align="center" style="width:70%">
+	<tr style="text-align: center">
+			<td id="td-center">번호</td>
+			<td id="td-center">제목</td>
+			<td id="td-center">날짜</td>
+			<td id="td-center">조회수</td>
 	</tr>
 	<c:forEach var="n" items="${list}">
 			<tr>
-				<td>${n.notice_number }</td>
-				<td><a href="detailNotice.do?notice_number=${n.notice_number}">${n.notice_title}</a></td>
-				<td>${n.notice_date }</td>
-				<td>${n.notice_hit }</td>
+				<td width="10%" id="td-center">${n.notice_number }</td>
+				<td width="40%" id="td-center"><a href="detailNotice.do?notice_number=${n.notice_number}">${n.notice_title}</a></td>
+				<td width="30%" id="td-center">${n.notice_date }</td>
+				<td width="20%" id="td-center">${n.notice_hit }</td>
 			</tr>
 	</c:forEach>
 	</table>
+	<!-- /////////////////////////////////////////////////////////// -->
+	<br>
+
+	<span style="padding-left: 220px">
+	<button onclick="location.href='listNotice.do?cutSession=0'" class="btn btn-info"
+	style="width: 50px">목록</button> 
+	</span>
 	
-	<button onclick="location.href='listNotice.do?cutSession=0'">목록보기</button>
+	<span style="padding-right: 220px; float: right;">
 	<c:if test="${mem_id eq 'admin'}">
-	<button onclick="location.href='insertNotice.do'">글등록</button>
+	<button onclick="location.href='insertNotice.do'" class="btn btn-info" style="width: 50px">등록</button>
 	</c:if>
+	</span>
 	<center>${pageStr}</center>
 </body>
 </html>

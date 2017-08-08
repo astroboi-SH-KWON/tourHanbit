@@ -13,6 +13,8 @@ text-align: center;
 <title>Insert title here</title>
 </head>
 <body>
+<!-- /////////////////////////////////////////////////////////// -->
+	<br>
 <div id="insertB">
 <h2>등록</h2>
 <form action="insertQna.do" method="post" enctype="multipart/form-data">

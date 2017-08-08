@@ -45,7 +45,7 @@ text-align: center;
 				 if(idd == mem_id2)
 					{
 				var btn = $("<button>삭제</button>").val(item.rno).attr(
-						"onclick", "deleteReply(" + item.rno + ")").attr("size","20px");
+						"onclick", "deleteReply(" + item.rno + ")").attr("size","20px").attr("class","btn btn-info");
 				var btntd = $("<td></td>").append(btn);
 				$(tr).append(btntd).appendTo(table);
 					}
@@ -126,27 +126,51 @@ text-align: center;
 	<hr>
 	<div id="detailB">
 	
-		제목 : ${q.qna_title}<br>
-		작성자: ${q.mem_id}<br>
-		등록일 : ${q.qna_date}<br>
-		내용  <br>
-		<textarea rows="10" cols="60" readonly="readonly">${q.qna_content }</textarea>
-		<br> 첨부파일 : ${q.qna_fname }(${q.qna_fsize }) <br>
+		<table class="table" align="center" style="width:50%">
+	<tr>
+	<td width="40%">제목</td>
+	<td width="60%">${q.qna_title }</td>
+	</tr>
+	<tr>
+	<td width="40%">작성자</td>
+	<td width="60%">${q.mem_id }</td>
+	</tr>
+	<tr>
+	<td width="40%">등록일</td>
+	<td width="60%">${q.qna_date }</td>
+	</tr>
+	<tr>
+	<td width="40%">내용</td>
+	<td width="60%"><textarea rows="10" cols="60" readonly="readonly">${q.qna_content }</textarea></td>
+	</tr>
+	<tr>
+	<td width="40%">첨부파일</td>
+	<td width="60%"><img src="/tourapp/resources/upload/${q.qna_fname }"  width="425px" height="200px"></td>
+	</tr>
+	</table>
+	
+	
 		<c:if test="${sessionScope.mem_id == q.mem_id}">
-		<button onclick="location.href='updateQna.do?qna_number=${q.qna_number}'">수정</button>
-		<button onclick="location.href='deleteQna.do?qna_number=${q.qna_number}'">삭제</button>
-		
+			
+	<span style="padding-right: 370px; float: right;">
+	<button onclick="location.href='updateQna.do?qna_number=${q.qna_number}'" class="btn btn-info">수정</button>
+	</span>
+	<span style="padding-right: 0px; float: right">
+	<button onclick="location.href='deleteQna.do?qna_number=${q.qna_number}'" class="btn btn-info">삭제</button>
+	</span>
+	<br>
+	
 		</c:if>
 		<input type="hidden" name="qna_number" id="qna_number"
 			value="${q.qna_number }"> <input type="hidden" name="mem_id"
 			id="mem_id" value="${q.mem_id }">
 
-
-		<table align="center" style="width: 30px">
+		<div style="padding-left: 250px; padding-top: 20px">
+		<table align="center" style="width: 72%; margin-left: 50px" class="table">
 			<tr>
-				<td>작성자<br><label id="artice_id">${mem_id }</label></td>
+				<td width="30%">작성자<br><label id="artice_id">${mem_id }</label></td>
 				<c:if test="${mem_id == null}">
-				<td>
+				<td  width="50%">
 				<textarea cols="50" rows="2" name="rcontent" id="rcontent"
 						maxlength="6000"
 						style="overflow: hidden; line-height: 14px; height: 39px;"
@@ -156,21 +180,24 @@ text-align: center;
 				</c:if>
 				
 				<c:if test="${mem_id != null}">
-				<td>
+				<td  width="60%">
 				<textarea cols="50" rows="2" name="rcontent" id="rcontent"
 						maxlength="6000"
 						style="overflow: hidden; line-height: 14px; height: 39px;"
 						title="댓글입력"></textarea>
 				</td>
 				</c:if>
-				<td>
+				<td  width="10%">
 				<c:if test="${mem_id != null}">
-				<input type="button" value="등록" id="insertReply">
+				<input type="button" value="등록" id="insertReply" class="btn btn-info">
 				</c:if>
 				</td>
 			</tr>
 		</table>
-		<table align="center" style="width: 60%" border="1">
+		<!-- /////////////////////////////////////////////////////////// -->
+	<br>
+		</div>
+		<table align="center" style="width: 60%; " class="table table-striped">
 		<tr>
 		<td width="37%" align="center">작성자</td>
 		<td width="63%" align="center">내용</td>
@@ -178,8 +205,10 @@ text-align: center;
 		</table>
 		<div id="reply"> <!-- list출력 div -->
 		</div>
-		
+		<div style="padding-top:10px;padding-left: 0px">
+	<button onclick="location.href='listQna.do'" class="btn btn-info">목록</button>
 	</div>
-	<button onclick="location.href='listQna.do'">글목록</button>
+	</div>
+	
 </body>
 </html>

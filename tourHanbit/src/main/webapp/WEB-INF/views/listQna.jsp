@@ -29,6 +29,10 @@ text-align: right;
 {
 text-align: center;
 }
+#td-center
+{
+text-align: center;
+}
 
 </style>
 <title>Insert title here</title>
@@ -47,32 +51,39 @@ text-align: center;
 </form>
 
 
-<table border="1" class="table table-striped" align="center" style="width:80%">
+<table class="table table-striped" align="center" style="width:70%">
 <tr>
-<th>번호</th>
-<th>제목</th>
-<th>날짜</th>
-<th>작성자</th>
+<th id="td-center">번호</th>
+<th id="td-center">제목</th>
+<th id="td-center">날짜</th>
+<th id="td-center">작성자</th>
 </tr>
 
 <c:forEach var="q" items="${list}">
 <tr>
-<td width="10%" >${q.qna_number}</td>
-<td width="40%"><a href="detailQna.do?qna_number=${q.qna_number}">${q.qna_title}</a></td>
-<td width="30%">${q.qna_date}</td>
-<td width="20%">${q.mem_id}</td>
+<td width="10%" id="td-center">${q.qna_number}</td>
+<td width="40%" id="td-center"><a href="detailQna.do?qna_number=${q.qna_number}">${q.qna_title}</a></td>
+<td width="30%" id="td-center">${q.qna_date}</td>
+<td width="20%"	id="td-center">${q.mem_id}</td>
 </tr>
 </c:forEach>
 </table>
 
+<!-- /////////////////////////////////////////////////////////// -->
+	<br>
+
 <c:if test="${sessionScope.mem_id != null}">
-<button onclick="location.href='insertQna.do'">
-	글등록 
-	</button>
+<span style="padding-left: 220px">
+	<button onclick="location.href='listQna.do?cutSession=0'" class="btn btn-info"
+	style="width: 50px">목록</button> 
+	</span>
 </c:if>
-<div id="listqna">
-<button onclick="location.href='listQna.do?cutSession=0'">글목록</button>
-</div>
+
+<span style="padding-right: 220px; float: right;">
+	<c:if test="${mem_id != null}">
+	<button onclick="location.href='insertQna.do'" class="btn btn-info" style="width: 50px">등록</button>
+	</c:if>
+	</span>
 <center>${pageStr}</center>
 </body>
 </html>

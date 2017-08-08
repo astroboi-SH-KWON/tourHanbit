@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,8 +6,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+	<script type="text/javascript">
+		$(function() {
+			$("#btn_delete").click(function() {
+				var item_key= $("#item_key").text();
+				var reser= $("#reser").val();
+				
+				var check= confirm(reser+"명의 예약자가 있습니다. 지우시겠습니까?");
+				if(check)
+				{
+					$(location).attr('href',"adminDeleteItem.do?item_key="+item_key);
+				}
+			})
+		})
+	</script>
 </head>
 <body>
+
 <h2>패키지 상세</h2>
 <br>
 <c:if test="${subCount!=null }">
@@ -42,7 +57,7 @@
 							</thead>
 						   	<tbody>
 								<tr>
-									<td>${p.item_key }</td>
+									<td id="item_key">${p.item_key }</td>
 									<td>${p.item_name }</td>
 									<td>${p.price }</td>
 									<td>${p.city }</td>
@@ -52,6 +67,7 @@
 								</tr>
 							</tbody>
 					</table>
+					<input type="hidden" value="${p.reser }" id="reser">
 				</div>
 			</div>
 		</div>
@@ -189,7 +205,9 @@
 					
 					<button onclick="location.href='adminInsertSubItem.do?item_key=${p.item_key}'">서브패키지 등록</button>
 					<button onclick="location.href='adminUpdateItem.do?item_key=${p.item_key}'">수정</button>
-					<button onclick="location.href='adminDeleteItem.do?item_key=${p.item_key}'">삭제</button>
+					<button id="btn_delete">삭제</button>
+ 
+
 				</div>
 			</div>
 		</div>

@@ -15,21 +15,22 @@ text-decoration: none;
 <title>Insert title here</title>
 </head>
 <body>
+<div align="center">
 <h2>게시물 수정</h2>
 	<form action="updateNotice.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="notice_number" value="${n.notice_number }">
 		제목 : <input type="text" name="notice_title" value="${n.notice_title }"><br>
-		내용 : <br>
+		내용 : 
 		<textarea rows="10" cols="60" name="notice_content">${n.notice_content }</textarea><br>
-		첨부파일 : ${n.notice_fname }(${n.notice_fsize })<br>
-		<input type="file" name="uploadFile"><br>
+		첨부파일 : <img src="/tourapp/resources/upload/${n.notice_fname }"><br>
+		<input type="file" name="uploadFile" id="exampleInputFile"><br>
 		
-		<input type="submit" value="수정">
-		<input type="reset" value="취소">
+		<button type="submit" class="btn btn-info">수정</button>
+		<button type="reset" class="btn btn-info">취소</button>
 	</form>
 	
-	
-	
-
+	</div>
+<!-- /////////////////////////////////////////////////////////// -->
+	<br>
 </body>
 </html>
