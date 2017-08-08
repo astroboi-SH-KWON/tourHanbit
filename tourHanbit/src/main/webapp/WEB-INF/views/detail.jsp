@@ -5,10 +5,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<style type="text/css">
+
+
+</style>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
 	$(function() {
@@ -20,7 +34,9 @@
 				"${i.image06 }", "${i.image07 }", "${i.image08 }",
 				"${i.image09 }", "${i.image10 }", "${i.image11 }", ]
 		var city_id = $("#city_id").val();
+		var item_key = $("#item_key").val();
 		
+		$( "#accordion" ).accordion();
 		$.ajax({
 			url:"weather.do",
 			dataType:"json",
@@ -43,15 +59,54 @@
 						$("<td style='text-align:center;'></td>").html("습도 : "+data.list[0].main.humidity).appendTo(tr4);
 					})
 					$("#tb").append(tr5,tr,tr2,tr3,tr4);
-				
-				
-				
 			},
 			error: function(data){
 				alert("응답실패"+data)
 			}
 			
 		})
+		pro5(1);
+		function pro5(pageNUM){
+		$.ajax({
+			url:"listReview.do",
+			dataType:"json",
+			type:"post",
+			data: {"item_key":item_key,"pageNUM":pageNUM},
+			success: function(data){s
+				$.each(data,function(index,item){
+		                tr = $("<tr></tr>");
+		                tr2 = $("<tr></tr>");
+		               var td1 = $("<td style='width:10%;'></td>").text(item.review_number);
+		               var td2 = $("<td id='title' style='width:50%;'></td>").text(item.review_title);
+		               var td3 = $("<td style='width:20%;'></td>").text(item.review_date);
+		               var td4 = $("<td 'style='width:20%;'></td>").text(item.mem_id);
+		               var td5 = $("<td id='review_content' colspan='4'></td>").text(item.review_content);
+		               
+		               $(tr).append(td1,td2,td3,td4).appendTo($("#tab"));
+		               $(tr2).append(td5).appendTo($("#tab"));    
+		            });
+				$("#str").html(data[0].pageStr);
+				$(td2).toggle(function(){
+	            	 alert("Ddd");
+	           	  },function(){
+	           		alert("Ddd");
+	           	  })
+	       
+					
+				
+			},
+			error: function(data){
+				alert("실패!!!"+data);
+			}
+			
+		})
+		}
+		
+		$(document).on("click","a",function(){
+			alert($(this).html());
+			var pageNUM=$(this).html();
+			pro5(pageNUM);
+		});
 
 
 		function listImage() {
@@ -120,6 +175,7 @@
 </head>
 <body>
 	<input type="hidden" id="city_id" value="${p.city_id }">
+	<input type="hidden" id="item_key" value="${item_key }">
 	
 	<table width="100%">
 		<tr>
@@ -218,6 +274,17 @@
 				src="resources/content01.JPG" id="content"></td>
 		</tr>
 	</table>
+	
+<table border="1" class="table table-striped" align="center" id="tab"  style="width:100%">
+<tr>
+<th>번호</th>
+<th>제목</th>
+<th>작성 시간</th>
+<th>작성자</th>
+</tr>
 
+
+</table>
+<center id="str">${pageStr}</center>
 </body>
 </html>

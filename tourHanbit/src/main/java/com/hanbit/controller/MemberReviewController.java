@@ -52,8 +52,8 @@ public class MemberReviewController {
 		String review_fname= "";
 		r.setReview_fname(review_fname);
 		try{
-			MultipartFile file = r.getUplodfile();
-			//////ÁøÁÖ½ÖÂ¯Â¯
+			MultipartFile file = r.getUploadFile();
+			
 			String review_fname1 = file.getOriginalFilename();
 			if(review_fname1 != null && !review_fname1.equals(""))
 			{

@@ -14,6 +14,8 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.hanbit.vo.ImageVo;
 import com.hanbit.vo.PackageVo;
+import com.hanbit.vo.QnaVo;
+import com.hanbit.vo.ReviewVo;
 import com.hanbit.vo.ScheduleVo;
 import com.hanbit.vo.SubPackageVo;
 
@@ -98,6 +100,18 @@ public class DetailPackageManager {
 		SqlSession session= factory.openSession(true);
 		int re= session.update("detailPackage.addHit", item_key);
 		return re;
+	}
+	public static List<ReviewVo> listReview(int start, int end, int item_key) {
+		// TODO Auto-generated method stub
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("start", start);
+		map.put("end", end);
+		map.put("item_key", item_key);
+		
+		List<ReviewVo> list = null;
+		SqlSession session = factory.openSession();
+		list = session.selectList("detailPackage.selectReview",map);
+		return list;
 	}
 	
 }
