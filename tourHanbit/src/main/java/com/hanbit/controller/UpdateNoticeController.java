@@ -1,4 +1,4 @@
-package com.hanbit.controller;
+﻿package com.hanbit.controller;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -34,6 +34,8 @@ public class UpdateNoticeController {
 	   {
 	      ModelAndView mav = new ModelAndView();
 	      mav.addObject("n",dao.detailNotice(notice_number));
+	      mav.setViewName("/template");
+			mav.addObject("viewPage","updateNotice.jsp");
 	      return mav;
 	   }
 	   

@@ -28,20 +28,41 @@ text-decoration: none;
 <div align="center">
 <h2>게시물 상세</h2>
 	<hr>
+	<table class="table" align="center" style="width:50%">
+	<tr>
+	<td width="40%">제목</td>
+	<td width="60%">${n.notice_title }</td>
+	</tr>
+	<tr>
+	<td width="40%">등록일</td>
+	<td width="60%">${n.notice_date }</td>
+	</tr>
+	<tr>
+	<td width="40%">내용</td>
+	<td width="60%"><textarea rows="10" cols="60" readonly="readonly">${n.notice_content }</textarea></td>
+	</tr>
+	<tr>
+	<td width="40%">첨부파일</td>
+	<td width="60%"><img src="/tourapp/resources/upload/${n.notice_fname }"  width="425px" height="200px"></td>
+	</tr>
+	</table>
+	
+	
 
-	제목 : ${n.notice_title }<br>
-	등록일 : ${n.notice_date }<br>
-	내용 : <br>
-	<textarea rows="10" cols="60" readonly="readonly">${n.notice_content }</textarea><br>
-
-	첨부파일 : <img src="/tourapp/resources/upload/${n.notice_fname }"><br>
-	
-	
-	
-	<a href="updateNotice.do?notice_number=${n.notice_number}">수정</a>
-	<a href="deleteNotice.do?notice_number=${n.notice_number}">삭제</a>
 	<br>
-	<button onclick="location.href='listNotice.do'">돌아가기</button>
+
+	<!-- /////////////////////////////////////////////////////////// -->
+	<br>
+	<span style="padding-right: 370px; float: right;">
+	<button onclick="location.href='updateNotice.do?notice_number=${n.notice_number}'" class="btn btn-info">수정</button>
+	</span>
+	<span style="padding-right: 0px; float: right">
+	<button onclick="location.href='deleteNotice.do?notice_number=${n.notice_number}'" class="btn btn-info">삭제</button>
+	</span>
+	<br>
+	<div style="padding-top:10px;padding-left: 400px">
+	<button onclick="location.href='listNotice.do'" class="btn btn-info">목록</button>
+	</div>
 	</div>
 </body>
 </html>

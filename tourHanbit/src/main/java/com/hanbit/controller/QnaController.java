@@ -1,4 +1,4 @@
-package com.hanbit.controller;
+ï»¿package com.hanbit.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,11 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.hanbit.dao.QnaDao;
 
-@Controller // ÇØ´ç ÆÄÀÏ ÄÁÆ®·Ñ ÆÄÀÏ¸í½Ã
+@Controller // í•´ë‹¹ íŒŒì¼ ì»¨íŠ¸ë¡¤ íŒŒì¼ëª…ì‹œ
 public class QnaController {
 	
 	
-	@Autowired //ÀÚµ¿À¸·Î ¸ÅÇÎ½ÃÄÑÁÖ´Â°Í. ÄÁÆ®·Ñ¿¡¼­ Ã£À»¶§ »ç¿ë.
+	@Autowired //ìë™ìœ¼ë¡œ ë§¤í•‘ì‹œì¼œì£¼ëŠ”ê²ƒ. ì»¨íŠ¸ë¡¤ì—ì„œ ì°¾ì„ë•Œ ì‚¬ìš©.
 	private QnaDao dao;
 	
 	
@@ -29,7 +29,7 @@ public class QnaController {
 
 
 
-	@RequestMapping("/listQna.do") //½ÇÁ¦ ¾×¼ÇÀ» ÀÇ¹Ì.
+	@RequestMapping("/listQna.do") //ì‹¤ì œ ì•¡ì…˜ì„ ì˜ë¯¸.
 	public ModelAndView list(@RequestParam(value="pageNUM",defaultValue="1")int pageNUM, @RequestParam(value="cutSession", defaultValue="1") int cutSession, String searchField,String keyword,HttpServletRequest request)
 	{
 		

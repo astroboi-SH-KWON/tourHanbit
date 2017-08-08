@@ -23,24 +23,19 @@ text-align: center;
 <title>Insert title here</title>
 </head>
 <body>
-
+<!-- /////////////////////////////////////////////////////////// -->
+	<br>
 <h2 align="center">등록</h2>
 <form action="insertNotice.do" method="post" enctype="multipart/form-data" >
 <input type="hidden" name="notice_number" value="${notice_number}">
 
 
-<div class="form-group" style="text-align: center">
- 
+<div  style="text-align: center">
 제목:<input type="text" name="notice_title" class="form-control" placeholder="제목을 입력하세요"><br>
-
-<br><br><br><br><br>
 내용:
-<textarea class="form-control" rows="5" cols="5" name="notice_content" placeholder="내용을 입력하세요"></textarea><br>
-
-
-첨부파일:<input class="form-group" type="file" name="uploadFile"><br>
-<input type="submit"  class="btn btn-default" value="등록">
-
+<textarea rows="10" cols="60" name="notice_content" placeholder="내용을 입력하세요"></textarea><br>
+첨부파일:<input type="file" name="uploadFile"><br>
+<input type="submit"  class="btn btn-info" value="등록">
 
 </div>
 </form>

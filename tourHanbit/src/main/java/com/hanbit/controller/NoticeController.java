@@ -1,4 +1,4 @@
-package com.hanbit.controller;
+ï»¿package com.hanbit.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,11 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.hanbit.dao.NoticeDao;
 
-@Controller // ÇØ´ç ÆÄÀÏ ÄÁÆ®·Ñ ÆÄÀÏ¸í½Ã
+@Controller // í•´ë‹¹ íŒŒì¼ ì»¨íŠ¸ë¡¤ íŒŒì¼ëª…ì‹œ
 public class NoticeController {
 	
 	
-	@Autowired //ÀÚµ¿À¸·Î ¸ÅÇÎ½ÃÄÑÁÖ´Â°Í. ÄÁÆ®·Ñ¿¡¼­ Ã£À»¶§ »ç¿ë.
+	@Autowired //ìë™ìœ¼ë¡œ ë§¤í•‘ì‹œì¼œì£¼ëŠ”ê²ƒ. ì»¨íŠ¸ë¡¤ì—ì„œ ì°¾ì„ë•Œ ì‚¬ìš©.
 	private NoticeDao dao;
 	
 	
@@ -28,7 +28,7 @@ public class NoticeController {
 
 
 
-	@RequestMapping("/listNotice.do") //½ÇÁ¦ ¾×¼ÇÀ» ÀÇ¹Ì.
+	@RequestMapping("/listNotice.do") //ì‹¤ì œ ì•¡ì…˜ì„ ì˜ë¯¸.
 	public ModelAndView list(
 						@RequestParam(value="pageNUM",defaultValue="1")int pageNUM, @RequestParam(value="cutSession", defaultValue="1") int cutSession, String searchField,String keyword,HttpServletRequest request)
 	{
@@ -40,8 +40,8 @@ public class NoticeController {
 		String searchField2 = (String)session.getAttribute("searchField");
 		String keyword2 = (String)session.getAttribute("keyword");
 		
-		System.out.println("°Ë»öÇÊµå:"+searchField2);
-		System.out.println("°Ë»ö¾î:"+keyword2);
+		System.out.println("ê²€ìƒ‰í•„ë“œ:"+searchField2);
+		System.out.println("ê²€ìƒ‰ì–´:"+keyword2);
 		
 		
 		if(keyword != null && !keyword.trim().equals(""))

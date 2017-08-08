@@ -1,4 +1,4 @@
-package com.hanbit.dao;
+ï»¿package com.hanbit.dao;
 
 import java.util.List;
 
@@ -27,12 +27,15 @@ public class QnaDao {
 				
 				int end = start+pageGroup-1;
 				
+				if(end > totalPage)
+					end=totalPage;
+				
 				
 				String str = "";
 				
 				if( start > pageGroup  )
 				{
-					str = str + "<a href='listQna.do?pageNUM="+(start-1)+"'>[ÀÌÀü]</a>&nbsp;";
+					str = str + "<a href='listQna.do?pageNUM="+(start-1)+"'>[ì´ì „]</a>&nbsp;";
 				}
 				
 				
@@ -43,7 +46,7 @@ public class QnaDao {
 				
 				if( end < totalPage  )
 				{
-					str = str + "<a href='listQna.do?pageNUM="+(end+1)+"'>[´ÙÀ½]</a>&nbsp;";
+					str = str + "<a href='listQna.do?pageNUM="+(end+1)+"'>[ë‹¤ìŒ]</a>&nbsp;";
 				}
 		
 		

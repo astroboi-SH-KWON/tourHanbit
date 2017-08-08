@@ -1,4 +1,4 @@
-package com.hanbit.dao;
+ï»¿package com.hanbit.dao;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class NoticeDao {
 				
 				if( start > pageGroup  )
 				{
-					str = str + "<a href='listNotice.do?pageNUM="+(start-1)+"'>[ÀÌÀü]</a>&nbsp;";
+					str = str + "<a href='listNotice.do?pageNUM="+(start-1)+"'>[ì´ì „]</a>&nbsp;";
 				}
 				
 				
@@ -46,7 +46,7 @@ public class NoticeDao {
 				
 				if( end < totalPage  )
 				{
-					str = str + "<a href='listNotice.do?pageNUM="+(end+1)+"'>[´ÙÀ½]</a>&nbsp;";
+					str = str + "<a href='listNotice.do?pageNUM="+(end+1)+"'>[ë‹¤ìŒ]</a>&nbsp;";
 				}
 		
 		
