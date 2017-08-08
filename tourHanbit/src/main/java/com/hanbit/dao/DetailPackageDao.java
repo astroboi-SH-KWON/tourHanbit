@@ -19,7 +19,7 @@ public class DetailPackageDao {
 	public static int pageSIZE = 4;
 	public static int totalRecord;
 	public static int totalPage;
-	public static int pageGroup = 5;
+	public static int pageGroup = 3;
 
 	public PackageVo detailPackage(int item_key){
 		return DetailPackageManager.detailPackage(item_key);
@@ -53,7 +53,15 @@ public class DetailPackageDao {
 	}
 	public List<ReviewVo> listReview(int start, int end, int item_key) {
 		// TODO Auto-generated method stub
+		totalRecord= getTotal();
+		totalPage = (int)Math.ceil((double)totalRecord/pageSIZE);
+		
 		return DetailPackageManager.listReview(start,end,item_key);
+	}
+	private int getTotal() {
+		// TODO Auto-generated method stub
+		return DetailPackageManager.getTotal();
+		
 	}
 	public String getPageStr(int pageNUM)
 	{
@@ -68,18 +76,18 @@ public class DetailPackageDao {
 				
 				if( start > pageGroup  )
 				{
-					str = str + "<a value="+(start-1)+">[이전]</a>&nbsp;";
+					str = str + "<a id="+(start-1)+">[이전]</a>&nbsp;";
 				}
 				
 				
 				for(int i=start; i<= end; i++)
 				{
-					str = str + "<a value="+i+">"+ i + "</a>&nbsp;";
+					str = str + "<a id="+i+">"+ i + "</a>&nbsp;";
 				}
 				   
 				if( end < totalPage  )
 				{
-					str = str + "<a value="+(end+1)+">[다음]</a>&nbsp;";
+					str = str + "<a id="+(end+1)+">[다음]</a>&nbsp;";
 				}
 		
 		

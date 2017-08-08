@@ -65,6 +65,12 @@
 			}
 			
 		})
+		$(document).on("click","a",function(){
+// 			alert($(this).attr("id"));
+// 			var pageNUM=
+			pro5($(this).attr("id"));
+		});
+
 		pro5(1);
 		function pro5(pageNUM){
 		$.ajax({
@@ -72,8 +78,12 @@
 			dataType:"json",
 			type:"post",
 			data: {"item_key":item_key,"pageNUM":pageNUM},
-			success: function(data){s
+			success: function(data){
+				$("#tab").empty();
+				/* 
+				$("#tab").attr("class","table table-striped") */
 				$.each(data,function(index,item){
+					
 		                tr = $("<tr></tr>");
 		                tr2 = $("<tr></tr>");
 		               var td1 = $("<td style='width:10%;'></td>").text(item.review_number);
@@ -86,11 +96,11 @@
 		               $(tr2).append(td5).appendTo($("#tab"));    
 		            });
 				$("#str").html(data[0].pageStr);
-				$(td2).toggle(function(){
+			/* 	$(td2).toggle(function(){
 	            	 alert("Ddd");
 	           	  },function(){
 	           		alert("Ddd");
-	           	  })
+	           	  }) */
 	       
 					
 				
@@ -102,12 +112,7 @@
 		})
 		}
 		
-		$(document).on("click","a",function(){
-			alert($(this).html());
-			var pageNUM=$(this).html();
-			pro5(pageNUM);
-		});
-
+		
 
 		function listImage() {
 		
@@ -275,16 +280,16 @@
 		</tr>
 	</table>
 	
+	<p id ="tb">
 <table border="1" class="table table-striped" align="center" id="tab"  style="width:100%">
-<tr>
-<th>번호</th>
-<th>제목</th>
-<th>작성 시간</th>
-<th>작성자</th>
-</tr>
-
-
+				<tr>
+				<td>번호</td>
+				<td>제목</td>
+				<td>작성 시간</td>
+				<td>작성자</td>
+				</tr>
 </table>
+</p>
 <center id="str">${pageStr}</center>
 </body>
 </html>

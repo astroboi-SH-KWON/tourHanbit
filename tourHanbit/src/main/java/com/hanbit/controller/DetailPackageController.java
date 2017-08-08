@@ -153,12 +153,11 @@ public class DetailPackageController {
 			obj.put("score", r.getScore());
 			obj.put("review_fname", r.getReview_fname());
 
-			System.out.println( r.getReview_title());
 			arr.add(obj);
 		}
 		
-		System.out.println("나와랏!!!   : " +arr.toJSONString());
 		str=arr.toJSONString();
+		System.out.println("나왔다"+str);
 		return str;
 	}
 	
