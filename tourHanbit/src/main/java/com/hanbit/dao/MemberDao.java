@@ -92,10 +92,10 @@ public class MemberDao {
 		return MemberManager.memberleave(mem_id);
 	}
 
-	public List<ReviewVo> reviewonlyone(ArrayList<Integer> mypage_item_key_list, String mem_id) {
+	/*public MemberVo reviewonlyone(String mem_id) {
 		
-		return MemberManager.reivewonlyone(mypage_item_key_list, mem_id);
+		return MemberManager.reivewonlyone(mem_id);
 		
-	}
+	}*/
 	
 }

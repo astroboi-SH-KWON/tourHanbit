@@ -16,7 +16,6 @@
   <div class="wrapper">
 	<div class="container">
 		<h1>Welcome</h1>
-		
 		<form action="loginmember.do" method="post" class="form">
 			<input type="text" name="mem_id" placeholder="Username"><br>
 			<input type="password" name="mem_pwd" placeholder="Password"><br> 

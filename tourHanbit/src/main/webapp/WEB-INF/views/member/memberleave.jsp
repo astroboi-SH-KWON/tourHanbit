@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<center><font color="skyblue" size="10">${leavemem_id }</font> ´Ô Á¤¸» <font color="red" size="7">Å»Åð</font> ÇÏ½Ã°Ú½À´Ï±î?
+<center><font color="skyblue" size="10">${leavemem_id }</font> ´Ô Á¤¸» Å»Åð ÇÏ½Ã°Ú½À´Ï±î?
 <form action="memberleave.do" method="post">
-<input type="submit" value="¿¹">
+<input type="submit" value="¿¹" class="btn btn-danger">
 </form>
 </center>
 </body>

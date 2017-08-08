@@ -62,12 +62,12 @@ public class MemberManager {
 
 	public static int memberleave(String mem_id) {
 		
-		int re = -1;
+		int leave = -1;
 		SqlSession session = factory.openSession(true);
 		System.out.println("매니저에서 "+mem_id);
-		int leave = session.delete("member.memberleave",mem_id);
+		leave = session.delete("member.memberleave",mem_id);
 		
-		return re;
+		return leave;
 	}
 	
 	public static String memberlogin(String mem_id, String mem_pwd) {
@@ -128,7 +128,7 @@ public class MemberManager {
 	public static MemberVo membermypage(String mem_id) {
 		
 			SqlSession session = factory.openSession();
-			MemberVo mv = session.selectOne("member.membermypage",mem_id);	
+			MemberVo mv = session.selectOne("member.membermypage",mem_id);
 		return mv;
 	}
 
@@ -196,7 +196,16 @@ public class MemberManager {
 		return memiditemkey;
 	}
 	
-		public static List<ReviewVo> reivewonlyone(ArrayList<Integer> mypage_item_key_list, String mem_id) {
+	public static MemberVo reivewonlyone(String mem_id) {
+		
+		SqlSession session = factory.openSession();
+		System.out.println(mem_id);
+		MemberVo mv = session.selectOne("member.reviewonlyone",mem_id);
+		
+	return mv;
+}
+	
+		/*public static List<ReviewVo> reivewonlyone(ArrayList<Integer> mypage_item_key_list, String mem_id) {
 		
 		SqlSession session = factory.openSession();
 		System.out.println("매니저에서 맴버"+mem_id);
@@ -209,7 +218,7 @@ public class MemberManager {
 		int item_key=0;
 		for(int i=0; i<mypage_item_key_list.size();i++)
 		{
-			/*map.put("item_key", mypage_item_key_list.get(i));*/
+			map.put("item_key", mypage_item_key_list.get(i));
 			item_key =mypage_item_key_list.get(i);
 			map.put("item_key", item_key);
 			onlyone = session.selectList("member.reviewonlyone",map);
@@ -217,7 +226,7 @@ public class MemberManager {
 
 		}
 		
-		/*List<ReviewVo> rv =  session.selectList("member.reviewonlyone",mypage_item_key_list);*/
+		List<ReviewVo> rv =  session.selectList("member.reviewonlyone",mypage_item_key_list);
 		return onlyone;
-	}
+	}*/
 }

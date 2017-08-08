@@ -129,9 +129,9 @@ public class AdminDao {
 		return AdminManager.adminOrdersCheck(orderid);
 		
 	}
-	public int adminOrdersCancel(String orderid) {
+	public int adminOrdersCancel(OrdersVo o) {
 		// TODO Auto-generated method stub
-		return AdminManager.adminOrdersCancel(orderid);
+		return AdminManager.adminOrdersCancel(o);
 	}
 	public void adminUpdateSubItem(SubPackageVo s) {
 		 AdminManager.adminUpdateSubItem(s);
@@ -143,5 +143,9 @@ public class AdminDao {
 	public MemberVo adminMemberDetail(String mem_id) {
 		return AdminManager.adminMemberDetail(mem_id);
 		
+	}
+	public OrdersVo getOrders(String orderid) {
+		
+		return AdminManager.getOrders(orderid);
 	}
 }

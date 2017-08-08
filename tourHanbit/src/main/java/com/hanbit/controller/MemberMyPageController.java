@@ -33,23 +33,18 @@ public class MemberMyPageController {
 		String mem_id=(String)session.getAttribute("id");
 		ArrayList<Integer> mypage_item_key_list = (ArrayList<Integer>)session.getAttribute("mypage_item_key_list");
 		
-	/*	List<ReviewVo> onlyone=dao.reviewonlyone(mypage_item_key_list,mem_id);*/
-		
-		
 		MemberVo mem_update_ready = dao.membermypage(mem_id);
 		List<OrdersVo> Paymentdetails= dao.paymentdetails(mem_id);
 		
 		List<OrdersVo> mem_recommendation = dao.recommendation(mem_id,mypage_item_key_list);
-		
-		
-
+		/*MemberVo review = dao.reviewonlyone(mem_id);*/
 		session.setAttribute("mem_update_ready", mem_update_ready);
 	
 		mav.addObject("title","나의 예약 내역");
 		mav.addObject("myqnaa","나의 문의 내역");
 		
-		
-		mav.addObject("Paymentdetails",Paymentdetails);
+		/*mav.addObject("review", review);*/
+		mav.addObject("Paymentdetails",dao.paymentdetails(mem_id));
 		mav.addObject("myqna",dao.myqna(mem_id));
 		mav.addObject("membermypage",dao.membermypage(mem_id));
 		mav.addObject("order", mem_id);

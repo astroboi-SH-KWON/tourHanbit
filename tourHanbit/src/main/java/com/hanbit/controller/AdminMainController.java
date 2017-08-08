@@ -1,4 +1,4 @@
-/*//장주환
+//장주환
 
 package com.hanbit.controller;
 
@@ -256,6 +256,7 @@ public class AdminMainController {
 			String image10=iv.getImage10();
 			String image11=iv.getImage11();
 			
+			
 		int re=dao.adminDeleteItem(item_key);
 		
 		if(re==1 && image01!=null && !image01.equals(""))
@@ -371,4 +372,3 @@ public class AdminMainController {
 		return mav;
 	}
 }
-*/

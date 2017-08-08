@@ -160,13 +160,15 @@
 				</c:if></td>
 				
 				<td>
-					<c:if test="${empty pd.score }"> 
+				
+					<c:if test="${empty pp.score }"> 
 						<a href="memberReview.do?reivew_item_key=${pd.item_key }">후기 작성</a>
 					</c:if>
-					<c:if test="${not empty pd.score  }">
+					<c:if test="${not empty pp.score  }">
 						<font color="red">이미 작성 완료</font><br>
 						<a href="memberReviewUpdate.do?review_item_key=${pd.item_key }">후기 삭제</a>
 					</c:if>
+				
 				</td>
 				</tr>
 			</c:forEach>
@@ -210,8 +212,8 @@
 	</tr>
 		<c:forEach var="q" items="${myqna }">
 			<tr>
-				<td>${q.qna_number }</td>
-				<td>${q.qna_title }</td>
+				<%-- <td>${q.qna_number }</td> --%>
+				<td><a href="/tourapp/detailQna.do?qna_number=${q.qna_number }">${q.qna_title }</a></td>
 				<td>${q.mem_id }</td>
 				<td>${q.qna_date }</td>
 			</tr>

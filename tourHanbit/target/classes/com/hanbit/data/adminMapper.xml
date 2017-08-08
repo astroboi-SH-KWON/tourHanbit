@@ -46,7 +46,7 @@
   		select item_key_sub from subpackage where item_key=#{item_key}
   	</select>
   	
-  	<delete id="deleteOrders">
+ <!--  	<delete id="deleteOrders">
   		delete orders where item_key=#{item_key}
   	</delete>
   	
@@ -56,7 +56,7 @@
   	
   	<delete id="deleteSchedule">
   		delete schedule where item_key=#{item_key}
-  	</delete>
+  	</delete> -->
   	
   	<delete id="deleteItem">
   		delete package where item_key=#{item_key}
@@ -97,6 +97,14 @@
   		delete orders where orderid=#{orderid}
   	</delete>
   	
+  	<update id="updateReser">
+  		update package set reser=reser-#{orders_su} where item_key=#{item_key}
+  	</update>
+  	
+  	<update id="updateReser_sub">
+  		update subpackage set reser_sub= reser_sub -#{orders_su} where item_key_sub=#{item_key_sub}
+  	</update>
+  	
   	<update id="updateSubItem">
   		update subpackage set price_sub=#{price_sub}, airplane=#{airplane}, d_date=to_date(#{d_date},'YYYY-MM-DD HH24:mi'), a_date=to_date(#{a_date},'YYYY-MM-DD HH24:mi') where item_key_sub=#{item_key_sub}
   	</update>
@@ -107,5 +115,13 @@
   	
   	<select id="memberDetail" resultType="memberVo">
   		select * from member where mem_id=#{mem_id}
+  	</select>
+  	
+  	<select id="getOrders" resultType="ordersVo">
+  		select * from orders where orderid=#{orderid}
+  	</select>
+  	
+  	<select id="getOrders_su" resultType="java.lang.Integer">
+  		select sum(orders_su) from orders where item_key=#{item_key} group by item_key
   	</select>
 </mapper>

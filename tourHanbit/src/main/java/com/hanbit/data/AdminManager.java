@@ -255,11 +255,25 @@ public class AdminManager {
 			return r;
 		}
 
-		public static int adminOrdersCancel(String orderid) {
+		public static int adminOrdersCancel(OrdersVo o) {
 			SqlSession session= factory.openSession(true);
 			
-			int r=session.delete("admin.ordersCancel",orderid);
+			String orderid=o.getOrderid();
+			int item_key= o.getItem_key();
+			String item_key_sub=o.getItem_key_sub();
+			int orders_su=o.getOrders_su();
 			
+			HashMap map= new HashMap();
+			map.put("item_key", item_key);
+			map.put("item_key_sub", item_key_sub);
+			map.put("orders_su", orders_su);
+			
+			
+			
+			int r=session.delete("admin.ordersCancel",orderid);
+			int h=session.update("admin.updateReser",map);
+			int g=session.update("admin.updateReser_sub",map);
+	
 			return r;
 		}
 
@@ -296,9 +310,15 @@ public class AdminManager {
 			SqlSession session= factory.openSession(true);
 			HashMap map =new HashMap();
 			
+			
 			map.put("item_key_sub", item_key_sub);
 			map.put("item_key", item_key);
 			
+			int orders_su= session.selectOne("admin.getOrders_su",item_key);
+			
+			map.put("orders_su", orders_su);
+			
+			int h=session.update("admin.updateReser",map);
 			session.delete("admin.deleteSubItem",map);
 			
 		}
@@ -309,5 +329,13 @@ public class AdminManager {
 			MemberVo m= session.selectOne("admin.memberDetail",mem_id);
 			
 			return m;
+		}
+
+		public static OrdersVo getOrders(String orderid) {
+			
+			SqlSession session= factory.openSession();
+			OrdersVo o= session.selectOne("admin.getOrders",orderid);
+			
+			return o;
 		}
 }

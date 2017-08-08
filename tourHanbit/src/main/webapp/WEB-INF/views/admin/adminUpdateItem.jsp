@@ -34,7 +34,7 @@
 ${status.count }일차  <br> <textarea  name="day" cols="100" rows="10">${s.content }</textarea><br>
 </c:forEach>
 
-<input type="submit" value="등록" class="btn btn-primary">
+<input type="submit" value="수정" class="btn btn-primary">
 </form>
 </body>
 </html>

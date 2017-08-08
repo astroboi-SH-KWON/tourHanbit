@@ -26,6 +26,8 @@ public class AdminUpdateSubItemController {
 		ModelAndView mav= new ModelAndView();
 		SubPackageVo s=dao.adminDetailSubItem(item_key_sub);
 
+		
+		
 		mav.addObject("s",s);
 		
 		mav.addObject("view", "adminUpdateSubItem.jsp");

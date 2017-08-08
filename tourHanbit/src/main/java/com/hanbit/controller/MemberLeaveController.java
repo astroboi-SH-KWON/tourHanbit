@@ -41,7 +41,6 @@ public class MemberLeaveController {
 	{
 		ModelAndView mav = new ModelAndView();
 		String mem_id = (String) session.getAttribute("id");
-		
 		int re = dao.memberleave(mem_id);
 		session.invalidate();
 		mav.setViewName("redirect:/mainPage.do");

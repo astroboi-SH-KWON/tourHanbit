@@ -4,17 +4,35 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<script src="resources/js/index.js"></script>
+  <link rel="stylesheet" href="resources/css/style.css">
 <title>Insert title here</title>
 </head>
 <body>
 <h2>비밀번호 찾기</h2>
+  <div class="wrapper">
+	<div class="container">
+		<form action="findpassword.do" method="post" class="form">
+			<input type="text" name="mem_id" id="mem_id" placeholder="User_ID"><br>
+			<input type="text" name="mem_email" placeholder="E-mail"><br>
+			<button type="submit" id="login-button">Find</button>
+		</form>
 
-<form action="findpassword.do" method="post">
-아이디 : <input type="text" name="mem_id" id="mem_id">
-이메일 : <input type="text" name="mem_email">
-<input type="submit" value="찾기">
-<input type="reset" value="다시입력">
-</form>
+</div>
+	
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
 
 </body>
 </html>
