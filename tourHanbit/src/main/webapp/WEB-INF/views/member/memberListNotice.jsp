@@ -31,7 +31,7 @@ text-align: center;
 </head>
 <body>
 	<h2 align="center">공지사항</h2>
-	<form action="listNotice.do" method="post" id="form1"  >
+	<form action="memberListNotice.do" method="post" id="form1"  >
 		<select name="searchField" style="color: white;">
 			<option value="notice_title">제목</option>
 			<option value="notice_content">내용</option>
@@ -48,7 +48,7 @@ text-align: center;
 	<c:forEach var="n" items="${list}">
 			<tr>
 				<td width="10%" id="td-center">${n.notice_number }</td>
-				<td width="40%" id="td-center"><a href="detailNotice.do?notice_number=${n.notice_number}">${n.notice_title}</a></td>
+				<td width="40%" id="td-center"><a href="memberDetailNotice.do?notice_number=${n.notice_number}">${n.notice_title}</a></td>
 				<td width="30%" id="td-center">${n.notice_date }</td>
 				<td width="20%" id="td-center">${n.notice_hit }</td>
 			</tr>
@@ -58,13 +58,13 @@ text-align: center;
 	<br>
 
 	<span style="padding-left: 220px">
-	<button onclick="location.href='listNotice.do?cutSession=0'" class="btn btn-info"
+	<button onclick="location.href='memberListNotice.do?cutSession=0'" class="btn btn-info"
 	style="width: 50px">목록</button> 
 	</span>
 	
 	<span style="padding-right: 220px; float: right;">
 	<c:if test="${mem_id eq 'admin'}">
-	<button onclick="location.href='insertNotice.do'" class="btn btn-info" style="width: 50px">등록</button>
+	<button onclick="location.href='memberInsertNotice.do'" class="btn btn-info" style="width: 50px">등록</button>
 	</c:if>
 	</span>
 	<center>${pageStr}</center>

@@ -61,7 +61,7 @@
 					$("#tb").append(tr5,tr,tr2,tr3,tr4);
 			},
 			error: function(data){
-				alert("응답실패"+data)
+				//alert("응답실패"+data)
 			}
 			
 		})
@@ -96,14 +96,13 @@
 				
 			},
 			error: function(data){
-				alert("실패!!!"+data);
+				//alert("실패!!!"+data);
 			}
 			
 		})
 		}
 		
 		$(document).on("click","a",function(){
-			alert($(this).html());
 			var pageNUM=$(this).html();
 			pro5(pageNUM);
 		});

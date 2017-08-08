@@ -18,9 +18,9 @@
  <select id="selectAll" resultType="NoticeVo">
   
   select notice_number,notice_title,notice_content,notice_hit,notice_date,notice_fname,
-notice_fsize,notice_top from
+notice_fsize from
 (select rownum n, notice_number,notice_title,notice_content,notice_hit,notice_date,notice_fname,
-notice_fsize,notice_top from
+notice_fsize from
 (select * from notice
 <if test="keyword != null">
    	 	where ${searchField} like '%' || #{keyword} || '%' 
@@ -31,7 +31,7 @@ where a.n between #{start} and #{end}
   </select>
   
   <insert id="insertNotice">
-  insert into notice values(#{notice_number},#{notice_title},#{notice_content},0,sysdate,#{notice_fname},#{notice_fsize},#{notice_top})
+  insert into notice values(#{notice_number},#{notice_title},#{notice_content},0,sysdate,#{notice_fname},#{notice_fsize})
    </insert>
    
    <select id="getNextNo" resultType="java.lang.Integer">
@@ -48,7 +48,7 @@ where a.n between #{start} and #{end}
  	
  	
  	<update id="updateNotice">
- 	update notice set notice_title=#{notice_title},notice_content=#{notice_content},notice_fname=#{notice_fname},notice_fsize=#{notice_fsize} where notice_number = #{notice_number}
+ 	update notice set notice_title=#{notice_title,jdbcType=VARCHAR},notice_content=#{notice_content,jdbcType=VARCHAR},notice_fname=#{notice_fname,jdbcType=VARCHAR},notice_fsize=#{notice_fsize,jdbcType=INTEGER} where notice_number = #{notice_number,jdbcType=INTEGER}
  	</update>
  	
  	

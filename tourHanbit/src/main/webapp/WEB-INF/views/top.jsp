@@ -255,7 +255,7 @@ $(function() {
 		    woeid: '',
 		    unit: 'c',
 		    success: function(weather) {
-		      html = '<a href="srch.do?srchOption=0&srch=서울"><h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+		      html = '<a href="srch.do?srchOption=0&srch=서울&today=2017-08-08&startDay=&endDay=&amount=75+만원+~300+만원"><h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
 		      html += '<ul><li><b> 한국 서울 </b></li><ul></a>';			  
 		      $("#weather").html(html);
 		    },
@@ -275,7 +275,7 @@ $(function() {
 			    woeid: '',
 			    unit: 'c',
 			    success: function(weather) {
-			      html = '<a href="srch.do?srchOption=0&srch='+city_kr[i].split(" ")[1]+'"><h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+			      html = '<a href="srch.do?srchOption=0&srch='+city_kr[i].split(" ")[1]+'&today=2017-08-08&startDay=&endDay=&amount=75+만원+~300+만원"><h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
 			      html += '<ul><li><b>'+city_kr[i]+'</b></li><ul></a>';			  
 			      $("#weather").html(html);
 			    },

@@ -48,7 +48,7 @@ where a.n between #{start} and #{end}
  	
  	
  	<update id="updateQna">
- 	update qna set qna_title=#{qna_title},mem_id=#{mem_id},qna_content=#{qna_content},qna_fname=#{qna_fname},qna_fsize=#{qna_fsize}where qna_number = #{qna_number}
+ 	update qna set qna_title=#{qna_title,jdbcType=VARCHAR},mem_id=#{mem_id,jdbcType=VARCHAR},qna_content=#{qna_content,jdbcType=VARCHAR},qna_fname=#{qna_fname,jdbcType=VARCHAR},qna_fsize=#{qna_fsize,jdbcType=INTEGER}where qna_number = #{qna_number,jdbcType=INTEGER}
  	</update>
  	
  	

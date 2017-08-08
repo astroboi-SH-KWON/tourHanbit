@@ -40,7 +40,7 @@ text-align: center;
 <body>
 <h2 id="title">QnA</h2>
 
-<form action="listQna.do" method="post" id="form1">
+<form action="memberListQna.do" method="post" id="form1">
 <select name = "searchField">
 	<option value="qna_title">제목</option>
 	<option value="qna_content">내용</option>
@@ -62,7 +62,7 @@ text-align: center;
 <c:forEach var="q" items="${list}">
 <tr>
 <td width="10%" id="td-center">${q.qna_number}</td>
-<td width="40%" id="td-center"><a href="detailQna.do?qna_number=${q.qna_number}">${q.qna_title}</a></td>
+<td width="40%" id="td-center"><a href="memberDetailQna.do?qna_number=${q.qna_number}">${q.qna_title}</a></td>
 <td width="30%" id="td-center">${q.qna_date}</td>
 <td width="20%"	id="td-center">${q.mem_id}</td>
 </tr>
@@ -74,14 +74,14 @@ text-align: center;
 
 <c:if test="${sessionScope.mem_id != null}">
 <span style="padding-left: 220px">
-	<button onclick="location.href='listQna.do?cutSession=0'" class="btn btn-info"
+	<button onclick="location.href='memberListQna.do?cutSession=0'" class="btn btn-info"
 	style="width: 50px">목록</button> 
 	</span>
 </c:if>
 
 <span style="padding-right: 220px; float: right;">
 	<c:if test="${mem_id != null}">
-	<button onclick="location.href='insertQna.do'" class="btn btn-info" style="width: 50px">등록</button>
+	<button onclick="location.href='memberInsertQna.do'" class="btn btn-info" style="width: 50px">등록</button>
 	</c:if>
 	</span>
 <center>${pageStr}</center>

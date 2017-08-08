@@ -256,7 +256,7 @@ $(function() {
 		    woeid: '',
 		    unit: 'c',
 		    success: function(weather) {
-		      html = '<a href="memberSrch.do?srchOption=0&srch=서울"><h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+		      html = '<a href="memberSrch.do?srchOption=0&srch=서울&today=2017-08-08&startDay=&endDay=&amount=75+만원+~300+만원"><h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
 		      html += '<ul><li><b> 한국 서울 </b></li><ul></a>';			  
 		      $("#weather").html(html);
 		    },
@@ -276,7 +276,7 @@ $(function() {
 			    woeid: '',
 			    unit: 'c',
 			    success: function(weather) {
-			      html = '<a href="memberSrch.do?srchOption=0&srch='+city_kr[i].split(" ")[1]+'"><h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
+			      html = '<a href="memberSrch.do?srchOption=0&srch='+city_kr[i].split(" ")[1]+'&today=2017-08-08&startDay=&endDay=&amount=75+만원+~300+만원"><h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
 			      html += '<ul><li><b>'+city_kr[i]+'</b></li><ul></a>';			  
 			      $("#weather").html(html);
 			    },
@@ -310,8 +310,9 @@ $(function() {
 	  	<li><a href="logout.do"><span class="glyphicon glyphicon-log-in"></span>로그아웃</a></li>
 		 <li><a href="memberMypage.do"><span ></span>MyPage   </a></li>
     
-		  <c:if test="${thisis_admin==100}">
-		  	<li><a href="adminLogin.com"><span class="glyphicon glyphicon-log-in"></span>관리자페이지</a></li>
+		   <c:if test="${not empty adminCheck}">
+
+		  	<li><a href="/tourapp/admin/adminMain.do"><span class="glyphicon glyphicon-log-in"></span>관리자페이지</a></li>
 		  </c:if>
 	  </c:if>
 	 
@@ -322,8 +323,8 @@ $(function() {
 	<div class="btn-group btn-group-justified" >
     <a href="memberMainPage.do?page=dom" class="btn btn-primary" >국내여행</a>
     <a href="memberMainPage.do?page=inter" class="btn btn-primary" >해외여행</a>
-    <a href="listQna.do" class="btn btn-primary" >Q&A</a>
-    <a href="listNotice.do" class="btn btn-primary" >공지사항</a>
+    <a href="memberListQna.do" class="btn btn-primary" >Q&A</a>
+    <a href="memberListNotice.do" class="btn btn-primary" >공지사항</a>
    </div>
    
 	<center>

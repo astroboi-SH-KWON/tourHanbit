@@ -1,4 +1,4 @@
-﻿package com.hanbit.controller;
+package com.hanbit.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,11 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.hanbit.dao.NoticeDao;
 
-@Controller // 해당 파일 컨트롤 파일명시
-public class NoticeController {
+@Controller // �빐�떦 �뙆�씪 而⑦듃濡� �뙆�씪紐낆떆
+public class MemNoticeController {
 	
 	
-	@Autowired //자동으로 매핑시켜주는것. 컨트롤에서 찾을때 사용.
+	@Autowired //�옄�룞�쑝濡� 留ㅽ븨�떆耳쒖＜�뒗寃�. 而⑦듃濡ㅼ뿉�꽌 李얠쓣�븣 �궗�슜.
 	private NoticeDao dao;
 	
 	
@@ -28,7 +28,7 @@ public class NoticeController {
 
 
 
-	@RequestMapping("/listNotice.do") //실제 액션을 의미.
+	@RequestMapping("/member/memberListNotice.do") //�떎�젣 �븸�뀡�쓣 �쓽誘�.
 	public ModelAndView list(
 						@RequestParam(value="pageNUM",defaultValue="1")int pageNUM, @RequestParam(value="cutSession", defaultValue="1") int cutSession, String searchField,String keyword,HttpServletRequest request)
 	{
@@ -40,8 +40,8 @@ public class NoticeController {
 		String searchField2 = (String)session.getAttribute("searchField");
 		String keyword2 = (String)session.getAttribute("keyword");
 		
-		//System.out.println("검색필드:"+searchField2);
-		//System.out.println("검색어:"+keyword2);
+		//System.out.println("寃��깋�븘�뱶:"+searchField2);
+		//System.out.println("寃��깋�뼱:"+keyword2);
 		
 		
 		if(keyword != null && !keyword.trim().equals(""))
@@ -73,8 +73,8 @@ public class NoticeController {
 		mav.addObject("list",dao.listNotice(start,end,searchField2,keyword2));
 		mav.addObject("pageStr",dao.getPageStr(pageNUM,searchField2,keyword2));
 		
-		mav.setViewName("/template");
-		mav.addObject("viewPage","listNotice.jsp");
+		mav.setViewName("/member/template");
+		mav.addObject("viewPage","memberListNotice.jsp");
 		
 		return mav;
 	}
@@ -84,14 +84,14 @@ public class NoticeController {
 	
 	
 	
-	@RequestMapping("/detailNotice.do")
+	@RequestMapping("/member/memberDetailNotice.do")
 	public ModelAndView detailNotice(int notice_number)
 	{			
 		ModelAndView mav = new ModelAndView();
 		dao.updateHit(notice_number);
 		mav.addObject("n", dao.detailNotice(notice_number));
-		mav.setViewName("/template");
-		mav.addObject("viewPage","detailNotice.jsp");
+		mav.setViewName("/member/template");
+		mav.addObject("viewPage","memberDetailNotice.jsp");
 		return mav;
 	}
 	
@@ -99,23 +99,23 @@ public class NoticeController {
 	
 	
 
-	@RequestMapping("/deleteNotice.do")
+	@RequestMapping("/member/memberDeleteNotice.do")
 	public ModelAndView deleteNotice(int notice_number)
 	{
-		ModelAndView mav = new ModelAndView("redirect:/listNotice.do");
+		ModelAndView mav = new ModelAndView("redirect:/member/memberListNotice.do");
 		mav.addObject("n",dao.deleteNotice(notice_number));
 		
 		return mav;
 	}
 	
 	
-	@RequestMapping("/updateNotice.do")
+	@RequestMapping("/member/memberUpdateNotice.do")
 	public ModelAndView updateNotice(int notice_number)
 	{
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("n",dao.deleteNotice(notice_number));
-		mav.setViewName("/template");
-		mav.addObject("viewPage","updateNotice.jsp");
+		mav.setViewName("/member/template");
+		mav.addObject("viewPage","memberUpdateNotice.jsp");
 		
 		return mav;
 	}
