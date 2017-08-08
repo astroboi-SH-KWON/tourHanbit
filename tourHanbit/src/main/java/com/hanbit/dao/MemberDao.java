@@ -87,9 +87,9 @@ public class MemberDao {
 		return MemberManager.memiditemkey(mem_id);
 	}
 	
-	public int memberleave(String mem_id)
+	public int memberleave(String mem_id,String mem_pwd)
 	{
-		return MemberManager.memberleave(mem_id);
+		return MemberManager.memberleave(mem_id,mem_pwd);
 	}
 
 	/*public MemberVo reviewonlyone(String mem_id) {

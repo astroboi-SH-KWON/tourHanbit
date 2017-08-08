@@ -60,12 +60,15 @@ public class MemberManager {
 		return ru;
 	}
 
-	public static int memberleave(String mem_id) {
+	public static int memberleave(String mem_id,String mem_pwd) {
 		
 		int leave = -1;
 		SqlSession session = factory.openSession(true);
-		System.out.println("매니저에서 "+mem_id);
-		leave = session.delete("member.memberleave",mem_id);
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("mem_pwd", mem_pwd);
+		map.put("mem_id", mem_id);
+		
+		leave = session.delete("member.memberleave",map);
 		
 		return leave;
 	}

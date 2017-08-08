@@ -37,11 +37,11 @@ public class MemberLeaveController {
 		
 	}
 	@RequestMapping(method=RequestMethod.POST)
-	public ModelAndView memberleave(HttpSession session, MemberVo m)
+	public ModelAndView memberleave(HttpSession session, MemberVo m,String mem_pwd)
 	{
 		ModelAndView mav = new ModelAndView();
 		String mem_id = (String) session.getAttribute("id");
-		int re = dao.memberleave(mem_id);
+		int re = dao.memberleave(mem_id,mem_pwd);
 		session.invalidate();
 		mav.setViewName("redirect:/mainPage.do");
 		

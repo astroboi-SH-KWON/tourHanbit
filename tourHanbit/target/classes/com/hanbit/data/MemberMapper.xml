@@ -72,7 +72,7 @@
 	</select>
 	
 	<delete id="memberleave">
-		delete from member where mem_id=#{mem_id} 
+		delete from member where mem_id=#{mem_id} and mem_pwd=#{mem_pwd}
 	</delete>
 	
 
