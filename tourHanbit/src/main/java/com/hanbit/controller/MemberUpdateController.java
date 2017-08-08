@@ -34,8 +34,11 @@ public class MemberUpdateController {
 		String phonee = phone.substring(9,13);
 		
 		String email = mem_update_ready.getMem_email();
+		
 		int idx = email.indexOf("@");
+		
 		String emailch = email.substring(0, idx);
+		
 		String endemail = email.substring(idx+1);
 		
 		mav.addObject("mem_update_ready", mem_update_ready);
@@ -55,9 +58,12 @@ public class MemberUpdateController {
 		ModelAndView mav = new ModelAndView();
 		
 		String email = m.getMem_email();
+		
 		String phone = m.getMem_phone();
-		m.setMem_email(email.replace(",","@"));
-		m.setMem_phone(phone.replaceAll(",", "-"));
+		m.setMem_email(email.replace(",",""));
+		
+		
+		m.setMem_phone(phone.replaceAll(",","-"));
 		
 		int ru = dao.memberupdate(m);
 		mav.setViewName("redirect:/member/memberMypage.do");

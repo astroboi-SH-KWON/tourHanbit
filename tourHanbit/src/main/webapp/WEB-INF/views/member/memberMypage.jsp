@@ -82,7 +82,6 @@
 </head>
 <body>
 
-
 <div class="navbar-default sidebar" role="navigation" id="right_mypage">
 	<div class="sidebar-nav navbar-collapse">
     	<ul class="nav" id="side-menu">
@@ -94,15 +93,9 @@
                     <!-- <li>
                     	<a href="javascript:popupOpen();"><i class="fa fa-money"></i>결제 방법안내<span class="fa arrow"></span></a>
                     </li> -->
-                    <!-- <li>
-                    	<a href="memberupdate.do"><i class="fa fa-bank"></i>계좌번호 안내<span class="fa arrow"></span></a>
-                    </li> -->
-                  <li>
-                    	<a href="javascript:popupOpen();"><i class="fa fa-star"></i>우수 여행 상품<span class="fa arrow"></span></a>
+                    <li>
+                    	<a href="memberleave.do"><i class="fa fa-user"></i>회원 탈퇴<span class="fa arrow"></span></a>
                     </li>
-                	<!-- <li>
-                    	<a href="airplanorders.do"><i class="fa fa-star"></i>대륙별 여행지<span class="fa arrow"></span></a>
-                    </li> -->
 				</ul>
 			</li>
 		</ul>
@@ -124,12 +117,13 @@
 			<th>주문일</th>
 			<th>진행상황</th>
 			<th>예약 확인/예약 취소</th>
+			<th>리뷰 작성</th>
 		</tr>
 						
 			<c:forEach var="pd" items="${Paymentdetails }">
 				<tr>
 						<td>${pd.orderid }</td>
-						<td><a href="detailpagepackage.do?item_key_sub=${pd.item_key_sub }">${pd.item_name }</a></td>
+						<td><a href="/tourapp/detail.do?item_key_sub=${pd.item_key_sub }">${pd.item_name }</a></td>
 						<input class="item_key_sub" type="hidden" value="${pd.item_key_sub }">
 						<td class="item_key_sub_start_day"></td>
 						<input type="hidden" value="${pd.agegroup }" class="agegroup">
@@ -164,6 +158,18 @@
 				<c:if test="${pd.deposit == 'yet' }">
 				<center><a href="memberMypagedelete.do?orderid=${pd.orderid }">취소</a></center>
 				</c:if></td>
+				
+				<td>
+				
+					<c:if test="${empty pp.score }"> 
+						<a href="memberReview.do?reivew_item_key=${pd.item_key }">후기 작성</a>
+					</c:if>
+					<c:if test="${not empty pp.score  }">
+						<font color="red">이미 작성 완료</font><br>
+						<a href="memberReviewUpdate.do?review_item_key=${pd.item_key }">후기 삭제</a>
+					</c:if>
+				
+				</td>
 				</tr>
 			</c:forEach>
 	</table>
@@ -183,7 +189,7 @@
 		</tr>
 		<c:forEach var="re" items="${mem_recommendation }">
 		<tr>
-			<td>${re.item_name }</td>
+			<td><a href="/tourapp/listSubPackage.do?item_key=${re.item_key }">${re.item_name }</a></td>
 			<td>${re.price }</td>
 			<td></td>
 		</tr>
@@ -206,8 +212,8 @@
 	</tr>
 		<c:forEach var="q" items="${myqna }">
 			<tr>
-				<td>${q.qna_number }</td>
-				<td>${q.qna_title }</td>
+				<%-- <td>${q.qna_number }</td> --%>
+				<td><a href="/tourapp/detailQna.do?qna_number=${q.qna_number }">${q.qna_title }</a></td>
 				<td>${q.mem_id }</td>
 				<td>${q.qna_date }</td>
 			</tr>

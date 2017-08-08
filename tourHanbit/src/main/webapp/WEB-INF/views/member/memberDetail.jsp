@@ -135,9 +135,9 @@ clip:
 		function listImage() {
 		
 			arr2 = arr.slice(start, end);
-			$("#image02").attr("src","resources/"+arr2[0])
-			$("#image03").attr("src","resources/"+arr2[1])
-			$("#image04").attr("src","resources/"+arr2[2])
+			$("#image02").attr("src","/tourapp/resources/"+arr2[0])
+			$("#image03").attr("src","/tourapp/resources/"+arr2[1])
+			$("#image04").attr("src","/tourapp/resources/"+arr2[2])
 				
 			
 				}
@@ -183,7 +183,7 @@ clip:
 		
 		
 		
-		$("#content").attr("src","resources/"+contentName+".JPG");
+		$("#content").attr("src","/tourapp/resources/"+contentName+".JPG");
 	
 		
 	}
@@ -203,7 +203,7 @@ clip:
 	<table width="100%">
 		<tr>
 			<td rowspan="5" width="60%" height="100%"><img id="image01"
-				style="height: 400px; width: 630px;" src="resources/${i.image01 }" /></td>
+				style="height: 400px; width: 630px;" src="/tourapp/resources/${i.image01 }" /></td>
 			<td width="20%" height="10%" align="center" ><input type="button"  style="color:#fff;background-color:#337ab7;width: 200px;"  value="▲"
 				name="up" id="up"></td>
 		</tr>
@@ -233,12 +233,12 @@ clip:
 	<table>
 		<tr>
 			<td colspan="2"><input type="image" style="height: 225px; width: 830px;"
-				src="resources/예약.JPG">
+				src="/tourapp/resources/예약.JPG">
 			<td>
 		</tr>
 		<tr>
 			<td width="20%"><input type="image"
-				style="height: 200px; width: 250px;" src="resources/${i.image02 }"></td>
+				style="height: 200px; width: 250px;" src="/tourapp/resources/${i.image02 }"></td>
 			<td>${p.intro_text }</td> 
 		</tr>
 	</table>
@@ -266,30 +266,30 @@ clip:
 	<table width="100%">
 		<tr>
 			<td><input type="image" name="content01"
-				style="height: 55px; width: 120px;" src="resources/menu01.JPG"
+				style="height: 55px; width: 120px;" src="/tourapp/resources/menu01.JPG"
 				onclick="pro4(this.name)"></td>
 			<td><input type="image" name="content02"
-				style="height: 55px; width: 120px;" src="resources/menu02.JPG"
+				style="height: 55px; width: 120px;" src="/tourapp/resources/menu02.JPG"
 				onclick="pro4(this.name)"></td>
 			<td><input type="image" name="content03"
-				style="height: 55px; width: 120px;" src="resources/menu03.JPG"
+				style="height: 55px; width: 120px;" src="/tourapp/resources/menu03.JPG"
 				onclick="pro4(this.name)"></td>
 			<td><input type="image" name="content04"
-				style="height: 55px; width: 120px;" src="resources/menu04.JPG"
+				style="height: 55px; width: 120px;" src="/tourapp/resources/menu04.JPG"
 				onclick="pro4(this.name)"></td>
 			<td><input type="image" name="content05"
-				style="height: 55px; width: 120px;" src="resources/menu05.JPG"
+				style="height: 55px; width: 120px;" src="/tourapp/resources/menu05.JPG"
 				onclick="pro4(this.name)"></td>
 			<td><input type="image" name="content06"
-				style="height: 55px; width: 120px;" src="resources/menu06.JPG"
+				style="height: 55px; width: 120px;" src="/tourapp/resources/menu06.JPG"
 				onclick="pro4(this.name)"></td>
 			<td><input type="image" name="content07"
-				style="height: 55px; width: 120px;" src="resources/menu07.JPG"
+				style="height: 55px; width: 120px;" src="/tourapp/resources/menu07.JPG"
 				onclick="pro4(this.name)"></td>
 		</tr>
 		<tr>
 			<td colspan="7"><input type="image" style="width: 830px"
-				src="resources/content01.JPG" id="content"></td>
+				src="/tourapp/resources/content01.JPG" id="content"></td>
 		</tr>
 	</table>
 	

@@ -6,10 +6,12 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.hanbit.data.MemberManager;
+import com.hanbit.data.ReviewManager;
 import com.hanbit.vo.MemberVo;
 import com.hanbit.vo.OrdersVo;
 import com.hanbit.vo.PackageVo;
 import com.hanbit.vo.QnaVo;
+import com.hanbit.vo.ReviewVo;
 
 @Repository
 public class MemberDao {
@@ -84,5 +86,16 @@ public class MemberDao {
 	{
 		return MemberManager.memiditemkey(mem_id);
 	}
+	
+	public int memberleave(String mem_id,String mem_pwd)
+	{
+		return MemberManager.memberleave(mem_id,mem_pwd);
+	}
 
+	/*public MemberVo reviewonlyone(String mem_id) {
+		
+		return MemberManager.reivewonlyone(mem_id);
+		
+	}*/
+	
 }

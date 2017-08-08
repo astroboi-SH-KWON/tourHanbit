@@ -12,8 +12,8 @@ import com.hanbit.dao.MemberDao;
 import com.hanbit.vo.MemberVo;
 
 @Controller
-@RequestMapping("/findpassword.do")
-public class MemberFindPasswordController {
+@RequestMapping("member/memberleave.do")
+public class MemberLeaveController {
 
 	@Autowired
 	private MemberDao dao;
@@ -21,36 +21,30 @@ public class MemberFindPasswordController {
 	public void setDao(MemberDao dao) {
 		this.dao = dao;
 	}
+
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public ModelAndView form()
+	public ModelAndView form(HttpSession session)
 	{
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("viewPage", "findpassword.jsp");
-		mav.setViewName("/template");
+		String leavemem_id = (String) session.getAttribute("id");
+		mav.addObject("leavemem_id", leavemem_id);
+		
+		mav.addObject("viewPage", "memberleave.jsp");
+		mav.setViewName("/member/template");
+		
 		return mav;
+		
 	}
-	
 	@RequestMapping(method=RequestMethod.POST)
-	public ModelAndView findpassword(String mem_id, String mem_email, HttpSession session)
+	public ModelAndView memberleave(HttpSession session, MemberVo m,String mem_pwd)
 	{
 		ModelAndView mav = new ModelAndView();
+		String mem_id = (String) session.getAttribute("id");
+		int re = dao.memberleave(mem_id,mem_pwd);
+		session.invalidate();
+		mav.setViewName("redirect:/mainPage.do");
 		
-		String mem_pwd = dao.memberfindpassword(mem_id,mem_email);
-		
-
-		if(mem_pwd != null)
-		{
-			session.setAttribute("mem_id", mem_id);
-			session.setAttribute("mem_pwd", mem_pwd);
-			session.setAttribute("mem_email", mem_email);
-			
-			mav.setViewName("redirect:/memberfindpassword.do");
-		}
-		else
-		{
-			mav.setViewName("redirect:/findpassword.do");
-		}
 		return mav;
 	}
 	
