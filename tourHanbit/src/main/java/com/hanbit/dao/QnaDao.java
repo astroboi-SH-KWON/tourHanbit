@@ -27,6 +27,7 @@ public class QnaDao {
 				
 				int end = start+pageGroup-1;
 				
+
 				if(end > totalPage)
 					end=totalPage;
 				

@@ -43,7 +43,9 @@ text-decoration: none;
 	</tr>
 	<tr>
 	<td width="40%">첨부파일</td>
-	<td width="60%"><img src="/tourapp/resources/upload/${n.notice_fname }"  width="425px" height="200px"></td>
+	<c:if test="${not empty n.notice_fname }">
+		<td width="60%"><img src="/tourapp/resources/upload/${n.notice_fname }"  width="425px" height="200px"></td>
+	</c:if>
 	</tr>
 	</table>
 	

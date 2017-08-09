@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -43,7 +44,9 @@ text-decoration: none;
 	</tr>
 	<tr>
 	<td width="40%">첨부파일</td>
-	<td width="60%"><img src="/tourapp/resources/upload/${n.notice_fname }"  width="425px" height="200px"></td>
+	<c:if test="${not empty n.notice_fname }">
+		<td width="60%"><img src="/tourapp/resources/upload/${n.notice_fname }"  width="425px" height="200px"></td>
+	</c:if>
 	</tr>
 	</table>
 	

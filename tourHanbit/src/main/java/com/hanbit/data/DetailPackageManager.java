@@ -113,5 +113,13 @@ public class DetailPackageManager {
 		list = session.selectList("detailPackage.selectReview",map);
 		return list;
 	}
+	public static int getTotal() {
+		// TODO Auto-generated method stub
+		SqlSession session = factory.openSession(true);
+		int re = session.selectOne("detailPackage.getTotal");
+		session.close();
+		return re;
+		
+	}
 	
 }

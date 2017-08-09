@@ -145,7 +145,9 @@ text-align: center;
 	</tr>
 	<tr>
 	<td width="40%">첨부파일</td>
-	<td width="60%"><img src="/tourapp/resources/upload/${q.qna_fname }"  width="425px" height="200px"></td>
+	<c:if test="${not empty q.qna_fname }">
+		<td width="60%"><img src="/tourapp/resources/upload/${q.qna_fname }"  width="425px" height="200px"></td>	
+	</c:if>
 	</tr>
 	</table>
 	

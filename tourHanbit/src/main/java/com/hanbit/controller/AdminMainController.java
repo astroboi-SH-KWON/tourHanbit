@@ -243,7 +243,7 @@ public class AdminMainController {
 
 		ImageVo iv=dao.getImages(item_key);
 		String path= reqeust.getRealPath("resources/img");
-		System.out.println(path);
+		/*System.out.println(path);*/
 			String image01=iv.getImage01();
 			String image02=iv.getImage02();
 			String image03=iv.getImage03();
