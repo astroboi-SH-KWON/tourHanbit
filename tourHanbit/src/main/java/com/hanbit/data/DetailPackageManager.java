@@ -113,10 +113,10 @@ public class DetailPackageManager {
 		list = session.selectList("detailPackage.selectReview",map);
 		return list;
 	}
-	public static int getTotal() {
+	public static int getTotal(int item_key) {
 		// TODO Auto-generated method stub
 		SqlSession session = factory.openSession(true);
-		int re = session.selectOne("detailPackage.getTotal");
+		int re = session.selectOne("detailPackage.getTotal",item_key);
 		session.close();
 		return re;
 		

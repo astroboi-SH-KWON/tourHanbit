@@ -115,7 +115,7 @@ clip:
 		            	  $(tr4).append(td6,td7,td8,td9,td10);
 		                  
 		                }
-		              $("<table id='aaa' width='50%' border='1'><table>").append(tr3,tr4).appendTo(td5);
+		              $("<table id='aaa' width='30%' border='1'><table>").append(tr3,tr4).appendTo(td5);
 		                 
 		            });
 				$("#str").html(data[0].pageStr);
@@ -204,7 +204,7 @@ clip:
 	<input type="hidden" id="city_id" value="${p.city_id }">
 	<input type="hidden" id="item_key" value="${item_key }">
 	
-	<table width="100%">
+	<table id="a" width="100%">
 		<tr>
 			<td rowspan="5" width="60%" height="100%"><img id="image01"
 				style="height: 400px; width: 630px;" src="resources/${i.image01 }" /></td>
@@ -234,7 +234,7 @@ clip:
 	</table>
 	<table id="tb" width="100%">
 	</table>
-	<table>
+	<table id="b">
 		<tr>
 			<td colspan="2"><input type="image" style="height: 225px; width: 830px;"
 				src="resources/예약.JPG">
@@ -247,7 +247,7 @@ clip:
 		</tr>
 	</table>
 	
-	<table width="30%">
+	<table id="c" width="30%">
 		<tr>
 		<c:forEach var="b" varStatus="s" items="${s }">
 		<td><input type='button' value="${s.count }일차"  style="color:#fff;background-color:#337ab7;width: 100px"
@@ -267,7 +267,7 @@ clip:
 		
 		
 
-	<table width="100%">
+	<table  id="c" width="100%">
 		<tr>
 			<td><input type="image" name="content01"
 				style="height: 55px; width: 120px;" src="resources/menu01.JPG"
@@ -298,7 +298,7 @@ clip:
 	</table>
 	
 	
-<table border="1" class="table table-striped" align="center" id="tab"  style="width:100%">
+<table  border="1" class="table table-striped" align="center" id="tab"  style="width:100%">
 <tr>
 <td>글번호</td>
 <td>글제목</td>

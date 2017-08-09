@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="detailPackage">
 <select id="getTotal" resultType="java.lang.Integer">
-  	select nvl(count(*),0) from review
+  	select nvl(count(*),0) from review where item_key=#{item_key}
  </select>
   <select id="selectPackage" resultType="com.hanbit.vo.PackageVo">
     select * from package where item_key = #{item_key}

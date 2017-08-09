@@ -53,14 +53,14 @@ public class DetailPackageDao {
 	}
 	public List<ReviewVo> listReview(int start, int end, int item_key) {
 		// TODO Auto-generated method stub
-		totalRecord= getTotal();
+		totalRecord= getTotal(item_key);
 		totalPage = (int)Math.ceil((double)totalRecord/pageSIZE);
 		
 		return DetailPackageManager.listReview(start,end,item_key);
 	}
-	private int getTotal() {
+	private int getTotal(int item_key) {
 		// TODO Auto-generated method stub
-		return DetailPackageManager.getTotal();
+		return DetailPackageManager.getTotal(item_key);
 		
 	}
 	public String getPageStr(int pageNUM)
